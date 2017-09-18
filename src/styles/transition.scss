@@ -1,0 +1,38 @@
+@charset "utf-8";
+/**
+ * animation
+ *
+ * author: Storm
+ * date: 2017/08/06
+ */
+
+.zoom {
+  transition: opacity .3s ease, transform .3s ease;
+
+  &-enter,
+  &-leave-active {
+    opacity: 0;
+    transform: scale(1.1);
+  }
+}
+
+.fade {
+  transition: opacity .3s ease;
+
+  &-enter,
+  &-leave-active {
+    opacity: 0;
+  }
+}
+
+.slide {
+
+}
+
+.slow {
+  transition-duration: .8s;
+}
+
+.fast {
+  transition-duration: .5s;
+}

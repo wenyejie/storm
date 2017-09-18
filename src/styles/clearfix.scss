@@ -1,0 +1,27 @@
+@charset "utf-8";
+/**
+ * clearfix
+ *
+ * author: Storm
+ * date: 2017/08/17
+ */
+
+
+.clearfix:before,
+.clearfix:after {
+  content: "";
+  display: table;
+}
+
+.clearfix:after {
+  clear: both;
+  overflow: hidden;
+  height: 0;
+}
+
+ul.clearfix > li,
+ol.clearfix > li,
+dl.clearfix > dt,
+dl.clearfix > dd {
+  float: left;
+}

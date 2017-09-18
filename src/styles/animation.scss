@@ -1,0 +1,16 @@
+@charset "utf-8";
+/**
+ * animation
+ *
+ * author: Storm
+ * date: 2017/08/24
+ */
+
+@keyframes fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
