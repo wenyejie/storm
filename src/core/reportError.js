@@ -12,8 +12,13 @@
  * @param lineno
  * @param colno
  * @param error
+ * 参考: https://developer.mozilla.org/zh-CN/docs/Web/API/GlobalEventHandlers/onerror
  */
 const reportError = (message, source, lineno, colno, error) => {
+  message = message.toLocaleLowerCase()
+
+  // 过滤其它源的js错误
+  if (message.includes('script error')) return false
   console.log(message, source, lineno, colno, error)
 }
 

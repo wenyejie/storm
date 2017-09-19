@@ -25,3 +25,23 @@ export const chaosAry = ary => {
   }
   return result
 }
+
+/**
+ * 检查浏览器是否支持CSS
+ * @param attribute css属性
+ * @param value css值
+ * @return {Boolean}
+ */
+export const supportsCSS = (attribute, value) => {
+  if (window.CSS && window.CSS.supportsCSS) {
+    if (typeof value === 'undefined') return window.CSS.supportsCSS(attribute)
+    return window.CSS.supportsCSS(attribute, value)
+  }
+
+  const elem = document.createElement('div')
+  if (attribute in elem.style) {
+    elem.style[attribute] = value
+    return elem.style[attribute] === value
+  }
+  return false
+}

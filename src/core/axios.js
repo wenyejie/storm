@@ -11,10 +11,12 @@ import { BASE_URL } from './config'
 const instance = axios.create({
   baseURL: '//' + BASE_URL,
   withCredentials: true,
-  timeout: 10000,
+  timeout: 10000
+  /*
   headers: {
     'Content-Type': 'application/x-www-form-urlencoded'
   }
+  */
 })
 
 // 请求拦截器
