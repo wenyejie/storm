@@ -10,3 +10,6 @@ export const BASE_URL = ''
 
 // 判断是不是https
 export const IS_HTTPS = location.protocol === 'https:'
+
+// 应用名称
+export const APP_NAME = 'Storm components'

@@ -1,15 +1,24 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Hello from '@/components/Hello'
+import error404 from '../view/error/404.vue'
 
 Vue.use(Router)
 
-export default new Router({
+const router = new Router({
+  mode: 'history',
   routes: [
     {
       path: '/',
       name: 'Hello',
-      component: Hello
+      component: resolve => require(['../view/home.vue'], resolve)
+    },
+
+    {
+      path: '*',
+      name: 'error404',
+      component: error404
     }
   ]
 })
+
+export default router

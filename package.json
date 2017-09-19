@@ -1,7 +1,7 @@
 {
-  "name": "storm",
+  "name": "Storm components",
   "version": "1.0.0",
-  "description": "storm components for vue2.x",
+  "description": "Storm components for vue2.x",
   "author": "Storm <wenyejie@foxmail.com>",
   "private": true,
   "scripts": {
