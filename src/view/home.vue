@@ -1,5 +1,10 @@
 <template>
   <div class="home">
+    <s-row :gutter="15">
+      <s-col span="10"></s-col>
+      <s-col span="10"></s-col>
+      <s-col span="4"></s-col>
+    </s-row>
     <h1>{{ msg }}</h1>
     <h2>Essential Links</h2>
     <ul>
@@ -18,12 +23,12 @@
       <li><a href="https://github.com/vuejs/awesome-vue" target="_blank">awesome-vue</a></li>
     </ul>
   </div>
+
 </template>
 
 <script>
 export default {
   name: 'hello',
-  title: '首页',
   data () {
     return {
       msg: 'Welcome to Your Vue.js App'

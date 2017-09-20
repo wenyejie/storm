@@ -10,12 +10,18 @@ const router = new Router({
     {
       path: '/',
       name: 'Hello',
+      meta: {
+        title: '首页'
+      },
       component: resolve => require(['../view/home.vue'], resolve)
     },
 
     {
       path: '*',
       name: 'error404',
+      meta: {
+        title: '404'
+      },
       component: error404
     }
   ]
