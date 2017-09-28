@@ -9,7 +9,7 @@ const router = new Router({
   routes: [
     {
       path: '/',
-      name: 'Hello',
+      name: 'home',
       meta: {
         title: '首页'
       },
