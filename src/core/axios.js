@@ -21,7 +21,6 @@ const instance = axios.create({
 
 // 请求拦截器
 instance.interceptors.request.use(config => {
-  if (!config.data) {}config.data = {}
   return config
 }, error => Promise.reject(error))
 
@@ -37,4 +36,26 @@ instance.interceptors.response.use(response => {
   return Promise.reject(error)
 })
 
-export default instance
+/**
+ * ajax请求封装
+ *
+ * @param url 请求地址
+ * @param params 请求参数
+ * @param opts 选项
+ * @return {Promise|*}
+ */
+const request = (url, params = {}, opts = {}) => {
+  opts = Object.assign({method: 'post'}, opts)
+  return axios[opts.method](url, params, opts)
+    .then(response => {
+      if (response.code !== '000') return Promise.reject(response)
+      return response.data
+    }, (error) => {
+      console.error(error)
+      return Promise.reject(error)
+    })
+}
+
+if (typeof window !== 'undefined') window.request = request
+
+export default request

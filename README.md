@@ -28,3 +28,21 @@ npm test
 ```
 
 For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+
+## Loading 状态管理
+- null: 未开始
+- 0: 开始
+- 1: 成功
+- -1: 失败
+
+```
+loading === null => 未开始
+
+loading === 0 => 正在开始
+
+loading >= 1 已完成
+
+loaidng === 1 已成功
+
+loading === -1 以失败
+```

@@ -6,9 +6,7 @@
  -->
 
 <template>
-  <div class="s-row" :class="classes" :style="styles">
-    <slot></slot>
-  </div>
+  <div class="s-row" :class="classes" :style="styles"><slot></slot></div>
 </template>
 
 <script>
@@ -30,7 +28,9 @@
         validator (val) {
           return ['left', 'right', 'center', 'between', 'around'].includes(val)
         }
-      }
+      },
+
+      wrap: Boolean
     },
     data () {
       return {}

@@ -6,9 +6,7 @@
  -->
 
 <template>
-  <div class="s-col" :class="classes" :style="styles">
-    <slot></slot>
-  </div>
+  <div class="s-col" :class="classes" :style="styles"><slot></slot></div>
 </template>
 
 <script>
@@ -57,7 +55,7 @@
 
     @for $i from 1 through 24 {
       &-#{$i} {
-        width: $i / 24 * 100%;
+        flex: 0 0 $i / 24 * 100%
       }
       &-offset-#{$i} {
         margin-left: $i / 24 * 100%

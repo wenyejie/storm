@@ -6,10 +6,12 @@
  */
 
 import { row, col } from './grid'
+import { checkbox } from './checkbox'
 
 const components = {
   sRow: row,
-  sCol: col
+  sCol: col,
+  sCheckbox: checkbox
 }
 
 const install = Vue => {
