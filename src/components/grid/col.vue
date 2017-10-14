@@ -11,7 +11,7 @@
 
 <script>
   export default {
-    name: 'row',
+    name: 'sCol',
     props: {
       align: {
         type: String,
