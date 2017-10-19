@@ -6,7 +6,7 @@
  -->
 
 <template>
-  <slot></slot>
+  <div class="s-checkbox-group"><slot></slot></div>
 </template>
 
 <script>
@@ -37,5 +37,7 @@
 </script>
 
 <style lang="scss">
+  .s-checkbox-group {
 
+  }
 </style>
