@@ -39,22 +39,19 @@
 
       // 判断是否为group
       isGroup () {
-        return this.$parent.name === 'sCheckboxGroup'
-      },
-
-      // 获取parent的值
-      groupVal () {
-        return this.isGroup ? this.$parent.value : null
+        return this.$parent.$options.name === 'sCheckboxGroup'
       }
     },
     watch: {
       value (val, oldVal) {
-        if (val === oldVal) return false
-        this.setChecked()
+        if (val !== oldVal) {
+          this.setChecked()
+        }
       },
-      trueValue (val, oldVal) {
-        if (val === oldVal) return false
-        this.setChecked()
+      '$parent.value' (val, oldVal) {
+        if (val !== oldVal) {
+          this.setChecked()
+        }
       }
     },
     data () {
@@ -64,17 +61,32 @@
     },
     methods: {
 
+      /**
+       * 选中checkbox
+       * @param $event 选中值
+       */
       handleChange ($event) {
         this.checked = $event.target.checked
+        if (this.isGroup) {
+          this.$parent.update(this.checked, this.value)
+        }
         this.$emit('input', this.checked ? this.trueValue : this.falseValue)
         this.$emit('change', $event)
       },
+
       handleClick ($event) {
         this.$emit('click', $event)
       },
 
+      /**
+       * 设置是否选中
+       */
       setChecked () {
-        this.checked = this.value === this.trueValue
+        if (this.isGroup) {
+          this.checked = this.$parent.value.includes(this.value)
+        } else {
+          this.checked = this.value === this.trueValue
+        }
       }
     },
     created () {

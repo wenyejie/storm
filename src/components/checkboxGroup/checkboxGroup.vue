@@ -13,24 +13,31 @@
   export default {
     name: 'sCheckboxGroup',
     props: {
-      value: {}
+      value: {
+        type: Array,
+        default: []
+      }
     },
     data () {
       return {
-        items: []
+        innerVal: this.value
       }
     },
     methods: {
-
       /**
-       * 增加子项
-       * @param item 子项
+       * 更新group的值
+       * @param checked 是否选中
+       * @param value 选中的值
        */
-      addItem (item) {
-        this.items.push(item)
-      },
-      removeItem () {
+      update (checked, value) {
+        if (checked) {
+          this.innerVal.push(value)
+        } else {
+          const index = this.innerVal.findIndex(item => item === value)
+          this.innerVal.splice(index, 1)
+        }
 
+        this.$emit('input', this.innerVal)
       }
     }
   }
