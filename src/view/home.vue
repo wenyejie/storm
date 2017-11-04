@@ -16,6 +16,10 @@
       </s-checkbox-group>
     </section>
 
+    <img data-src="//img.jiaoyihu.com/FnKOEbzjsXSiSye_f9VqEHnCg5C7" v-lazyimg />
+    <img data-src="//img.jiaoyihu.com/FnKOEbzjsXSiSye_f9VqEHnCg5C7" v-lazyimg />
+    <img data-src="//img.jiaoyihu.com/FnKOEbzjsXSiSye_f9VqEHnCg5C7" v-lazyimg />
+
   </div>
 
 </template>
@@ -24,6 +28,9 @@
   import { sRow, sCol } from '../components/grid'
   import sCheckbox from '../components/checkbox'
   import sCheckboxGroup from '../components/checkboxGroup'
+  import lazyimg from '../directives/lazyimg'
+
+  console.log(lazyimg)
 
   export default {
     name: 'home',
@@ -33,6 +40,9 @@
       sCheckbox,
       sCheckboxGroup
     },
+    directives: {
+      lazyimg
+    },
     data () {
       return {
         msg: 'Welcome to Your Vue.js App',
@@ -41,3 +51,15 @@
     }
   }
 </script>
+
+<style lang="scss">
+  .home {
+    height: 2000px;
+
+    img {
+      width: 1000px;
+      height: 625px;
+      background-color: #eee;
+    }
+  }
+</style>

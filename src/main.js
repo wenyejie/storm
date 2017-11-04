@@ -5,7 +5,7 @@ import './styles'
 import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
-import reportError from './core/reportError'
+import reportError from './cores/reportError'
 // import components from './components'
 
 // Vue.use(components)
