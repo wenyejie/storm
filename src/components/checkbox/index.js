@@ -5,6 +5,6 @@
  * date: 2017/10/07
  */
 
-import sCheckbox from './checkbox.vue'
+import checkbox from './checkbox.vue'
 
-export default sCheckbox
+export default checkbox

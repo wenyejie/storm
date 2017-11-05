@@ -19,7 +19,7 @@
         <s-checkbox value="beijing">北京</s-checkbox>
         <s-checkbox value="shenzhen">深圳</s-checkbox>
         <s-checkbox value="shanghai">上海</s-checkbox>
-        <s-checkbox value="xianggang">香港</s-checkbox>
+        <s-checkbox v-if="readed" value="xianggang">香港</s-checkbox>
       </s-checkbox-group>
 
       {{guangdong}}

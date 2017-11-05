@@ -91,6 +91,12 @@
     },
     created () {
       this.setChecked()
+    },
+    beforeDestroy () {
+      // 如果是group并且被选中, 通知父组件取消该值
+      if (this.isGroup && this.checked) {
+        this.$parent.update(false, this.value)
+      }
     }
   }
 </script>
