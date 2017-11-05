@@ -25,6 +25,17 @@
       {{guangdong}}
     </section>
 
+    <section>
+      <h3>哪个是广东省会</h3>
+      <s-radio-group v-model="guangdong1">
+        <s-radio value="guangzhou">广州</s-radio>
+        <s-radio value="shenzhen">广州</s-radio>
+        <s-radio value="zhuhai">广州</s-radio>
+      </s-radio-group>
+
+      {{guangdong1}}
+    </section>
+
     <img data-src="//img.jiaoyihu.com/FnKOEbzjsXSiSye_f9VqEHnCg5C7" v-lazyimg />
     <img data-src="//img.jiaoyihu.com/FnKOEbzjsXSiSye_f9VqEHnCg5C7" v-lazyimg />
     <img data-src="//img.jiaoyihu.com/FnKOEbzjsXSiSye_f9VqEHnCg5C7" v-lazyimg />
@@ -37,9 +48,9 @@
   import { sRow, sCol } from '../components/grid'
   import sCheckbox from '../components/checkbox'
   import sCheckboxGroup from '../components/checkboxGroup'
+  import sRadio from '../components/radio'
+  import sRadioGroup from '../components/radioGroup'
   import lazyimg from '../directives/lazyimg'
-
-  console.log(lazyimg)
 
   export default {
     name: 'home',
@@ -47,7 +58,9 @@
       sRow,
       sCol,
       sCheckbox,
-      sCheckboxGroup
+      sCheckboxGroup,
+      sRadio,
+      sRadioGroup
     },
     directives: {
       lazyimg
@@ -60,7 +73,9 @@
         // 阅读协议
         readed: false,
 
-        guangdong: ['guangzhou']
+        guangdong: ['guangzhou'],
+
+        guangdong1: null
       }
     },
     created () {
