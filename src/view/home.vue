@@ -45,7 +45,8 @@
 </template>
 
 <script>
-  import { sRow, sCol } from '../components/grid'
+  import sRow from '../components/row'
+  import sCol from '../components/col'
   import sCheckbox from '../components/checkbox'
   import sCheckboxGroup from '../components/checkboxGroup'
   import sRadio from '../components/radio'

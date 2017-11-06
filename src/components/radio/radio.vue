@@ -120,8 +120,8 @@
     &-indi {
       pointer-events: none;
       user-select: none;
-      width: 1.2857142857142858em;
-      height: 1.2857142857142858em;
+      width: 1.2em;
+      height: 1.2em;
       border: 1px solid #bfcbd9;
       border-radius: 50%;
       transition: all .3s ease;
