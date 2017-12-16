@@ -6,7 +6,7 @@
  -->
 
 <template>
-  <label class="s-checkbox">
+  <label class="s-checkbox" :class="classes">
     <input type="checkbox"
            class="s-checkbox-input"
            :name="name"
@@ -25,17 +25,43 @@
   export default {
     name: 'sCheckbox',
     props: {
+
+      // 是否禁用
       disabled: Boolean,
+
+      // 表单名称
       name: String,
-      value: {},
+
+      // 值
+      value: {
+        required: true
+      },
+
+      // 选中的值
       trueValue: {
         default: true
       },
+
+      // 非选中的值
       falseValue: {
         default: false
-      }
+      },
+
+      // 是否为块元素
+      block: Boolean
     },
     computed: {
+
+      /**
+       * className
+       */
+      classes () {
+        return [
+          {
+            [`s-checkbox-block`]: !!this.block
+          }
+        ]
+      },
 
       // 判断是否为group
       isGroup () {
@@ -82,9 +108,10 @@
        * 设置是否选中
        */
       setChecked () {
-        if (this.isGroup) {
+        // 判断是否为群组
+        if (this.isGroup) { // 是
           this.checked = this.$parent.value.includes(this.value)
-        } else {
+        } else { // 不是
           this.checked = this.value === this.trueValue
         }
       }
@@ -104,6 +131,15 @@
 <style lang="scss">
   .s-checkbox {
     position: relative;
+    display: inline-block;
+
+    & + & {
+      margin-left: 12px;
+    }
+
+    & + &-block {
+      margin-left: 0;
+    }
 
     &-input {
       position: absolute;
@@ -140,6 +176,10 @@
 
     &-desc {
 
+    }
+
+    &-block {
+      display: block;
     }
   }
 </style>

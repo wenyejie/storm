@@ -7,9 +7,9 @@ import App from './App.vue'
 import router from './router'
 import reportError from './cores/reportError'
 import './styles'
-// import components from './components'
+import components from './components'
 
-// Vue.use(components)
+Vue.use(components)
 
 // 提示
 Vue.config.productionTip = false

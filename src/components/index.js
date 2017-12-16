@@ -5,13 +5,10 @@
  * date: 2017/09/20
  */
 
-import { row, col } from './grid'
-import { checkbox } from './checkbox'
+import sPanel from './panel'
 
 const components = {
-  sRow: row,
-  sCol: col,
-  sCheckbox: checkbox
+  sPanel
 }
 
 const install = Vue => {

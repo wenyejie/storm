@@ -9,16 +9,25 @@ const router = new Router({
   routes: [
     {
       path: '/',
-      name: 'home',
-      meta: {
-        title: '首页'
-      },
-      component: resolve => require(['../view/home.vue'], resolve)
+      name: 'index',
+      component: resolve => require(['../view/index.vue'], resolve)
+    },
+
+    {
+      path: '/checkbox',
+      name: 'checkbox',
+      component: resolve => require(['../view/checkbox.vue'], resolve)
+    },
+
+    {
+      path: '/panel',
+      name: 'panel',
+      component: resolve => require(['../view/panel.vue'], resolve)
     },
 
     {
       path: '*',
-      name: 'error404',
+      name: '404',
       meta: {
         title: '404'
       },
