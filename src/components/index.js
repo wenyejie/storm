@@ -6,9 +6,11 @@
  */
 
 import sPanel from './panel'
+import sIcon from './icon'
 
 const components = {
-  sPanel
+  sPanel,
+  sIcon
 }
 
 const install = Vue => {

@@ -26,6 +26,12 @@ const router = new Router({
     },
 
     {
+      path: '/icon',
+      name: 'icon',
+      component: resolve => require(['../view/icon.vue'], resolve)
+    },
+
+    {
       path: '*',
       name: '404',
       meta: {

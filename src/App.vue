@@ -25,7 +25,7 @@
                 v-for="(item, index) in menuList"
                 :class="{active: item.path === $route.path}"
                 :key="index">
-              <router-link :to="item.path">{{item.name}}</router-link>
+              <router-link :to="item.path"><s-icon class="nav-icon" :type="item.icon"></s-icon>{{item.name}}</router-link>
             </li>
           </ul>
         </nav>
@@ -47,27 +47,38 @@
         menuList: [
           {
             name: 'Dashboard',
+            icon: 'time',
             path: '/'
           },
           {
             name: 'Row',
+            icon: 'time',
             path: '/row'
           },
           {
             name: 'Col',
+            icon: 'time',
             path: '/col'
           },
           {
             name: 'Panel',
+            icon: 'time',
             path: '/panel'
           },
           {
             name: 'Checkbox',
+            icon: 'time',
             path: '/checkbox'
           },
           {
             name: 'Radio',
+            icon: 'time',
             path: '/radio'
+          },
+          {
+            name: 'Icon',
+            icon: 'time',
+            path: '/icon'
           }
         ]
       }
@@ -175,6 +186,11 @@
         background-color: #687194;
         border-left-color: #20a0ff;
       }
+    }
+
+    &-icon {
+      margin-right: 10px;
+      font-size: 18px;
     }
   }
   /* /aside */
