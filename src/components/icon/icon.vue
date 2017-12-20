@@ -5,7 +5,9 @@
  - @date: 2017/12/20
  -->
 <template>
-  <i class="s-icon" :class="[`s-icon-${type}`]"></i>
+  <i class="s-icon"
+     :style="styles"
+     :class="[`s-icon-${type}`]"></i>
 </template>
 
 <script>
@@ -21,7 +23,18 @@
 
       // 大小
       size: {
-        type: String
+        type: [String, Number]
+      }
+    },
+    computed: {
+      styles () {
+        const result = {}
+        if (typeof this.size === 'number') {
+          result.fontSize = `${this.size}px`
+        } else if (typeof this.size === 'string' && /\d/.test(this.size)) {
+          result.fontSize = this.size
+        }
+        return result
       }
     }
   }

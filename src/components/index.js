@@ -7,10 +7,24 @@
 
 import sPanel from './panel'
 import sIcon from './icon'
+import sRow from './row'
+import sCol from './col'
+import sRadio from './radio'
+import sRadioGroup from './radioGroup'
+import sCheckbox from './checkbox'
+import sCheckboxGroup from './checkboxGroup'
+import sButton from './button'
 
 const components = {
   sPanel,
-  sIcon
+  sIcon,
+  sRow,
+  sCol,
+  sRadio,
+  sRadioGroup,
+  sCheckbox,
+  sCheckboxGroup,
+  sButton
 }
 
 const install = Vue => {
