@@ -24,15 +24,27 @@
       // 大小
       size: {
         type: [String, Number]
+      },
+
+      // 颜色
+      color: {
+        type: [String]
       }
     },
     computed: {
       styles () {
         const result = {}
-        if (typeof this.size === 'number') {
+
+        // 判断是否为number类型
+        if (typeof this.size === 'number') { // 是
           result.fontSize = `${this.size}px`
         } else if (typeof this.size === 'string' && /\d/.test(this.size)) {
           result.fontSize = this.size
+        }
+
+        // 判断是否有颜色
+        if (this.color) {
+          result.color = this.color
         }
         return result
       }

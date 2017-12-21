@@ -14,6 +14,7 @@ import sRadioGroup from './radioGroup'
 import sCheckbox from './checkbox'
 import sCheckboxGroup from './checkboxGroup'
 import sButton from './button'
+import sHighlight from './highlight'
 
 const components = {
   sPanel,
@@ -24,7 +25,8 @@ const components = {
   sRadioGroup,
   sCheckbox,
   sCheckboxGroup,
-  sButton
+  sButton,
+  sHighlight
 }
 
 const install = Vue => {
