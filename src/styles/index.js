@@ -7,6 +7,7 @@
 
 import './base.scss'
 import './common.scss'
+import './placeholder.scss'
 import './clearfix.scss'
 import './transition.scss'
 import './animation.scss'

@@ -3,7 +3,7 @@
     <header class="header">
       <div class="header-content">
         <div class="header-left">
-          <a class="header-logo"><img src="http://img.la/160x50?s=Storm"></a>
+          <router-link class="header-logo" to="/">Storm</router-link>
         </div>
         <div class="header-center">
           <div class="header-title">交易虎大卖家管理后台</div>
@@ -20,12 +20,15 @@
     <div class="container">
       <aside class="aside">
         <nav>
-          <ul>
+          <ul class="nav-list">
             <li class="nav-item"
                 v-for="(item, index) in menuList"
                 :class="{active: item.path === $route.path}"
                 :key="index">
               <router-link :to="item.path"><s-icon class="nav-icon" :type="item.icon"></s-icon>{{item.name}}</router-link>
+              <ul class="nav-sublist">
+                <li class="nav-subitem"></li>
+              </ul>
             </li>
           </ul>
         </nav>
@@ -79,6 +82,11 @@
             name: 'Icon',
             icon: 'time',
             path: '/icon'
+          },
+          {
+            name: 'Color',
+            icon: 'time',
+            path: '/color'
           }
         ]
       }
@@ -148,6 +156,7 @@
       margin-right: auto;
       text-align: center;
       width: 160px;
+      font-size: 36px;
 
       img {
         display: block;

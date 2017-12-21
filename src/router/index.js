@@ -38,6 +38,12 @@ const router = new Router({
     },
 
     {
+      path: '/color',
+      name: 'color',
+      component: resolve => require(['../view/color.vue'], resolve)
+    },
+
+    {
       path: '*',
       name: '404',
       meta: {

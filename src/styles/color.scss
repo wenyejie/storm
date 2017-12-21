@@ -1,7 +1,46 @@
 @charset "utf-8";
 /**
- * Title
+ * color
  *
  * author: Storm
  * date: 2017/09/19
  */
+
+.c {
+
+  &-primary {
+    color: #007bff !important;
+  }
+
+  &-success {
+    color: #28a745 !important;
+  }
+
+  &-warning {
+    color: #ffc107 !important;
+  }
+
+  &-danger {
+    color: #dc3545 !important;
+  }
+
+  &-info {
+    color: #17a2b8 !important;
+  }
+
+  &-light {
+    color: #f8f9fa !important
+  }
+
+  &-dark {
+    color: #343a40 !important;
+  }
+
+  &-gray {
+    color: #868e96 !important;
+  }
+
+  &-white {
+    color: #fff !important;
+  }
+}
