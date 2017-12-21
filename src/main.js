@@ -1,7 +1,6 @@
 // The Vue build version to load with the `import` command
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
-// import "babel-polyfill"
-import 'babel-polyfill'
+// import 'babel-polyfill'
 import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
@@ -14,7 +13,7 @@ Vue.use(components)
 // 提示
 Vue.config.productionTip = false
 
-// 错误日志手机
+// 错误日志收集
 Vue.config.errorHandle = reportError
 
 /* eslint-disable no-new */

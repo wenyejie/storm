@@ -87,6 +87,16 @@
             name: 'Color',
             icon: 'time',
             path: '/color'
+          },
+          {
+            name: 'Button',
+            icon: 'time',
+            path: '/button'
+          },
+          {
+            name: 'Upload',
+            icon: 'time',
+            path: '/upload'
           }
         ]
       }

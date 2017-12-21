@@ -10,7 +10,9 @@
           class="s-button"
           :class="classes"
           @click="handleClick"
-          :disabled="disabled"><slot></slot></button>
+          :disabled="disabled">
+    <slot></slot>
+  </button>
 </template>
 
 <script>
@@ -59,6 +61,8 @@
     computed: {
       classes () {
         return {
+          [`s-button-${this.type}`]: !!this.type,
+          [`outline`]: !!this.outline
         }
       }
     },
@@ -75,8 +79,137 @@
 </script>
 
 <style lang="scss">
+  @import "../../styles/variable";
   .s-button {
     display: inline-block;
+    line-height: 1;
+    cursor: pointer;
+    white-space: nowrap;
+    background-color: #eee;
+    border: 1px solid #ccc;
+    color: #1f2d3d;
+    text-align: center;
+    padding: 10px 15px;
+    font-size: 14px;
+    border-radius: 4px;
+    transition: all .3s ease-in-out;
 
+    &.outline {
+      background: #fff;
+      border: 1px solid #bfcbd9;
+      color: #1f2d3d;
+
+      &:hover {
+        background-color: #fff;
+      }
+    }
+
+    &[disabled],
+    &[disabled]:hover,
+    &[disabled]:focus,
+    &.outline[disabled]:hover,
+    &.outline[disabled]:focus {
+      cursor: not-allowed;
+      background-color: #fff;
+      border-color: #d1dbe5;
+      color: #bfcbd9;
+    }
+
+    &-default {
+      &:focus,
+      &:hover {
+        background-color: #fff;
+        border-color: #ddd;
+      }
+    }
+
+    &-success {
+      color: #fff;
+      background-color: $success;
+      border-color: $success;
+
+      &:focus,
+      &:hover {
+        background: #42d885;
+        border-color: #42d885;
+      }
+
+      &.outline:focus,
+      &.outline:hover {
+        border-color: $success;
+        color: $success;
+      }
+    }
+
+    &-primary {
+      color: #fff;
+      background-color: $primary;
+      border-color: $primary;
+
+      &:focus,
+      &:hover {
+        background: #4db3ff;
+        border-color: #4db3ff;
+      }
+
+      &.outline:focus,
+      &.outline:hover {
+        border-color: $primary;
+        color: $primary;
+      }
+    }
+
+    &-warning {
+      color: #fff;
+      background-color: $warning;
+      border-color: $warning;
+
+      &:focus,
+      &:hover {
+        background: #f9c855;
+        border-color: #f9c855;
+      }
+
+      &.outline:focus,
+      &.outline:hover {
+        border-color: $warning;
+        color: $warning;
+      }
+    }
+
+    &-danger {
+      background-color: $danger;
+      border-color: $danger;
+
+      &:focus,
+      &:hover {
+        background: #ff6d6d;
+        border-color: #ff6d6d;
+      }
+
+      &.outline.focus,
+      &.outline:hover {
+        border-color: $danger;
+        color: $danger;
+      }
+    }
+
+    &-info {
+      color: #fff;
+      background-color: $info;
+      border-color: $info;
+
+      &:focus,
+      &:hover {
+        background: #73ccff;
+        border-color: #73ccff;
+      }
+
+      &.outline:focus,
+      &.outline:hover {
+        border-color: $info;
+        color: $info;
+      }
+    }
   }
 </style>

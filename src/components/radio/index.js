@@ -5,6 +5,4 @@
  * date: 2017/11/05
  */
 
-import radio from './radio.vue'
-
-export default radio
+export default resolve => require(['./radio.vue'], resolve)

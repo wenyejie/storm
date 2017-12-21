@@ -15,6 +15,7 @@ import sCheckbox from './checkbox'
 import sCheckboxGroup from './checkboxGroup'
 import sButton from './button'
 import sHighlight from './highlight'
+import sUpload from './upload'
 
 const components = {
   sPanel,
@@ -26,7 +27,8 @@ const components = {
   sCheckbox,
   sCheckboxGroup,
   sButton,
-  sHighlight
+  sHighlight,
+  sUpload
 }
 
 const install = Vue => {

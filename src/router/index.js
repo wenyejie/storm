@@ -44,6 +44,18 @@ const router = new Router({
     },
 
     {
+      path: '/button',
+      name: 'button',
+      component: resolve => require(['../view/button.vue'], resolve)
+    },
+
+    {
+      path: '/upload',
+      name: 'upload',
+      component: resolve => require(['../view/upload.vue'], resolve)
+    },
+
+    {
       path: '*',
       name: '404',
       meta: {

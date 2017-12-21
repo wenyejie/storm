@@ -5,7 +5,7 @@
  * date: 2017/10/06
  */
 
-import axios from './axios'
+import axios from '../cores/axios'
 
 /**
  * 测试接口

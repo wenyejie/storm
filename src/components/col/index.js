@@ -5,6 +5,4 @@
  * date: 2017/11/05
  */
 
-import col from './col.vue'
-
-export default col
+export default resolve => require(['./col.vue'], resolve)

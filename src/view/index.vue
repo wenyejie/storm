@@ -11,23 +11,10 @@
 </template>
 
 <script>
-  import sRow from '../components/row'
-  import sCol from '../components/col'
-  import sRadio from '../components/radio'
-  import sRadioGroup from '../components/radioGroup'
-  import lazyimg from '../directives/lazyimg'
+  // import lazyimg from '../directives/lazyimg'
 
   export default {
     name: 'index',
-    components: {
-      sRow,
-      sCol,
-      sRadio,
-      sRadioGroup
-    },
-    directives: {
-      lazyimg
-    },
     data () {
       return {
         msg: 'Welcome to Your Vue.js App',
