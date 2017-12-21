@@ -20,6 +20,12 @@ const router = new Router({
     },
 
     {
+      path: '/radio',
+      name: 'radio',
+      component: resolve => require(['../view/radio.vue'], resolve)
+    },
+
+    {
       path: '/panel',
       name: 'panel',
       component: resolve => require(['../view/panel.vue'], resolve)

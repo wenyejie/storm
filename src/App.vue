@@ -160,7 +160,7 @@
   /* container */
   .container {
     display: flex;
-    height: calc(100vh - 80px);
+    min-height: calc(100vh - 80px);
   }
   /* /container */
 

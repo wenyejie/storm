@@ -6,7 +6,7 @@
  -->
 
 <template>
-  <label class="s-radio">
+  <label class="s-radio" :class="classes">
     <input type="radio"
            class="s-radio-input"
            :name="name"
@@ -33,9 +33,21 @@
       },
       falseValue: {
         default: false
-      }
+      },
+      block: [Boolean]
     },
     computed: {
+
+      /**
+       * className
+       */
+      classes () {
+        return [
+          {
+            [`s-radio-block`]: !!this.block
+          }
+        ]
+      },
 
       // 判断是否为group
       isGroup () {
@@ -104,6 +116,15 @@
 <style lang="scss">
   .s-radio {
     position: relative;
+    display: inline-block;
+
+    & + & {
+      margin-left: 12px;
+    }
+
+    & + &-block {
+      margin-left: 0;
+    }
 
     &-input {
       position: absolute;
@@ -120,8 +141,8 @@
     &-indi {
       pointer-events: none;
       user-select: none;
-      width: 1.2em;
-      height: 1.2em;
+      width: 1em;
+      height: 1em;
       border: 1px solid #bfcbd9;
       border-radius: 50%;
       transition: all .3s ease;
@@ -133,8 +154,8 @@
       position: relative;
 
       &:before {
-        width: 6px;
-        height: 6px;
+        width: .3em;
+        height: .3em;
         border-radius: 50%;
         background-color: #fff;
         content: "";
@@ -147,6 +168,10 @@
 
     &-desc {
 
+    }
+
+    &-block {
+      display: block;
     }
   }
 </style>
