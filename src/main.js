@@ -16,7 +16,6 @@ Vue.config.productionTip = false
 // 错误日志收集
 Vue.config.errorHandle = reportError
 
-/* eslint-disable no-new */
 new Vue({
   el: '#app',
   router,
