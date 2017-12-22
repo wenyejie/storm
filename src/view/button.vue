@@ -32,12 +32,30 @@
       <s-button type="info" disabled>信息按钮</s-button>
     </s-panel>
 
+    <s-panel title="Group">
+      <s-button-group>
+        <s-button type="primary">主要按钮</s-button>
+        <s-button type="primary">主要按钮</s-button>
+        <s-button type="primary">主要按钮</s-button>
+        <s-button type="primary">主要按钮</s-button>
+      </s-button-group>
+    </s-panel>
+
+    <s-panel title="Group Block">
+      <s-button-group>
+        <s-button type="success" block>主要按钮</s-button>
+        <s-button type="success" block>主要按钮</s-button>
+        <s-button type="success" block>主要按钮</s-button>
+        <s-button type="success" block>主要按钮</s-button>
+      </s-button-group>
+    </s-panel>
+
   </div>
 </template>
 
 <script>
   export default {
-    name: 'button'
+    name: 'viewButton'
   }
 </script>
 

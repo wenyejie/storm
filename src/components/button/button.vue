@@ -53,16 +53,22 @@
       outline: Boolean,
 
       // 加载中
-      loading: Boolean
+      loading: Boolean,
+
+      // 块
+      block: Boolean
     },
     data () {
       return {}
     },
     computed: {
+
+      // class name
       classes () {
         return {
           [`s-button-${this.type}`]: !!this.type,
-          [`outline`]: !!this.outline
+          [`outline`]: !!this.outline,
+          [`s-button-block`]: !!this.block
         }
       }
     },
@@ -93,6 +99,11 @@
     font-size: 14px;
     border-radius: 4px;
     transition: all .3s ease-in-out;
+
+    &-block {
+      display: block;
+      width: 100%;
+    }
 
     &.outline {
       background: #fff;

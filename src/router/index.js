@@ -45,7 +45,7 @@ const router = new Router({
 
     {
       path: '/button',
-      name: 'button',
+      name: 'vbutton',
       component: resolve => require(['../view/button.vue'], resolve)
     },
 
