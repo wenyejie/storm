@@ -5,11 +5,12 @@
  * @param height 最大高度
  * @param type 文件类型
  * @param quality 质量
+ * @param fillStyle 画布底色
  *
  * @author: Storm
  * @date: 2017/12/21
  */
-export default (file, {width = 1000, height = 1000, type = 'image/jpeg', quality = 0.75}) => {
+export default (file, {width = 1000, height = 1000, type = 'image/jpeg', quality = 0.75, fillStyle = '#ffffff'}) => {
   return new Promise(resolve => {
     const reader = new FileReader()
     const image = new Image()
@@ -42,7 +43,7 @@ export default (file, {width = 1000, height = 1000, type = 'image/jpeg', quality
       }
 
       // 设置画布底色为透明
-      context.fillStyle = this.fillStyle
+      context.fillStyle = fillStyle
       context.fillRect(0, 0, canvas.width, canvas.height)
 
       // 把图片画到画布上，压缩，剪切等操作
