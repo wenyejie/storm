@@ -15,6 +15,7 @@
 </template>
 
 <script>
+  import imageCompress from '../../cores/imageCompress'
   export default {
     name: 'upload',
     props: {
@@ -109,6 +110,8 @@
         const length = $event.target.files.length
         for (let i = 0; i < length; i++) {
 
+          imageCompress($event.target.files[i], {})
+
           // 检查该文件
           this.handleCheck($event.target.files[i])
         }
@@ -116,12 +119,9 @@
       },
 
       /**
-       * 检查文件
-       * @param file 文件
+       * 检查图片
        */
-      handleCheck (file) {
-        console.log('handleCheck: ', file)
-
+      checkImage (file) {
         const reader = new FileReader()
         const image = new Image()
         let type = ''
@@ -169,10 +169,47 @@
           }
         }
 
+        return type;
+      },
+
+      /**
+       * 检查文件
+       * @param file 文件
+       */
+      checkFile (file) {
+        if (this.maxSize && file.size > this.maxSize) {
+          return 'MAX_SIZE';
+        }
+
+        // 最小验证限制验证
+        if (this.minSize && file.size < this.minSize) { // 失败
+          return 'MIN_SIZE'
+        }
+      },
+
+      /**
+       * 检查文件
+       * @param file 文件
+       */
+      handleCheck (file) {
+        console.log('handleCheck: ', file)
+        let type = '';
+
+        switch (this.fileType) {
+          case 'image':
+            type = this.checkImage(file);
+            break;
+          default:
+            type = this.checkFile(file);
+            break;
+        }
+
         // 判断是否有错误类型
         if (type) { // 是
           this.handleError({type, file})
           return false
+        } else {
+          this.fileList.push(file);
         }
       },
 
