@@ -58,6 +58,15 @@ export default [
     ]
   },
   {
+    name: 'Data 数据',
+    children: [
+      {
+        name: 'Table 表格',
+        path: '/table'
+      }
+    ]
+  },
+  {
     name: 'Panel 面板',
     path: '/panel'
   }

@@ -62,6 +62,12 @@ const router = new Router({
     },
 
     {
+      path: '/table',
+      name: 'table',
+      component: resolve => require(['../view/table.vue'], resolve)
+    },
+
+    {
       path: '*',
       name: '404',
       meta: {
