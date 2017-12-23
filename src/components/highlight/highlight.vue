@@ -48,70 +48,72 @@
     padding: .5em 1em;
     background: white;
     color: black;
-    border: 1px #eee solid;
-  }
-  .hljs-comment,
-  .hljs-quote {
-    color: #800;
-  }
-  .hljs-keyword,
-  .hljs-selector-tag,
-  .hljs-section,
-  .hljs-title,
-  .hljs-name {
-    color: #008;
-  }
-  .hljs-variable,
-  .hljs-template-variable {
-    color: #660;
-  }
-  .hljs-string,
-  .hljs-selector-attr,
-  .hljs-selector-pseudo,
-  .hljs-regexp {
-    color: #080;
-  }
-  .hljs-literal,
-  .hljs-symbol,
-  .hljs-bullet,
-  .hljs-meta,
-  .hljs-number,
-  .hljs-link {
-    color: #066;
-  }
-  .hljs-title,
-  .hljs-doctag,
-  .hljs-type,
-  .hljs-attr,
-  .hljs-built_in,
-  .hljs-builtin-name,
-  .hljs-params {
-    color: #606;
-  }
-  .hljs-attribute,
-  .hljs-subst {
-    color: #000;
-  }
-  .hljs-formula {
-    background-color: #eee;
-    font-style: italic;
-  }
-  .hljs-selector-id,
-  .hljs-selector-class {
-    color: #9b703f
-  }
-  .hljs-addition {
-    background-color: #baeeba;
-  }
-  .hljs-deletion {
-    background-color: #ffc8bd;
-  }
-  .hljs-doctag,
-  .hljs-strong {
-    font-weight: bold;
-  }
-  .hljs-emphasis {
-    font-style: italic;
+    border: 1px #d8d8d8 solid;
+    border-radius: 4px;
+
+    &-comment,
+    &-quote {
+      color: #800;
+    }
+    &-keyword,
+    &-selector-tag,
+    &-section,
+    &-title,
+    &-name {
+      color: #008;
+    }
+    &-variable,
+    &-template-variable {
+      color: #660;
+    }
+    &-string,
+    &-selector-attr,
+    &-selector-pseudo,
+    &-regexp {
+      color: #080;
+    }
+    &-literal,
+    &-symbol,
+    &-bullet,
+    &-meta,
+    &-number,
+    &-link {
+      color: #066;
+    }
+    &-title,
+    &-doctag,
+    &-type,
+    &-attr,
+    &-built_in,
+    &-builtin-name,
+    &-params {
+      color: #606;
+    }
+    &-attribute,
+    &-subst {
+      color: #000;
+    }
+    &-formula {
+      background-color: #eee;
+      font-style: italic;
+    }
+    &-selector-id,
+    &-selector-class {
+      color: #9b703f
+    }
+    &-addition {
+      background-color: #baeeba;
+    }
+    &-deletion {
+      background-color: #ffc8bd;
+    }
+    &-doctag,
+    &-strong {
+      font-weight: bold;
+    }
+    &-emphasis {
+      font-style: italic;
+    }
   }
 
 </style>
