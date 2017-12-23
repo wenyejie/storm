@@ -11,7 +11,7 @@
         <div class="header-right">
           <ul class="header-nav">
             <li><a href="javascript:;">个人中心</a></li>
-            <li><a href="javascript:;">Storm (13480298192)</a></li>
+            <li><a href="javascript:;">Storm (13*******92)</a></li>
             <li><a href="javascript:;">注销</a></li>
           </ul>
         </div>
