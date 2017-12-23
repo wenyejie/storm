@@ -54,12 +54,10 @@
 
     &-header,
     &-footer {
-      padding: 10px 15px;
-      /*background-color: #f5f5f5;*/
+      padding: 10px 0;
     }
 
     &-header {
-      border-bottom: 1px solid #ddd;
       border-top-left-radius: 3px;
       border-top-right-radius: 3px;
     }
@@ -70,11 +68,17 @@
     }
 
     &-body {
-      padding: 15px;
+      padding: 30px;
+      border: 1px solid #eaeefb;
+      border-radius: 3px;
+      transition:box-shadow .3s ease-in-out;
+
+      &:hover {
+        box-shadow: 0 0 8px 0 rgba(232, 237, 250, .6), 0 2px 4px 0 rgba(232, 237, 250, .5);
+      }
     }
 
     &-footer {
-      border-top: 1px solid #ddd;
       border-bottom-right-radius: 3px;
       border-bottom-left-radius: 3px;
     }

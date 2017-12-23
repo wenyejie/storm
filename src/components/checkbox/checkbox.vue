@@ -158,11 +158,9 @@
       user-select: none;
       width: 1em;
       height: 1em;
-      background-color: #ddd;
       border: 1px solid #aaa;
       border-radius: 4px;
-      background-repeat: no-repeat;
-      background-position: center center;
+      background: #fff no-repeat center;
       background-size: 50% 50%;
       transition: all .3s ease;
     }

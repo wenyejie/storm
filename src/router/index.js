@@ -56,6 +56,12 @@ const router = new Router({
     },
 
     {
+      path: '/input',
+      name: 'input',
+      component: resolve => require(['../view/input.vue'], resolve)
+    },
+
+    {
       path: '*',
       name: '404',
       meta: {

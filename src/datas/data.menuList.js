@@ -14,11 +14,11 @@ export default [
     name: 'Basic 基础',
     children: [
       {
-        name: 'Row 布局-行',
+        name: 'Row 行',
         path: '/row'
       },
       {
-        name: 'Col 布局-列',
+        name: 'Col 列',
         path: '/col'
       },
       {
@@ -38,6 +38,10 @@ export default [
       {
         name: 'Button 按钮',
         path: '/button'
+      },
+      {
+        name: 'Input 输入框',
+        path: '/input'
       },
       {
         name: 'Checkbox 多选框',
