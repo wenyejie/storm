@@ -8,57 +8,53 @@
 export default [
   {
     name: 'Dashboard',
-    icon: 'time',
     path: '/'
   },
   {
-    name: 'Basic',
-    icon: 'time',
+    name: 'Basic 基础',
     children: [
       {
-        name: 'Row',
+        name: 'Row 布局-行',
         path: '/row'
       },
       {
-        name: 'Col',
+        name: 'Col 布局-列',
         path: '/col'
       },
       {
-        name: 'Color',
+        name: 'Color 颜色',
         path: '/color'
       },
 
       {
-        name: 'Icon',
+        name: 'Icon 图标',
         path: '/icon'
       }
     ]
   },
   {
-    name: 'Form',
-    icon: 'time',
+    name: 'Form 表单',
     children: [
       {
-        name: 'Button',
+        name: 'Button 按钮',
         path: '/button'
       },
       {
-        name: 'Checkbox',
+        name: 'Checkbox 多选框',
         path: '/checkbox'
       },
       {
-        name: 'Radio',
+        name: 'Radio 单选框',
         path: '/radio'
       },
       {
-        name: 'Upload',
+        name: 'Upload 上传',
         path: '/upload'
       }
     ]
   },
   {
-    name: 'Panel',
-    icon: 'time',
+    name: 'Panel 面板',
     path: '/panel'
   }
 ]

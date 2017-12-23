@@ -43,13 +43,13 @@
 
 <style lang="scss">
   .s-panel {
-    border: 1px solid #ddd;
     border-radius: 4px;
     background-color: #fff;
-    box-shadow: -4px 3px 3px 0 rgba(119, 151, 178, .16);
+    transition: all .3s ease;
+    margin-bottom: 15px;
 
-    & + & {
-      margin-top: 20px;
+    &:not(:first-child) {
+      margin-top: 45px;
     }
 
     &-header,
@@ -65,8 +65,8 @@
     }
 
     &-title {
-      font-weight: bold;
-      font-size: 16px;
+      font-size: 22px;
+      color: #1f2f3d;
     }
 
     &-body {

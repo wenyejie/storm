@@ -19,24 +19,20 @@
     </header>
     <div class="container">
       <aside class="aside">
+        <h3>基础组件</h3>
         <nav class="nav">
           <ul class="nav-list">
             <li class="nav-item"
                 v-for="(item, index) in menuList"
                 :class="{active: item.path === $route.path}"
                 :key="index">
-              <a href="javascript:;" @click="toggleNav(item)">
-                <s-icon class="nav-icon" :type="item.icon"></s-icon>
-                {{item.name}}
-              </a>
+              <h4 @click="toggleNav(item)">{{item.name}}</h4>
               <transition nam="nav-sublist">
-                <ul class="nav-sublist" v-show="item.hidden" v-if="item.children && item.children.length">
+                <ul class="nav-sublist" v-show="!item.hidden" v-if="item.children && item.children.length">
                   <li class="nav-subitem"
                       v-for="(subitem, subindex) in item.children"
                       :key="subindex">
-                    <a href="javascript:;" @click="toggleNav(subitem)">
-                      {{subitem.name}}
-                    </a>
+                    <a href="javascript:;" @click="toggleNav(subitem)">{{subitem.name}}</a>
                   </li>
                 </ul>
               </transition>
@@ -81,14 +77,18 @@
           }
         }
 
-        // 打开子菜单
-        this.$set(item, 'hidden', !item.hidden)
+        if (item.children) {
+
+          // 打开子菜单
+          this.$set(item, 'hidden', !item.hidden)
+        }
       }
     }
   }
 </script>
 
 <style lang="scss">
+  @import "./styles/variable";
 
   /* app */
   .app {
@@ -98,17 +98,12 @@
 
   /* header */
   .header {
-    background-color: #555c78;
     color: #fff;
+    background-color: #20a0ff;
     font-size: 16px;
 
     a {
       color: #fff;
-
-      &:hover,
-      &:focus {
-        text-decoration: underline;
-      }
     }
 
     &-content {
@@ -116,11 +111,11 @@
       height: 80px;
       align-items: center;
       justify-content: space-between;
+      width: 1200px;
+      margin: 0 auto;
     }
 
     &-left {
-      width: 240px;
-      padding: 0 30px;
     }
 
     &-title {
@@ -134,6 +129,15 @@
     &-nav {
       display: flex;
 
+      a {
+        opacity: .8;
+
+        &:hover,
+        &:focus {
+          opacity: 1;
+        }
+      }
+
       & > li {
         & + li {
           margin-left: 30px;
@@ -145,8 +149,8 @@
       display: block;
       margin-right: auto;
       text-align: center;
-      width: 160px;
       font-size: 36px;
+      font-weight: bold;
 
       img {
         display: block;
@@ -160,45 +164,56 @@
   .container {
     display: flex;
     min-height: calc(100vh - 80px);
+    width: 1200px;
+    margin: 55px auto 95px;
+    border-radius: 6px;
   }
   /* /container */
 
   /* aside */
   .aside {
     width: 240px;
-    background-color: #464c61;
   }
   .nav {
 
-    a {
-      display: block;
+    h3, a {
       line-height: 40px;
-      font-size: 14px;
-      color: #fff;
+      height: 40px;
+      display: block;
+    }
+
+    h3 {
+      font-size: 16px;
+    }
+
+    h4 {
+      font-size: 12px;
+      color: #99a9bf;
+      padding-left: 8px;
+      line-height: 26px;
+      margin-top: 10px;
+    }
+
+    a {
+      font-size: 13px;
       padding-left: 24px;
-      border-left: 6px solid transparent;
 
       &:hover,
       &:focus,
       &.active a {
-        background-color: #687194;
-        border-left-color: #20a0ff;
+        color: $primary;
       }
     }
-
-
 
     &-item {
 
       & > a {
-        font-size: 16px;
       }
 
     }
 
     &-subitem {
       a {
-        padding-left: 57px;
       }
     }
 
@@ -213,7 +228,7 @@
   .main {
     display: block;
     flex: 1;
-    padding: 30px;
+    margin-left: 30px;
   }
   /* /main */
 
