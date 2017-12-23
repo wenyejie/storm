@@ -5,21 +5,26 @@
  - @date: 2017/12/22
  -->
 <template>
-    <input :type="type"
-           class="s-input"
-           @input="handleInput"
-           @change="handleChange"
-           :placeholder="placeholder"
-           :name="name"
-           :title="title"
-           :maxlength="maxlength"
-           :minlength="minlength"
-           :max="max"
-           :min="min"
-           :required="required"
-           :pattern="pattern"
-           :disabled="disabled"
-           :readonly="readonly">
+  <input :type="type"
+         class="s-input"
+         :class="classes"
+         @input="handleInput"
+         @change="handleChange"
+         @keyup="handleKeyup"
+         @keydown="handleKeydown"
+         @focus="handleFocus"
+         @blur="handleBlur"
+         :placeholder="placeholder"
+         :name="name"
+         :title="title"
+         :maxlength="maxlength"
+         :minlength="minlength"
+         :max="max"
+         :min="min"
+         :required="required"
+         :pattern="pattern"
+         :disabled="disabled"
+         :readonly="readonly">
 </template>
 
 <script>
@@ -35,6 +40,9 @@
         type: String,
         default: 'text'
       },
+
+      // 大小
+      size: String,
 
       // 标题
       title: String,
@@ -69,6 +77,13 @@
       // 只读
       readonly: Boolean
     },
+    computed: {
+      classes () {
+        return {
+          [`s-input-${this.size}`]: !!this.size
+        }
+      }
+    },
     watch: {
 
       /**
@@ -78,8 +93,8 @@
        * @return {boolean}
        */
       value (val, oldVal) {
-        if (val === oldVal) return false;
-        this.innerVal = val;
+        if (val === oldVal) return false
+        this.innerVal = val
       }
     },
     data () {
@@ -90,12 +105,29 @@
       }
     },
     methods: {
+
       handleInput () {
         this.$emit('input', this.innerVal)
       },
 
       handleChange () {
         this.$emit('change')
+      },
+
+      handleKeyup ($event) {
+        this.$emit('keyup', $event)
+      },
+
+      handleKeydown ($event) {
+        this.$emit('keydown', $event)
+      },
+
+      handleFocus () {
+        this.$emit('focus')
+      },
+
+      handleBlur () {
+        this.$emit('blur')
       }
     }
   }

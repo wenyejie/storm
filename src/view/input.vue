@@ -24,7 +24,7 @@
 
 <script>
   export default {
-    name: 'input'
+    name: 'viewInput'
   }
 </script>
 
