@@ -5,9 +5,9 @@
         <div class="header-left">
           <router-link class="header-logo" to="/">Storm</router-link>
         </div>
-        <div class="header-center">
+        <!--<div class="header-center">
           <div class="header-title">交易虎大卖家管理后台</div>
-        </div>
+        </div>-->
         <div class="header-right">
           <ul class="header-nav">
             <li><a href="javascript:;">个人中心</a></li>
@@ -19,16 +19,27 @@
     </header>
     <div class="container">
       <aside class="aside">
-        <nav>
+        <nav class="nav">
           <ul class="nav-list">
             <li class="nav-item"
                 v-for="(item, index) in menuList"
                 :class="{active: item.path === $route.path}"
                 :key="index">
-              <router-link :to="item.path"><s-icon class="nav-icon" :type="item.icon"></s-icon>{{item.name}}</router-link>
-              <ul class="nav-sublist">
-                <li class="nav-subitem"></li>
-              </ul>
+              <a href="javascript:;" @click="toggleNav(item)">
+                <s-icon class="nav-icon" :type="item.icon"></s-icon>
+                {{item.name}}
+              </a>
+              <transition nam="nav-sublist">
+                <ul class="nav-sublist" v-show="item.hidden" v-if="item.children && item.children.length">
+                  <li class="nav-subitem"
+                      v-for="(subitem, subindex) in item.children"
+                      :key="subindex">
+                    <a href="javascript:;" @click="toggleNav(subitem)">
+                      {{subitem.name}}
+                    </a>
+                  </li>
+                </ul>
+              </transition>
             </li>
           </ul>
         </nav>
@@ -41,64 +52,37 @@
 </template>
 
 <script>
+  import menuList from './datas/data.menuList'
+
   export default {
     name: 'app',
     data () {
       return {
 
         // 菜单列表
-        menuList: [
-          {
-            name: 'Dashboard',
-            icon: 'time',
-            path: '/'
-          },
-          {
-            name: 'Row',
-            icon: 'time',
-            path: '/row'
-          },
-          {
-            name: 'Col',
-            icon: 'time',
-            path: '/col'
-          },
-          {
-            name: 'Panel',
-            icon: 'time',
-            path: '/panel'
-          },
-          {
-            name: 'Checkbox',
-            icon: 'time',
-            path: '/checkbox'
-          },
-          {
-            name: 'Radio',
-            icon: 'time',
-            path: '/radio'
-          },
-          {
-            name: 'Icon',
-            icon: 'time',
-            path: '/icon'
-          },
-          {
-            name: 'Color',
-            icon: 'time',
-            path: '/color'
-          },
-          {
-            name: 'Button',
-            icon: 'time',
-            path: '/button'
-          },
-          {
-            name: 'Upload',
-            icon: 'time',
-            path: '/upload'
+        menuList
+      }
+    },
+    methods: {
+
+      /**
+       * 切换导航
+       * @param item
+       */
+      toggleNav (item) {
+
+        // 判断是否有跳转路径
+        if (item.path) { // 有, 跳转
+
+          if (item.newTab) {
+            window.open(item.path, item.path)
+          } else {
+            this.$router.push(item.path)
           }
-        ]
+        }
+
+        // 打开子菜单
+        this.$set(item, 'hidden', !item.hidden)
       }
     }
   }
@@ -131,15 +115,11 @@
       display: flex;
       height: 80px;
       align-items: center;
+      justify-content: space-between;
     }
 
     &-left {
       width: 240px;
-      padding: 0 30px;
-    }
-
-    &-center {
-      flex: 1;
       padding: 0 30px;
     }
 
@@ -189,21 +169,36 @@
     background-color: #464c61;
   }
   .nav {
-    &-item {
-      a {
-        display: block;
-        line-height: 60px;
-        font-size: 16px;
-        color: #fff;
-        padding-left: 24px;
-        border-left: 6px solid transparent;
-      }
 
-      & > a:hover,
-      & > a:focus,
+    a {
+      display: block;
+      line-height: 40px;
+      font-size: 14px;
+      color: #fff;
+      padding-left: 24px;
+      border-left: 6px solid transparent;
+
+      &:hover,
+      &:focus,
       &.active a {
         background-color: #687194;
         border-left-color: #20a0ff;
+      }
+    }
+
+
+
+    &-item {
+
+      & > a {
+        font-size: 16px;
+      }
+
+    }
+
+    &-subitem {
+      a {
+        padding-left: 57px;
       }
     }
 
