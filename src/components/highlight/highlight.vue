@@ -8,7 +8,7 @@
   <div class="s-highlight">
     <div class="s-highlight-tool"></div>
     <div class="s-highlight-content">
-      <pre><code :language="lang" class="hljs" ref="code"><slot></slot></code></pre>
+      <pre><code :language="lang" class="hljs" :class="lang" ref="code"><slot></slot></code></pre>
     </div>
   </div>
 </template>

@@ -9,7 +9,7 @@
 
     <s-panel title="Default">
       <s-button>默认按钮</s-button>
-      <s-highlight>&lt;s-button&gt;默认按钮&lt;/s-button&gt;</s-highlight>
+      <s-highlight lang="html">&lt;s-button&gt;默认按钮&lt;/s-button&gt;</s-highlight>
     </s-panel>
 
     <s-panel title="Type">

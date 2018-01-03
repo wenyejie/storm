@@ -42,6 +42,7 @@
 </script>
 
 <style lang="scss">
+  @import "../../styles/variable";
   .s-panel {
     border-radius: 4px;
     background-color: #fff;
@@ -64,7 +65,7 @@
 
     &-title {
       font-size: 22px;
-      color: #1f2f3d;
+      color: $default;
     }
 
     &-body {
