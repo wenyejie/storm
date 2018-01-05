@@ -73,8 +73,6 @@
               dy = img.naturalHeight - dh;
             }
 
-            console.log(0, 0, mark.naturalWidth, mark.naturalHeight, dx, dy, dw, dh);
-
             context.drawImage(mark, 0, 0, mark.naturalWidth, mark.naturalHeight, dx, dy, dw, dh)
           }
         }
@@ -91,6 +89,8 @@
           return false
         }
 
+        console.log(clipboardData);
+
         if (clipboardData.files && clipboardData.files.length) {
           for (let i = 0; i < clipboardData.files.length; i++) {
             console.log('files: ', i, clipboardData.files[i])
@@ -101,8 +101,11 @@
             ) { // 数据错误
               continue
             }
+
+            console.log(clipboardData.files[i]);
             const fileReader = new FileReader()
             fileReader.onload = ({target}) => {
+              console.log(target.result.length);
               this.imgs.push(target.result)
               this.addWatermark(target.result);
             }
