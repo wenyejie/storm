@@ -19,6 +19,13 @@
       <s-button type="info">信息按钮</s-button>
     </s-panel>
 
+    <s-panel title="Size">
+      <s-button type="primary" size="lg">大型按钮</s-button>
+      <s-button type="primary">默认按钮</s-button>
+      <s-button type="primary" size="sm">小型按钮</s-button>
+      <s-button type="primary" size="xs">更小按钮</s-button>
+    </s-panel>
+
     <s-panel title="Outline">
       <s-button type="primary" outline>主要按钮</s-button>
       <s-button type="success" outline>成功按钮</s-button>

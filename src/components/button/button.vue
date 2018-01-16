@@ -40,9 +40,8 @@
       // 大小
       size: {
         type: String,
-        default: 'md',
         validator (val) {
-          return ['lg', 'md', 'sm', 'xs'].includes(val)
+          return ['lg', 'sm', 'xs'].includes(val)
         }
       },
 
@@ -67,7 +66,8 @@
       classes () {
         return {
           [`s-button-${this.type}`]: !!this.type,
-          [`outline`]: !!this.outline,
+          [`s-button-${this.size}`]: !!this.size,
+          [`s-button-outline`]: !!this.outline,
           [`s-button-block`]: !!this.block
         }
       }
@@ -93,10 +93,10 @@
     white-space: nowrap;
     background-color: #eee;
     border: 1px solid #ccc;
-    color: #1f2d3d;
+    color: $default;
     text-align: center;
-    padding: 10px 15px;
-    font-size: 14px;
+    padding: 10px 20px;
+    font-size: $sm;
     border-radius: 4px;
     transition: all .3s ease-in-out;
 
@@ -105,23 +105,28 @@
       width: 100%;
     }
 
-    &.outline {
-      background: #fff;
-      border: 1px solid #bfcbd9;
-      color: #1f2d3d;
+    &-lg {
+      padding: 14px 28px;
+      font-size: $lg;
+    }
 
-      &:hover {
-        background-color: #fff;
-      }
+    &-sm {
+      padding: 7px 14px;
+      font-size: $sm;
+    }
+
+    &-xs {
+      padding: 3px 6px;
+      font-size: $xs;
     }
 
     &[disabled],
     &[disabled]:hover,
     &[disabled]:focus,
-    &.outline[disabled]:hover,
-    &.outline[disabled]:focus {
+    &.s-button-outline[disabled]:hover,
+    &.s-button-outline[disabled]:focus {
       cursor: not-allowed;
-      background-color: #fff;
+      background-color: $white;
       border-color: #d1dbe5;
       color: #bfcbd9;
     }
@@ -129,60 +134,60 @@
     &-default {
       &:focus,
       &:hover {
-        background-color: #fff;
+        background-color: $white;
         border-color: #ddd;
       }
     }
 
     &-success {
-      color: #fff;
+      color: $white;
       background-color: $success;
       border-color: $success;
 
       &:focus,
       &:hover {
-        background: #42d885;
-        border-color: #42d885;
+        background: $successLight;
+        border-color: $successLight;
       }
 
-      &.outline:focus,
-      &.outline:hover {
+      &.s-button-outline:focus,
+      &.s-button-outline:hover {
         border-color: $success;
         color: $success;
       }
     }
 
     &-primary {
-      color: #fff;
+      color: $white;
       background-color: $primary;
       border-color: $primary;
 
       &:focus,
       &:hover {
-        background: #4db3ff;
-        border-color: #4db3ff;
+        background: $primaryLight;
+        border-color: $primaryLight;
       }
 
-      &.outline:focus,
-      &.outline:hover {
+      &.s-button-outline:focus,
+      &.s-button-outline:hover {
         border-color: $primary;
         color: $primary;
       }
     }
 
     &-warning {
-      color: #fff;
+      color: $white;
       background-color: $warning;
       border-color: $warning;
 
       &:focus,
       &:hover {
-        background: #f9c855;
-        border-color: #f9c855;
+        background: $warningLight;
+        border-color: $warningLight;
       }
 
-      &.outline:focus,
-      &.outline:hover {
+      &.s-button-outline:focus,
+      &.s-button-outline:hover {
         border-color: $warning;
         color: $warning;
       }
@@ -194,32 +199,42 @@
 
       &:focus,
       &:hover {
-        background: #ff6d6d;
-        border-color: #ff6d6d;
+        background: $dangerLight;
+        border-color: $dangerLight;
       }
 
-      &.outline.focus,
-      &.outline:hover {
+      &.s-button-outline:focus,
+      &.s-button-outline:hover {
         border-color: $danger;
         color: $danger;
       }
     }
 
     &-info {
-      color: #fff;
+      color: $white;
       background-color: $info;
       border-color: $info;
 
       &:focus,
       &:hover {
-        background: #73ccff;
-        border-color: #73ccff;
+        background: $infoLight;
+        border-color: $infoLight;
       }
 
-      &.outline:focus,
-      &.outline:hover {
+      &.s-button-outline:focus,
+      &.s-button-outline:hover {
         border-color: $info;
         color: $info;
+      }
+    }
+
+    &-outline {
+      background: $white;
+      border: 1px solid #bfcbd9;
+      color: $default;
+
+      &:hover {
+        background-color: $white;
       }
     }
   }
