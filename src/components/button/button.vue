@@ -19,6 +19,7 @@
   export default {
     name: 'sButton',
     props: {
+
       // 原生type属性
       nativeType: {
         type: String,
@@ -44,6 +45,9 @@
           return ['lg', 'sm', 'xs'].includes(val)
         }
       },
+
+      // 是否自动选中
+      autofocus: Boolean,
 
       // 是否禁用
       disabled: Boolean,

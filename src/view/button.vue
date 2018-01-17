@@ -50,19 +50,134 @@
     </s-panel>
 
     <s-panel title="Group Block">
-      <s-button-group>
-        <s-button type="success" block>主要按钮</s-button>
-        <s-button type="success" block>主要按钮</s-button>
-        <s-button type="success" block>主要按钮</s-button>
-        <s-button type="success" block>主要按钮</s-button>
+      <s-button-group block>
+        <s-button type="primary">主要按钮</s-button>
+        <s-button type="primary">主要按钮</s-button>
+        <s-button type="primary">主要按钮</s-button>
+        <s-button type="primary">主要按钮</s-button>
       </s-button-group>
+    </s-panel>
+
+    <s-panel title="Direction vertical">
+      <s-button-group direction="vertical">
+        <s-button type="success">主要按钮</s-button>
+        <s-button type="success">主要按钮</s-button>
+        <s-button type="success">主要按钮</s-button>
+        <s-button type="success">主要按钮</s-button>
+      </s-button-group>
+    </s-panel>
+
+    <s-panel title="Group Block">
+      <s-button-group direction="vertical" block>
+        <s-button type="success">主要按钮</s-button>
+        <s-button type="success">主要按钮</s-button>
+        <s-button type="success">主要按钮</s-button>
+        <s-button type="success">主要按钮</s-button>
+      </s-button-group>
+    </s-panel>
+
+    <s-panel title="Button Attributes">
+      <s-table>
+        <tr slot="head">
+          <th>参数</th>
+          <th>说明</th>
+          <th>类型</th>
+          <th>可选值</th>
+          <th>默认值</th>
+        </tr>
+        <tr>
+          <td>type</td>
+          <td>类型</td>
+          <td>String</td>
+          <td>primary, success, warning, danger, info</td>
+          <td>~</td>
+        </tr>
+        <tr>
+          <td>nativeType</td>
+          <td>原生类型</td>
+          <td>String</td>
+          <td>button, submit, reset</td>
+          <td>button</td>
+        </tr>
+        <tr>
+          <td>size</td>
+          <td>大小</td>
+          <td>String</td>
+          <td>lg, sm, xs</td>
+          <td>~</td>
+        </tr>
+        <tr>
+          <td>autofocus</td>
+          <td>是否自动选中</td>
+          <td>Boolean</td>
+          <td>true, false</td>
+          <td>false</td>
+        </tr>
+        <tr>
+          <td>disabled</td>
+          <td>是否禁用</td>
+          <td>Boolean</td>
+          <td>true, false</td>
+          <td>false</td>
+        </tr>
+        <tr>
+          <td>outline</td>
+          <td>是否为轮廓线</td>
+          <td>Boolean</td>
+          <td>true, false</td>
+          <td>false</td>
+        </tr>
+        <tr>
+          <td>loading</td>
+          <td>是否加载状态</td>
+          <td>Boolean</td>
+          <td>true, false</td>
+          <td>false</td>
+        </tr>
+        <tr>
+          <td>block</td>
+          <td>是否为块元素</td>
+          <td>Boolean</td>
+          <td>true, false</td>
+          <td>false</td>
+        </tr>
+      </s-table>
+    </s-panel>
+
+    <s-panel title="Group Attributes">
+      <s-table>
+        <tr slot="head">
+          <th>参数</th>
+          <th>说明</th>
+          <th>类型</th>
+          <th>可选值</th>
+          <th>默认值</th>
+        </tr>
+        <tr>
+          <td>direction</td>
+          <td>方向</td>
+          <td>String</td>
+          <td>vertical</td>
+          <td>~</td>
+        </tr>
+        <tr>
+          <td>block</td>
+          <td>是否为块元素</td>
+          <td>Boolean</td>
+          <td>true, false</td>
+          <td>false</td>
+        </tr>
+      </s-table>
     </s-panel>
 
   </div>
 </template>
 
 <script>
+  import SButton from '../components/button/button'
+
   export default {
+    components: {SButton},
     name: 'viewButton'
   }
 </script>
