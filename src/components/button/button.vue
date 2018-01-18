@@ -11,6 +11,7 @@
           :class="classes"
           @click="handleClick"
           :disabled="disabled">
+    <s-icon v-if="loading" type="loading"></s-icon>
     <slot></slot>
   </button>
 </template>
@@ -72,7 +73,8 @@
           [`s-button-${this.type}`]: !!this.type,
           [`s-button-${this.size}`]: !!this.size,
           [`s-button-outline`]: !!this.outline,
-          [`s-button-block`]: !!this.block
+          [`s-button-block`]: !!this.block,
+          [`s-button-loading`]: !!this.loading
         }
       }
     },
@@ -90,6 +92,17 @@
 
 <style lang="scss">
   @import "../../styles/variable";
+
+  @keyframes rotating {
+    0% {
+      transform: rotate(0deg)
+    }
+
+    to {
+      transform: rotate(1turn)
+    }
+  }
+
   .s-button {
     display: inline-block;
     line-height: 1;
@@ -100,13 +113,36 @@
     color: $default;
     text-align: center;
     padding: 10px 20px;
-    font-size: $sm;
+    font-size: $md;
     border-radius: 4px;
     transition: all .3s ease-in-out;
 
     &-block {
       display: block;
       width: 100%;
+    }
+
+    &-loading {
+      position: relative;
+
+      .s-icon-loading {
+        font-size: 16px;
+        vertical-align: middle;
+        display: inline-flex;
+        animation: rotating 1s linear infinite
+      }
+
+      &:after {
+        pointer-events: none;
+        content: "";
+        position: absolute;
+        left: -1px;
+        top: -1px;
+        right: -1px;
+        bottom: -1px;
+        border-radius: inherit;
+        background-color: rgba(255, 255, 255, .35);
+      }
     }
 
     &-lg {

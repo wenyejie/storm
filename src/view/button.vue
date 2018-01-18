@@ -40,6 +40,10 @@
       <s-button type="info" disabled>信息按钮</s-button>
     </s-panel>
 
+    <s-panel title="loading">
+      <s-button type="primary" loading>主要按钮</s-button>
+    </s-panel>
+
     <s-panel title="Group">
       <s-button-group>
         <s-button type="primary">主要按钮</s-button>

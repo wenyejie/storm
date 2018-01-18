@@ -22,7 +22,7 @@
       direction: {
         type: String,
         validator (val) {
-          return ['horizontal', 'vertical'].includes(val)
+          return ['vertical'].includes(val)
         }
       },
     },
