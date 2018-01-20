@@ -25,7 +25,7 @@
 
 <script>
   export default {
-    name: 'panel',
+    name: 'sPanel',
     props: {
       title: String
     },

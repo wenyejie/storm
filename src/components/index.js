@@ -19,6 +19,7 @@ import sHighlight from './highlight'
 import sUpload from './upload'
 import sInput from './input'
 import sTable from './table'
+import sSelect from './select'
 
 const components = {
   sPanel,
@@ -34,7 +35,8 @@ const components = {
   sHighlight,
   sUpload,
   sInput,
-  sTable
+  sTable,
+  sSelect
 }
 
 const install = Vue => {

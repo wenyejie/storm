@@ -1,5 +1,5 @@
 <template>
-  <div class="index">
+  <div class="page page-index">
 
     <img v-for="(item, index) in imgs" :src="item" :key="index">
 
@@ -9,6 +9,10 @@
       <s-button type="primary" @click="mtaDemo('three')">THREE</s-button>
       <s-button type="primary" @click="mtaDemo('four')">FOUR</s-button>
     </s-panel>
+
+    <select>
+      <option value="one">一 <span style="float: right">one</span></option>
+    </select>
 
   </div>
 

@@ -44,6 +44,10 @@ export default [
         path: '/input'
       },
       {
+        name: 'Select 选择框',
+        path: '/select'
+      },
+      {
         name: 'Checkbox 多选框',
         path: '/checkbox'
       },

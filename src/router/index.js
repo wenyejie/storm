@@ -45,7 +45,7 @@ const router = new Router({
 
     {
       path: '/button',
-      name: 'vbutton',
+      name: 'button',
       component: resolve => require(['../view/button.vue'], resolve)
     },
 
@@ -65,6 +65,12 @@ const router = new Router({
       path: '/table',
       name: 'table',
       component: resolve => require(['../view/table.vue'], resolve)
+    },
+
+    {
+      path: '/select',
+      name: 'select',
+      component: resolve => require(['../view/select.vue'], resolve)
     },
 
     {

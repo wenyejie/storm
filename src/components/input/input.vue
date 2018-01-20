@@ -15,6 +15,9 @@
          @focus="handleFocus"
          @blur="handleBlur"
          :placeholder="placeholder"
+         :autocomplete="autocomplete"
+         :autofocus="autofocus"
+         :autosave="autosave"
          :name="name"
          :title="title"
          :maxlength="maxlength"
@@ -42,7 +45,12 @@
       },
 
       // 大小
-      size: String,
+      size: {
+        type: String,
+        validator (val) {
+          return ['lg', 'sm', 'xs'].includes(val)
+        }
+      },
 
       // 标题
       title: String,
@@ -62,11 +70,23 @@
       // 最小值
       min: [String, Number],
 
+      // 是否允许自动完成
+      autocomplete: String,
+
+      // 是否自动获取焦点
+      autofocus: Boolean,
+
+      // 是否自动保存
+      autosave: Boolean,
+
       // 必须的
       required: Boolean,
 
       // 名称
       name: String,
+
+      // 块元素
+      block: Boolean,
 
       // 占位符
       placeholder: String,
@@ -80,7 +100,8 @@
     computed: {
       classes () {
         return {
-          [`s-input-${this.size}`]: !!this.size
+          [`s-input-${this.size}`]: !!this.size,
+          [`s-input-block`]: !!this.block
         }
       }
     },
@@ -134,6 +155,7 @@
 </script>
 
 <style lang="scss">
+  @import "../../styles/variable";
   .s-input {
     position: relative;
     display: inline-block;
@@ -142,6 +164,11 @@
     border-radius: 4px;
     border: 1px #bfcbd9 solid;
     transition: border-color .3s ease;
+    font-size: $md;
+
+    &[type="color"] {
+      height: 36px;
+    }
 
     &:focus {
       border-color: #20a0ff;
@@ -156,6 +183,21 @@
     &-block {
       display: block;
       width: 100%;
+    }
+
+    &-lg {
+      font-size: $lg;
+      padding: 8.5px 10px;
+    }
+
+    &-sm {
+      font-size: $sm;
+      padding: 4.5px 7px;
+    }
+
+    &-xs {
+      font-size: $xs;
+      padding: 0.5px 3px;
     }
   }
 </style>
