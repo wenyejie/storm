@@ -10,9 +10,7 @@
       <s-button type="primary" @click="mtaDemo('four')">FOUR</s-button>
     </s-panel>
 
-    <select>
-      <option value="one">一 <span style="float: right">one</span></option>
-    </select>
+    <s-mask></s-mask>
 
   </div>
 

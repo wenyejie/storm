@@ -74,6 +74,12 @@ const router = new Router({
     },
 
     {
+      path: '/dialog',
+      name: 'dialog',
+      component: resolve => require(['../view/dialog.vue'], resolve)
+    },
+
+    {
       path: '*',
       name: '404',
       meta: {

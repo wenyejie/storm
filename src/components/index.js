@@ -20,6 +20,8 @@ import sUpload from './upload'
 import sInput from './input'
 import sTable from './table'
 import sSelect from './select'
+import sMask from './mask'
+import sDialog from './dialog'
 
 const components = {
   sPanel,
@@ -36,7 +38,9 @@ const components = {
   sUpload,
   sInput,
   sTable,
-  sSelect
+  sSelect,
+  sMask,
+  sDialog
 }
 
 const install = Vue => {

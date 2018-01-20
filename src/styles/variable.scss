@@ -6,6 +6,7 @@
  * @date: 2017/12/21
  */
 
+/* 颜色 */
 $default: #1f2d3d;
 $primary: #20a0ff;
 $primaryLight: #4db3ff;
@@ -20,7 +21,23 @@ $infoLight: #73ccff;
 $white: #fff;
 $black: #000;
 
+/* 大小 */
 $lg: 16px;
 $md: 14px;
 $sm: 12px;
 $xs: 10px;
+
+/* 绝对定位 */
+@mixin absolute-center {
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+}
+
+/* 垂直水平居中 */
+@mixin hv-center-transform {
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
