@@ -5,41 +5,46 @@
  - @date: 2018/01/20
  -->
 <template>
-  <div class="s-dialog" :class="classes" v-show="visible">
-    <s-mask class="s-dialog-mask" v-if="hasMask" @click="handleMask"></s-mask>
-    <div class="s-dialog-content">
-      <div class="s-dialog-header" v-if="$slots.header || title">
-        <slot name="header">
-          <div class="s-dialog-title">{{title}}</div>
-        </slot>
-        <a class="s-dialog-close" href="javascript:;" @click="handleClose">
-          <s-icon type="close"></s-icon>
-        </a>
-      </div>
-      <div class="s-dialog-body">
-        <slot></slot>
-      </div>
-      <div class="s-dialog-footer" v-if="hasFooter">
-        <slot name="footer">
-          <slot name="footerBefore"></slot>
-          <s-button class="s-dialog-cancel"
-                    @click="handleCancel"
-                    v-if="hasCancel"
-                    type="primary"
-                    outline>
-            <slot name="cancel">{{cancelText}}</slot>
-          </s-button>
-          <s-button class="s-dialog-ok"
-                    @click="handleOk"
-                    v-if="hasOk"
-                    type="primary">
-            <slot name="ok">{{okText}}</slot>
-          </s-button>
-          <slot name="footerAfter"></slot>
-        </slot>
+  <transition name="s-dialog">
+    <div class="s-dialog" :class="classes" v-show="visible">
+      <s-mask class="s-dialog-mask" v-if="hasMask" @click="handleMask"></s-mask>
+      <div class="s-dialog-content">
+        <div class="s-dialog-header" v-if="$slots.header || title">
+          <slot name="header">
+            <div class="s-dialog-title">{{title}}</div>
+          </slot>
+          <a class="s-dialog-close"
+             v-if="hasClose"
+             href="javascript:;"
+             @click="handleClose">
+            <s-icon type="close"></s-icon>
+          </a>
+        </div>
+        <div class="s-dialog-body">
+          <slot></slot>
+        </div>
+        <div class="s-dialog-footer" v-if="hasFooter">
+          <slot name="footer">
+            <slot name="footerBefore"></slot>
+            <s-button class="s-dialog-cancel"
+                      @click="handleCancel"
+                      v-if="hasCancel"
+                      type="primary"
+                      outline>
+              <slot name="cancel">{{cancelText}}</slot>
+            </s-button>
+            <s-button class="s-dialog-ok"
+                      @click="handleOk"
+                      v-if="hasOk"
+                      type="primary">
+              <slot name="ok">{{okText}}</slot>
+            </s-button>
+            <slot name="footerAfter"></slot>
+          </slot>
+        </div>
       </div>
     </div>
-  </div>
+  </transition>
 </template>
 
 <script>
@@ -60,7 +65,7 @@
       size: {
         type: String,
         validator (val) {
-          return ['lg', 'sm', 'xs', 'auto'].includes(val)
+          return ['lg', 'md', 'sm', 'auto', 'fullscreen'].includes(val)
         }
       },
 
@@ -70,8 +75,17 @@
         default: true
       },
 
+      // 可以通过背景移除弹出框
+      maskRemove: Boolean,
+
       // 是否有尾部
       hasFooter: {
+        type: Boolean,
+        default: true
+      },
+
+      // 是否有关闭按钮
+      hasClose: {
         type: Boolean,
         default: true
       },
@@ -136,18 +150,34 @@
         this.$emit('input', false)
       },
 
+      /**
+       * 弹出框操作
+       */
       handleMask () {
-        this.remove()
+
+        // 是否可以通过背景移除弹出框
+        if (this.maskRemove) {
+          this.remove()
+        }
       },
 
+      /**
+       * 取消事件
+       */
       handleCancel () {
         this.remove()
       },
 
+      /**
+       * 确定时间
+       */
       handleOk () {
         this.remove()
       },
 
+      /**
+       * 关闭事件
+       */
       handleClose () {
         this.remove()
       }
@@ -161,6 +191,13 @@
     position: fixed;
     @include absolute-center;
     z-index: 1024;
+    transition: all .15s ease-in-out;
+
+    &-enter,
+    &-leave-active {
+      opacity: 0;
+      transform: scale(1.1);
+    }
 
     &-content {
       position: absolute;
@@ -209,6 +246,30 @@
 
     .s-button + .s-button {
       margin-left: 6px;
+    }
+
+    &-lg {
+      .s-dialog {
+        &-content {
+          width: 900px;
+        }
+      }
+    }
+
+    &-md {
+      .s-dialog {
+        &-content {
+          width: 600px;
+        }
+      }
+    }
+
+    &-sm {
+      .s-dialog {
+        &-content {
+          width: 300px;
+        }
+      }
     }
 
   }
