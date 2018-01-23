@@ -35,10 +35,7 @@
       }
     },
     mounted () {
-      window.hljs.initHighlightingOnLoad()
-    },
-    update () {
-      window.hljs.initHighlightingOnLoad()
+      window.hljs.highlightBlock(this.$refs.code);
     }
   }
 </script>

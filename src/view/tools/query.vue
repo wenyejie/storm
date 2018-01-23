@@ -7,7 +7,7 @@
 <template>
   <div class="page page-query">
     <textarea rows="10" v-model="queryString" @input="queryStringParse"></textarea>
-    <s-highlight lang="json">{{queryJson}}</s-highlight>
+    <s-highlight lang="json" v-if="queryString && queryJson">{{queryJson}}</s-highlight>
   </div>
 </template>
 
@@ -62,7 +62,7 @@
     },
     methods: {
       queryStringParse () {
-        this.queryJson = getUrlParams(this.queryString)
+        this.queryJson = JSON.stringify(getUrlParams(this.queryString))
       }
     }
   }
@@ -73,6 +73,7 @@
     display: block;
     width: 100%;
   }
+
 
   pre {
     word-break: break-all;
