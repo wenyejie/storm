@@ -36,6 +36,9 @@
     },
     mounted () {
       window.hljs.initHighlightingOnLoad()
+    },
+    update () {
+      window.hljs.initHighlightingOnLoad()
     }
   }
 </script>

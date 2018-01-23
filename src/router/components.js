@@ -8,7 +8,7 @@
 export default {
   path: '/components',
   name: 'rComponents',
-  component: resolve => require(['../view/components/components.vue'], resolve),
+  component: resolve => require(['../view/components/component.vue'], resolve),
   children: [
     {
       path: 'checkbox',

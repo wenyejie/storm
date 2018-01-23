@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Error404 from '../view/error/404.vue'
 import Components from './components';
+import Tools from './tools'
 
 Vue.use(Router)
 
@@ -15,6 +16,8 @@ const router = new Router({
     },
 
     Components,
+
+    Tools,
 
     {
       path: '*',
