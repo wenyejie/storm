@@ -6,7 +6,7 @@
  -->
 <template>
   <transition name="s-dialog">
-    <div class="s-dialog" :class="classes" v-show="visible">
+    <div class="s-dialog" :class="classes" v-if="visible">
       <s-mask class="s-dialog-mask" v-if="hasMask" @click="handleMask"></s-mask>
       <div class="s-dialog-content">
         <div class="s-dialog-header" v-if="$slots.header || title">
@@ -33,6 +33,7 @@
                       outline>
               <slot name="cancel">{{cancelText}}</slot>
             </s-button>
+            <slot name="footerButton"></slot>
             <s-button class="s-dialog-ok"
                       @click="handleOk"
                       v-if="hasOk"
@@ -205,6 +206,7 @@
       @include hv-center-transform;
       background-color: #fff;
       border-radius: 5px;
+      box-shadow: 0 0 10px 0 rgba(0,0,0,.5);
     }
 
     &-header {

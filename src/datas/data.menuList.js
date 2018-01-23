@@ -15,20 +15,20 @@ export default [
     children: [
       {
         name: 'Row 行',
-        path: '/row'
+        path: '/components/row'
       },
       {
         name: 'Col 列',
-        path: '/col'
+        path: '/components/col'
       },
       {
         name: 'Color 颜色',
-        path: '/color'
+        path: '/components/color'
       },
 
       {
         name: 'Icon 图标',
-        path: '/icon'
+        path: '/components/icon'
       }
     ]
   },
@@ -37,27 +37,27 @@ export default [
     children: [
       {
         name: 'Button 按钮',
-        path: '/button'
+        path: '/components/button'
       },
       {
         name: 'Input 输入框',
-        path: '/input'
+        path: '/components/input'
       },
       {
         name: 'Select 选择框',
-        path: '/select'
+        path: '/components/select'
       },
       {
         name: 'Checkbox 多选框',
-        path: '/checkbox'
+        path: '/components/checkbox'
       },
       {
         name: 'Radio 单选框',
-        path: '/radio'
+        path: '/components/radio'
       },
       {
         name: 'Upload 上传',
-        path: '/upload'
+        path: '/components/upload'
       }
     ]
   },
@@ -66,12 +66,12 @@ export default [
     children: [
       {
         name: 'Table 表格',
-        path: '/table'
+        path: '/components/table'
       }
     ]
   },
   {
     name: 'Panel 面板',
-    path: '/panel'
+    path: '/components/panel'
   }
 ]

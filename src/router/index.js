@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import error404 from '../view/error/404.vue'
+import Error404 from '../view/error/404.vue'
+import Components from './components';
 
 Vue.use(Router)
 
@@ -13,71 +14,7 @@ const router = new Router({
       component: resolve => require(['../view/index.vue'], resolve)
     },
 
-    {
-      path: '/checkbox',
-      name: 'checkbox',
-      component: resolve => require(['../view/checkbox.vue'], resolve)
-    },
-
-    {
-      path: '/radio',
-      name: 'radio',
-      component: resolve => require(['../view/radio.vue'], resolve)
-    },
-
-    {
-      path: '/panel',
-      name: 'panel',
-      component: resolve => require(['../view/panel.vue'], resolve)
-    },
-
-    {
-      path: '/icon',
-      name: 'icon',
-      component: resolve => require(['../view/icon.vue'], resolve)
-    },
-
-    {
-      path: '/color',
-      name: 'color',
-      component: resolve => require(['../view/color.vue'], resolve)
-    },
-
-    {
-      path: '/button',
-      name: 'button',
-      component: resolve => require(['../view/button.vue'], resolve)
-    },
-
-    {
-      path: '/upload',
-      name: 'upload',
-      component: resolve => require(['../view/upload.vue'], resolve)
-    },
-
-    {
-      path: '/input',
-      name: 'input',
-      component: resolve => require(['../view/input.vue'], resolve)
-    },
-
-    {
-      path: '/table',
-      name: 'table',
-      component: resolve => require(['../view/table.vue'], resolve)
-    },
-
-    {
-      path: '/select',
-      name: 'select',
-      component: resolve => require(['../view/select.vue'], resolve)
-    },
-
-    {
-      path: '/dialog',
-      name: 'dialog',
-      component: resolve => require(['../view/dialog.vue'], resolve)
-    },
+    Components,
 
     {
       path: '*',
@@ -85,7 +22,7 @@ const router = new Router({
       meta: {
         title: '404'
       },
-      component: error404
+      component: Error404
     }
   ]
 })

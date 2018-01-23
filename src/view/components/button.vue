@@ -178,7 +178,7 @@
 </template>
 
 <script>
-  import SButton from '../components/button/button'
+  import SButton from '../../components/button/button'
 
   export default {
     components: {SButton},

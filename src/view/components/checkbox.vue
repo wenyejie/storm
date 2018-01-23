@@ -34,8 +34,8 @@
 </template>
 
 <script>
-  import sCheckbox from '../components/checkbox'
-  import sCheckboxGroup from '../components/checkboxGroup'
+  import sCheckbox from '../../components/checkbox/index'
+  import sCheckboxGroup from '../../components/checkboxGroup/index'
 
   export default {
     name: 'checkbox',
