@@ -62,7 +62,7 @@
     },
     methods: {
       queryStringParse () {
-        this.queryJson = JSON.stringify(getUrlParams(this.queryString))
+        this.queryJson = getUrlParams(this.queryString)
       }
     }
   }
@@ -79,5 +79,6 @@
     word-break: break-all;
     white-space: pre-wrap;
     word-wrap: break-word;
+    max-width: 100%;
   }
 </style>

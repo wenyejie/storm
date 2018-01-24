@@ -163,7 +163,7 @@
   /* container */
   .container {
     display: flex;
-    min-height: calc(100vh - 80px);
+    min-height: calc(100vh - 270px);
     width: 1200px;
     margin: 55px auto 95px;
     border-radius: 6px;
@@ -229,6 +229,7 @@
     display: block;
     flex: 1;
     margin-left: 30px;
+    overflow: hidden;
   }
   /* /main */
 

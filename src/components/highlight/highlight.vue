@@ -41,6 +41,17 @@
 </script>
 
 <style lang="scss">
+  .s-highlight {
+    margin-top: 15px;
+
+    pre {
+      word-break: break-all;
+      white-space: pre-wrap;
+      word-wrap: break-word;
+    }
+  }
+
+
   /* Google Code style (c) Aahan Krish <geekpanth3r@gmail.com> */
   .hljs {
     display: block;
