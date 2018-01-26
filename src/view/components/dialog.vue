@@ -38,6 +38,14 @@
       </s-dialog>
     </s-panel>
 
+    <s-panel title="confirm 确定">
+      <s-button @click="confirmDialogModel" type="primary">confirm Dialog</s-button>
+    </s-panel>
+
+    <s-panel title="alert 警觉">
+      <s-button @click="alertDialogModel" type="primary">alert Dialog</s-button>
+    </s-panel>
+
   </div>
 </template>
 
@@ -56,9 +64,16 @@
       }
     },
     methods: {
+
+      confirmDialogModel () {
+        this.$dialog.confirm('fuck me!');
+      },
+
+      alertDialogModel () {
+        this.$dialog.alert('fuck me!');
+      }
     },
     created () {
-      this.$dialog.confirm('fuck me!');
     }
   }
 </script>

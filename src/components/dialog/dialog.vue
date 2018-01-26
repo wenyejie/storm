@@ -24,7 +24,7 @@
           </a>
         </div>
         <div class="s-dialog-body">
-          <slot>{{body}}</slot>
+          <slot><div class="s-dialog-body-html" v-html="body"></div></slot>
         </div>
         <div class="s-dialog-footer" v-if="hasFooter">
           <slot name="footer">
@@ -135,7 +135,8 @@
        */
       classes () {
         return {
-          [`s-dialog-${this.size}`]: !!this.size
+          [`s-dialog-${this.size}`]: !!this.size,
+          [`s-dialog-${this.name}`]: !!this.name
         }
       },
 
@@ -189,6 +190,7 @@
 
         // 是否可以通过背景移除弹出框
         if (this.maskRemove) {
+          this.$emit('mask')
           this.remove()
         }
       },
@@ -197,6 +199,7 @@
        * 取消事件
        */
       handleCancel () {
+        this.$emit('cancel')
         this.remove()
       },
 
@@ -204,6 +207,7 @@
        * 确定时间
        */
       handleOk () {
+        this.$emit('ok')
         this.remove()
       },
 
@@ -211,6 +215,7 @@
        * 关闭事件
        */
       handleClose () {
+        this.$emit('close')
         this.remove()
       }
     }

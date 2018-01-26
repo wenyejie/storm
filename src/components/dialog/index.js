@@ -6,9 +6,16 @@
  */
 
 import Vue from 'vue';
+import props2string from '../../utils/props2string';
 
 // vm实例
 let vmInstance = null;
+
+let id = 0;
+
+const getId = () => {
+  return ++id;
+}
 
 /**
  * 新建一个实例
@@ -16,13 +23,10 @@ let vmInstance = null;
  * @return {Object}
  */
 const newInstance = (opts = {}) => {
-  const el = document.createElement('s-dialog');
-  el.setAttribute('v-model', 'visible');
-
-  // 设置属性
-  for (let key in opts) {
-    el.setAttribute(key, opts[key]);
-  }
+  const props = props2string(opts);
+  const el = document.createElement('div');
+  el.id = 's-dialog-' + getId();
+  el.innerHTML = `<s-dialog${props} v-model="visible" @ok="handleOk" @cancel="handleCancel"></s-dialog>`;
   document.body.appendChild(el);
 
   const vm = new Vue({
@@ -55,11 +59,10 @@ const newInstance = (opts = {}) => {
       destroy () {
         this.$destroy();
         vmInstance = null;
-        console.log(el);
-      }
-    },
-    created () {
-      console.log(this);
+        document.querySelector(`#${el.id}`).remove();
+      },
+      ok () {},
+      cancel () {}
     }
   });
 
@@ -100,9 +103,31 @@ const initInstance = (text = '', opts = {}) => {
 }
 
 Vue.prototype.$dialog = {
+
+  /**
+   * 确定弹出框
+   * @param text 内容
+   * @param opts 选项
+   * @return {*}
+   */
   confirm: (text, opts) => {
     opts = Object.assign({
       name: 'confirm'
+    }, opts);
+
+    return initInstance(text, opts);
+  },
+
+  /**
+   * alert弹出框
+   * @param text 文本
+   * @param opts 选项
+   * @return {*}
+   */
+  alert: (text, opts) => {
+    opts = Object.assign({
+      name: 'alert',
+      hasCancel: false
     }, opts);
 
     return initInstance(text, opts);
