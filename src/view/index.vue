@@ -10,8 +10,6 @@
       <s-button type="primary" @click="mtaDemo('four')">FOUR</s-button>
     </s-panel>
 
-    <s-mask></s-mask>
-
   </div>
 
 </template>
@@ -39,22 +37,21 @@
       }
     },
     created () {
-
     }
   }
 
-  function * demoGenerator () {
+  /*function * demoGenerator () {
     yield 'hello'
     yield 'world'
     return 'ending'
   }
 
-  const hw = demoGenerator()
+  const hw = demoGenerator()*/
 
-  console.log('hw.next() =>', hw.next())
-  console.log('hw.next() =>', hw.next())
-  console.log('hw.next() =>', hw.next())
-  console.log('hw.next() =>', hw.next())
+  // console.log('hw.next() =>', hw.next())
+  // console.log('hw.next() =>', hw.next())
+  // console.log('hw.next() =>', hw.next())
+  // console.log('hw.next() =>', hw.next())
 
   /* async await demo
   const start = async () => {

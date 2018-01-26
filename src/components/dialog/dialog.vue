@@ -7,7 +7,10 @@
 <template>
   <transition name="s-dialog">
     <div class="s-dialog" :class="classes" v-if="visible">
-      <s-mask class="s-dialog-mask" v-if="hasMask" @click="handleMask"></s-mask>
+      <s-mask class="s-dialog-mask"
+              v-if="hasMask"
+              v-model="hasMask"
+              @click="handleMask"></s-mask>
       <div class="s-dialog-content">
         <div class="s-dialog-header" v-if="$slots.header || title">
           <slot name="header">
@@ -21,7 +24,7 @@
           </a>
         </div>
         <div class="s-dialog-body">
-          <slot></slot>
+          <slot>{{body}}</slot>
         </div>
         <div class="s-dialog-footer" v-if="hasFooter">
           <slot name="footer">
@@ -62,6 +65,12 @@
       // 标题
       title: String,
 
+      // 内容
+      body: String,
+
+      // 组件名称
+      name: String,
+
       // 大小
       size: {
         type: String,
@@ -69,6 +78,9 @@
           return ['lg', 'md', 'sm', 'auto', 'fullscreen'].includes(val)
         }
       },
+
+      // 遮罩层, 背景颜色
+      backgroundColor: String,
 
       // 是否有遮罩层
       hasMask: {
@@ -125,6 +137,16 @@
         return {
           [`s-dialog-${this.size}`]: !!this.size
         }
+      },
+
+      /**
+       * 遮罩层样式
+       * @return {Object}
+       */
+      maskStyles () {
+        return {
+          [`background-color`]: !!this.backgroundColor
+        }
       }
     },
     data () {
@@ -135,6 +157,12 @@
       }
     },
     watch: {
+
+      /**
+       * 监听value值
+       * @param val 新值
+       * @param oldVal 旧值
+       */
       value (val, oldVal) {
 
         // 如果新旧值相同, 则退出方法
@@ -146,6 +174,9 @@
     },
     methods: {
 
+      /**
+       * 移除dialog
+       */
       remove () {
         this.visible = false
         this.$emit('input', false)
@@ -270,6 +301,14 @@
       .s-dialog {
         &-content {
           width: 300px;
+        }
+      }
+    }
+
+    &-auto {
+      .s-dialog {
+        &-content {
+          width: auto;
         }
       }
     }

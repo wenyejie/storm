@@ -30,7 +30,7 @@
 
     <s-panel title="button 按钮">
       <s-button @click="footerButtonDialogModel = true" type="primary">button Dialog</s-button>
-      <s-dialog v-model="footerButtonDialogModel" :has-mask="false" title="我是dialog标题">
+      <s-dialog v-model="footerButtonDialogModel" title="我是dialog标题">
         我是dialog内容
         <template slot="footerButton">
           <s-button type="success">fuck me</s-button>
@@ -56,6 +56,9 @@
       }
     },
     methods: {
+    },
+    created () {
+      this.$dialog.confirm('fuck me!');
     }
   }
 </script>
