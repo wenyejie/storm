@@ -74,6 +74,12 @@ export default {
       path: 'dialog',
       name: 'dialog',
       component: resolve => require(['../view/components/dialog.vue'], resolve)
+    },
+
+    {
+      path: 'textarea',
+      name: 'textarea',
+      component: resolve => require(['../view/components/textarea.vue'], resolve)
     }
   ]
 }

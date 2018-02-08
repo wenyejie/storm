@@ -14,21 +14,7 @@
          @keyup="handleKeyup"
          @keydown="handleKeydown"
          @focus="handleFocus"
-         @blur="handleBlur"
-         :placeholder="placeholder"
-         :autocomplete="autocomplete"
-         :autofocus="autofocus"
-         :autosave="autosave"
-         :name="name"
-         :title="title"
-         :maxlength="maxlength"
-         :minlength="minlength"
-         :max="max"
-         :min="min"
-         :required="required"
-         :pattern="pattern"
-         :disabled="disabled"
-         :readonly="readonly">
+         @blur="handleBlur">
 </template>
 
 <script>
@@ -53,50 +39,8 @@
         }
       },
 
-      // 标题
-      title: String,
-
-      // 最大长度
-      maxlength: [Number, String],
-
-      // 最小长度
-      minlength: [Number, String],
-
-      // 检验
-      pattern: [String, RegExp],
-
-      // 最大值
-      max: [String, Number],
-
-      // 最小值
-      min: [String, Number],
-
-      // 是否允许自动完成
-      autocomplete: String,
-
-      // 是否自动获取焦点
-      autofocus: Boolean,
-
-      // 是否自动保存
-      autosave: Boolean,
-
-      // 必须的
-      required: Boolean,
-
-      // 名称
-      name: String,
-
       // 块元素
-      block: Boolean,
-
-      // 占位符
-      placeholder: String,
-
-      // 禁用
-      disabled: Boolean,
-
-      // 只读
-      readonly: Boolean
+      block: Boolean
     },
     computed: {
       classes () {
@@ -115,7 +59,7 @@
        * @return {boolean}
        */
       value (val, oldVal) {
-        if (val === oldVal) return false
+        if (val === oldVal || val === this.innerVal) return false
         this.innerVal = val
       }
     },
@@ -175,10 +119,18 @@
       border-color: #20a0ff;
     }
 
-    &[disabled] {
+    &:disabled {
       background-color: #eef1f6;
       border-color: #d1dbe5;
       color: #bbb;
+    }
+
+    &[readonly] {
+      cursor: default;
+
+      &:focus {
+        border-color: #bfcbd9;
+      }
     }
 
     &-block {

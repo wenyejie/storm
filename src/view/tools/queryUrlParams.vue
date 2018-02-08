@@ -15,7 +15,7 @@
   import queryUrlParams from '../../utils/queryUrlParams';
 
    export default {
-    name: 'query',
+    name: 'vQueryUrlParams',
     data () {
       return {
         queryString: '',

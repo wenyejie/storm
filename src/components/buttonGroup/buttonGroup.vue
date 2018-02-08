@@ -21,8 +21,9 @@
       // 方向
       direction: {
         type: String,
+        default: 'horizontal',
         validator (val) {
-          return ['vertical'].includes(val)
+          return ['horizontal', 'vertical'].includes(val)
         }
       },
     },
@@ -61,7 +62,7 @@
       }
     }
 
-    .s-button {
+    &-horizontal > .s-button {
       border-radius: 0;
 
       &:first-child {
@@ -93,8 +94,9 @@
       }
     }
 
-    &-vertical .s-button {
+    &-vertical > .s-button {
       display: block;
+      border-radius: 0;
 
       &:first-child {
         border-top-left-radius: 4px;

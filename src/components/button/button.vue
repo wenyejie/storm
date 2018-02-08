@@ -9,8 +9,7 @@
   <button :type="type"
           class="s-button"
           :class="classes"
-          @click="handleClick"
-          :disabled="disabled">
+          @click="handleClick">
     <s-icon v-if="loading" type="loading"></s-icon>
     <slot></slot>
   </button>
@@ -46,12 +45,6 @@
           return ['lg', 'sm', 'xs'].includes(val)
         }
       },
-
-      // 是否自动选中
-      autofocus: Boolean,
-
-      // 是否禁用
-      disabled: Boolean,
 
       // 是否为轮廓线
       outline: Boolean,

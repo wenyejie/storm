@@ -61,6 +61,10 @@ export default [
         path: '/components/input'
       },
       {
+        name: 'Textarea 文本域',
+        path: '/components/textarea'
+      },
+      {
         name: 'Select 选择框',
         path: '/components/select'
       },

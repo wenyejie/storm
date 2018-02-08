@@ -18,7 +18,7 @@
 <script>
 
    export default {
-     name: 'query',
+     name: 'vUri',
     data () {
       return {
         string: location.href,

@@ -22,6 +22,7 @@ import sTable from './table'
 import sSelect from './select'
 import sMask from './mask'
 import sDialog from './dialog'
+import sTextarea from './textarea'
 
 const components = {
   sPanel,
@@ -40,7 +41,8 @@ const components = {
   sTable,
   sSelect,
   sMask,
-  sDialog
+  sDialog,
+  sTextarea
 }
 
 const install = Vue => {
