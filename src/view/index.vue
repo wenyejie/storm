@@ -37,6 +37,11 @@
       }
     },
     created () {
+      const worker = new Worker('/workers/demo.js');
+      worker.onmessage = function (e) {
+        console.log(e.data);
+      }
+      worker.postMessage({addend: 1000, augend: 1002});
     }
   }
 
