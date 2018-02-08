@@ -11,9 +11,19 @@ export default {
   component: resolve => require(['../view/tools/tool.vue'], resolve),
   children: [
     {
-      path: 'query',
-      name: 'rQuery',
-      component: resolve => require(['../view/tools/query.vue'], resolve),
+      path: 'queryUrlParams',
+      name: 'rQueryUrlParams',
+      component: resolve => require(['../view/tools/queryUrlParams.vue'], resolve),
+    },
+    {
+      path: 'htmlEncode',
+      name: 'rHtmlEncode',
+      component: resolve => require(['../view/tools/htmlEncode.vue'], resolve)
+    },
+    {
+      path: 'uri',
+      name: 'rUri',
+      component: resolve => require(['../view/tools/uri.vue'], resolve)
     }
   ]
 }

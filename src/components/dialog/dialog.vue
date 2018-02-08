@@ -260,6 +260,7 @@
     &-close {
       font-size: 24px;
       position: absolute;
+      z-index: 1;
       color: #999;
       right: 18px;
       top: 16px;

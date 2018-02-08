@@ -7,6 +7,7 @@
 <template>
   <input :type="type"
          class="s-input"
+         :value="innerVal"
          :class="classes"
          @input="handleInput"
          @change="handleChange"

@@ -88,6 +88,12 @@ const getInstance = (opts) => {
   return vmInstance
 }
 
+/**
+ * 初始化实例
+ * @param text 文本
+ * @param opts 选项
+ * @return {Promise<any>}
+ */
 const initInstance = (text = '', opts = {}) => {
   opts.body = text;
   return new Promise((resolve, reject) => {

@@ -25,7 +25,12 @@
 
     <s-panel title="hasMask 遮罩">
       <s-button @click="hasMaskDialogModel = true" type="primary">hasMask Dialog</s-button>
-      <s-dialog v-model="hasMaskDialogModel" :has-mask="false" title="我是dialog标题">我是dialog内容</s-dialog>
+      <s-dialog v-model="hasMaskDialogModel"
+                :has-mask="false"
+                title="我是dialog标题">我是dialog内容</s-dialog>
+      <s-highlight lang="html">&lt;s-dialog v-model="hasMaskDialogModel"
+          :has-mask="false"
+          title="我是dialog标题"&gt;我是dialog内容&lt;/s-dialog&gt;</s-highlight>
     </s-panel>
 
     <s-panel title="button 按钮">
@@ -36,21 +41,32 @@
           <s-button type="success">fuck me</s-button>
         </template>
       </s-dialog>
+      <s-highlight lang="html">&lt;s-dialog v-model="footerButtonDialogModel" title="我是dialog标题"&gt;
+  我是dialog内容
+  &lt;template slot="footerButton"&gt;
+    &lt;s-button type="success"&gt;fuck me&lt;/s-button&gt;
+  &lt;/template&gt;
+&lt;/s-dialog&gt;</s-highlight>
     </s-panel>
 
     <s-panel title="confirm 确定">
       <s-button @click="confirmDialogModel" type="primary">confirm Dialog</s-button>
+      <s-highlight lang="javascript">this.$dialog.confirm('fuck me!');</s-highlight>
     </s-panel>
 
     <s-panel title="alert 警觉">
       <s-button @click="alertDialogModel" type="primary">alert Dialog</s-button>
+      <s-highlight lang="javascript">this.$dialog.alert('fuck me!');</s-highlight>
     </s-panel>
 
   </div>
 </template>
 
 <script>
+  import SHighlight from '../../components/highlight/highlight'
+
   export default {
+    components: {SHighlight},
     name: 'viewDialog',
     data () {
       return {

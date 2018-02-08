@@ -11,6 +11,23 @@ export default [
     path: '/'
   },
   {
+    name: 'Tools 工具集',
+    children: [
+      {
+        name: '查询Url参数',
+        path: '/tools/queryUrlParams'
+      },
+      {
+        name: 'HTML转码',
+        path: '/tools/htmlEncode'
+      },
+      {
+        name: 'URI编码解码',
+        path: '/tools/uri'
+      }
+    ]
+  },
+  {
     name: 'Basic 基础',
     children: [
       {
@@ -71,7 +88,16 @@ export default [
     ]
   },
   {
-    name: 'Panel 面板',
-    path: '/components/panel'
+    name: 'Others 其它',
+    children: [
+      {
+        name: 'Dialog 对话框',
+        path: '/components/dialog'
+      },
+      {
+        name: 'Panel 面板',
+        path: '/components/panel'
+      }
+    ]
   }
 ]

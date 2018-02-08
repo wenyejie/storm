@@ -32,7 +32,8 @@
                   <li class="nav-subitem"
                       v-for="(subitem, subindex) in item.children"
                       :key="subindex">
-                    <a href="javascript:;" @click="toggleNav(subitem)">{{subitem.name}}</a>
+                    <!-- @click="toggleNav(subitem)" -->
+                    <router-link :to="subitem.path">{{subitem.name}}</router-link>
                   </li>
                 </ul>
               </transition>
@@ -197,6 +198,11 @@
     a {
       font-size: 13px;
       padding-left: 24px;
+
+      &.router-link-active {
+        opacity: 1;
+        color: $primary;
+      }
 
       &:hover,
       &:focus,
