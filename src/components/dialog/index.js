@@ -13,10 +13,6 @@ let vmInstance = null;
 
 let id = 0;
 
-const getId = () => {
-  return ++id;
-}
-
 /**
  * 新建一个实例
  * @param opts 参数
@@ -25,7 +21,7 @@ const getId = () => {
 const newInstance = (opts = {}) => {
   const props = props2string(opts);
   const el = document.createElement('div');
-  el.id = 's-dialog-' + getId();
+  el.id = 's-dialog-' + ++id;
   el.innerHTML = `<s-dialog${props} v-model="visible" @ok="handleOk" @cancel="handleCancel"></s-dialog>`;
   document.body.appendChild(el);
 

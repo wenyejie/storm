@@ -12,16 +12,16 @@
               v-model="hasMask"
               @click="handleMask"></s-mask>
       <div class="s-dialog-content">
+        <a class="s-dialog-close"
+           v-if="hasClose"
+           href="javascript:;"
+           @click="handleClose">
+          <s-icon type="close"></s-icon>
+        </a>
         <div class="s-dialog-header" v-if="$slots.header || title">
           <slot name="header">
             <div class="s-dialog-title">{{title}}</div>
           </slot>
-          <a class="s-dialog-close"
-             v-if="hasClose"
-             href="javascript:;"
-             @click="handleClose">
-            <s-icon type="close"></s-icon>
-          </a>
         </div>
         <div class="s-dialog-body">
           <slot><div class="s-dialog-body-html" v-html="body"></div></slot>
@@ -261,7 +261,7 @@
       font-size: 24px;
       position: absolute;
       color: #999;
-      right: 20px;
+      right: 18px;
       top: 16px;
       line-height: 1;
 
