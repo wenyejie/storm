@@ -58,8 +58,6 @@ export default (element, opts) => {
 
   copyElement.setAttribute('style', contextStyles + DEFAULT_STYLES);
 
-
-
   copyElement.value = element.value;
 
   document.body.appendChild(copyElement);

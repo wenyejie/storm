@@ -24,6 +24,11 @@ export default {
       path: 'uri',
       name: 'rUri',
       component: resolve => require(['../view/tools/uri.vue'], resolve)
+    },
+    {
+      path: 'browser',
+      name: 'browser',
+      component: resolve => require(['../view/tools/browser.vue'], resolve)
     }
   ]
 }

@@ -1,7 +1,7 @@
 <template>
   <div id="app" class="app">
     <header class="header">
-      <div class="header-content">
+      <div class="header-content content">
         <div class="header-left">
           <router-link class="header-logo" to="/">Storm</router-link>
         </div>
@@ -17,7 +17,7 @@
         </div>
       </div>
     </header>
-    <div class="container">
+    <div class="container content">
       <aside class="aside">
         <h3>基础组件</h3>
         <nav class="nav">
@@ -95,6 +95,11 @@
   .app {
     overflow: hidden;
   }
+  .content {
+    width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+  }
   /* /app */
 
   /* header */
@@ -112,8 +117,6 @@
       height: 80px;
       align-items: center;
       justify-content: space-between;
-      width: 1200px;
-      margin: 0 auto;
     }
 
     &-left {
@@ -165,8 +168,8 @@
   .container {
     display: flex;
     min-height: calc(100vh - 270px);
-    width: 1200px;
-    margin: 55px auto 95px;
+    margin-top: 55px;
+    margin-bottom: 95px;
     border-radius: 6px;
   }
   /* /container */
@@ -238,5 +241,17 @@
     overflow: hidden;
   }
   /* /main */
+
+  @media all and (max-width: 1199px) {
+    .aside {
+      display: none;
+    }
+    .content {
+      width: 95%;
+    }
+    .main {
+      margin-left: 0;
+    }
+  }
 
 </style>
