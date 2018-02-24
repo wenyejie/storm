@@ -7,5 +7,6 @@
  * cc2cb
  * 驼峰命名法转横杠命名法
  * @param str
+ * @return {string}
  */
 export default str => str.replace(/([a-z])([A-Z])/g, '$1-$2').toLowerCase();
