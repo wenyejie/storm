@@ -99,6 +99,10 @@ export default [
         path: '/components/dialog'
       },
       {
+        name: 'Message 消息提示',
+        path: '/components/message'
+      },
+      {
         name: 'Panel 面板',
         path: '/components/panel'
       }

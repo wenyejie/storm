@@ -80,6 +80,12 @@ export default {
       path: 'textarea',
       name: 'textarea',
       component: resolve => require(['../view/components/textarea.vue'], resolve)
+    },
+
+    {
+      path: 'message',
+      name: 'message',
+      component: resolve => require(['../view/components/message.vue'], resolve)
     }
   ]
 }

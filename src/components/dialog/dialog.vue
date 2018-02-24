@@ -57,10 +57,7 @@
     props: {
 
       // value
-      value: {
-        type: Boolean,
-        default: false
-      },
+      value: Boolean,
 
       // 标题
       title: String,

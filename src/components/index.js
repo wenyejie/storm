@@ -23,6 +23,7 @@ import sSelect from './select'
 import sMask from './mask'
 import sDialog from './dialog'
 import sTextarea from './textarea'
+import sMessage from './message'
 
 const components = {
   sPanel,
@@ -42,7 +43,8 @@ const components = {
   sSelect,
   sMask,
   sDialog,
-  sTextarea
+  sTextarea,
+  sMessage
 }
 
 const install = Vue => {
