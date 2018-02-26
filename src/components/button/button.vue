@@ -229,6 +229,7 @@
     &-danger {
       background-color: $danger;
       border-color: $danger;
+      color: $white;
 
       &:focus,
       &:hover {

@@ -127,11 +127,13 @@
       content: "\e6de";
     }
 
-    &-infofill:before {
+    &-infofill:before,
+    &-warningfill:before {
       content: "\e6e4";
     }
 
-    &-info:before {
+    &-info:before,
+    &-warning:before {
       content: "\e6e5";
     }
 
@@ -141,6 +143,12 @@
 
     &-radioboxfill:before {
       content: "\e763";
+    }
+
+    &-warningfill:before,
+    &-warning:before {
+      transform: rotate(180deg);
+      display: block;
     }
   }
 

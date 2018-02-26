@@ -7,14 +7,22 @@
 <template>
   <transition name="s-message">
     <div class="s-message" :class="classes" v-if="visible">
+      <s-icon :class="iconClasses"
+              class="s-message-type"
+              v-if="iconType"
+              :type="iconType"></s-icon>
       <div class="s-message-content">
-        <a class="s-message-close">
+        <a class="s-message-close" @click="handleClose" v-if="hasClose">
           <s-icon type="close"></s-icon>
         </a>
-        <div class="s-message-header">
+        <div class="s-message-header" v-if="$slots.header || title">
           <slot name="header"><h2>{{title}}</h2></slot>
         </div>
-        <div class="s-message-body"><slot><div v-html="body"></div></slot></div>
+        <div class="s-message-body">
+          <slot>
+            <div v-html="body"></div>
+          </slot>
+        </div>
       </div>
     </div>
   </transition>
@@ -25,29 +33,78 @@
     name: 'message',
     props: {
       value: Boolean,
+
+      // 标题
       title: String,
+
+      // 类型
       type: {
         type: String,
         validator (val) {
-          return ['success', 'warning', 'info', 'error'].includes(val)
+          return ['success', 'warning', 'info', 'danger'].includes(val)
         }
       },
-      body: String
+
+      // 内容
+      body: String,
+
+      // 是否有关闭按钮
+      hasClose: {
+        type: Boolean,
+        default: true
+      },
+
     },
     data () {
       return {
-        visible: true
+
+        // 可见性
+        visible: this.value
+      }
+    },
+    watch: {
+      value (val, oldVal) {
+        if (val === oldVal || val === this.visible) return
+        this.visible = val
       }
     },
     computed: {
       classes () {
         return {}
+      },
+      iconType () {
+        switch (this.type) {
+          case 'success':
+            return 'roundcheckfill'
+          case 'warning':
+            return 'warningfill'
+          case 'info':
+            return 'infofill'
+          case 'danger':
+            return 'roundclosefill'
+          default:
+            return false
+        }
+      },
+      iconClasses () {
+        return `s-message-${this.type}`
+      }
+    },
+    methods: {
+      handleRemove () {
+        this.visible = false
+        this.$emit('input', false)
+      },
+
+      handleClose () {
+        this.handleRemove()
       }
     }
   }
 </script>
 
 <style lang="scss">
+  @import "../../styles/variable";
   .s-message {
     position: fixed;
     top: 15px;
@@ -60,12 +117,47 @@
     overflow: hidden;
     border-radius: 2px;
 
+    &-enter,
+    &-leave-active {
+      opacity: 0;
+      transform: translateX(100%);
+    }
+
     &-close {
       position: absolute;
       cursor: pointer;
       color: #bfcbd9;
       top: 20px;
       right: 20px;
+      line-height: 1;
+      font-size: 18px;
+    }
+
+    &-type + &-content {
+      padding-left: 55px;
+    }
+
+    &-type {
+      font-size: 40px;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    &-success {
+      color: $success;
+    }
+
+    &-info {
+      color: $info;
+    }
+
+    &-warning {
+      color: $warning;
+    }
+
+    &-danger {
+      color: $danger;
     }
 
     &-header + &-body {
