@@ -86,6 +86,12 @@ export default {
       path: 'message',
       name: 'message',
       component: resolve => require(['../view/components/message.vue'], resolve)
+    },
+
+    {
+      path: 'carousel',
+      name: 'carousel',
+      component: resolve => require(['../view/components/carousel.vue'], resolve)
     }
   ]
 }

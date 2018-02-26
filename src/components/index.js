@@ -23,7 +23,8 @@ import sSelect from './select'
 import sMask from './mask'
 import sDialog from './dialog'
 import sTextarea from './textarea'
-import sMessage from './message'
+import sMessage from './message';
+import {sCarousel, sCarouselItem} from './carousel';
 
 const components = {
   sPanel,
@@ -44,7 +45,9 @@ const components = {
   sMask,
   sDialog,
   sTextarea,
-  sMessage
+  sMessage,
+  sCarousel,
+  sCarouselItem
 }
 
 const install = Vue => {
