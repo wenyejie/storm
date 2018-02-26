@@ -54,6 +54,12 @@
         default: true
       },
 
+      // 持续时间
+      duration: {
+        type: Number,
+        default: 3000
+      }
+
     },
     data () {
       return {
@@ -65,7 +71,7 @@
     watch: {
       value (val, oldVal) {
         if (val === oldVal || val === this.visible) return
-        this.visible = val
+        this.show();
       }
     },
     computed: {
@@ -91,13 +97,35 @@
       }
     },
     methods: {
-      handleRemove () {
+
+
+
+      /**
+       * 展示消息提示
+       */
+      show () {
+        this.visible = true;
+        this.$emit('input', true);
+
+        // 判断是否自动移除
+        if (this.duration) {
+          setTimeout(this.remove, this.duration)
+        }
+      },
+
+      /**
+       * 移除消息提示
+       */
+      remove () {
         this.visible = false
         this.$emit('input', false)
       },
 
+      /**
+       * 移除消息提示
+       */
       handleClose () {
-        this.handleRemove()
+        this.remove()
       }
     }
   }
@@ -113,7 +141,7 @@
     background-color: #fff;
     width: 330px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, .12), 0 0 6px rgba(0, 0, 0, .04);
-    transition: opacity .3s, transform .3s, right .3s, top .4s;
+    transition: all .3s ease-in-out;
     overflow: hidden;
     border-radius: 2px;
 
