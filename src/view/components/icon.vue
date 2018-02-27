@@ -134,6 +134,18 @@
           </div>
           <p>radioboxfill</p>
         </div>
+        <div class="grid-item">
+          <div>
+            <s-icon type="warning"></s-icon>
+          </div>
+          <p>warning</p>
+        </div>
+        <div class="grid-item">
+          <div>
+            <s-icon type="warningfill"></s-icon>
+          </div>
+          <p>warningfill</p>
+        </div>
       </div>
     </s-panel>
 

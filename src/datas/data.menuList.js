@@ -103,6 +103,10 @@ export default [
         path: '/components/message'
       },
       {
+        name: 'Carousel 轮播',
+        path: '/components/carousel'
+      },
+      {
         name: 'Panel 面板',
         path: '/components/panel'
       }

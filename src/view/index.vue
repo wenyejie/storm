@@ -16,6 +16,7 @@
 
 <script>
   // import lazyimg from '../directives/lazyimg'
+  import random from '../utils/random'
 
   export default {
     name: 'index',
@@ -37,11 +38,11 @@
       }
     },
     created () {
-      const worker = new Worker('/workers/demo.js');
+      const worker = new Worker('/workers/demo.js')
       worker.onmessage = function (e) {
-        console.log(e.data);
+        console.log(e.data)
       }
-      worker.postMessage({addend: 1000, augend: 1002});
+      worker.postMessage({addend: 1000, augend: 1002})
     }
   }
 

@@ -89,11 +89,25 @@
         return result
       }
     },
+    watch: {
+
+      /**
+       * 监听下标是否发生变化
+       * @param val
+       * @param oldVal
+       */
+      value (val, oldVal) {
+        if (val === oldVal || val === this.index) return
+        this.toggle(val)
+      }
+    },
     data () {
       return {
 
         // 当前导航下标
         index: this.value,
+
+        uid: 0,
 
         // 轮播列表
         list: [],
@@ -178,13 +192,13 @@
       toggle (index) {
         this.stop()
         this.index = index
+        this.uid = this.list[index]
         this.$emit('input', this.index)
         this.start()
       }
     },
     mounted () {
-      console.log(this)
-      this.start()
+      this.toggle(0)
     }
   }
 </script>
@@ -263,21 +277,21 @@
 
     &-list {
       position: relative;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+      display: flex;
+      box-sizing: content-box;
+      transition: all .3s ease-in-out;
+    }
+
+    &-item {
+
     }
 
     &-slide {
 
       .s-carousel {
-
-        &-list {
-          position: relative;
-          width: 100%;
-          height: 100%;
-          z-index: 1;
-          display: flex;
-          box-sizing: content-box;
-          transition: all .3s ease-in-out;
-        }
 
         &-item {
           flex-shrink: 0;
@@ -286,13 +300,23 @@
           position: relative;
           text-align: center;
           font-size: 18px;
-          background: #fff;
+          background-color: #fff;
           display: flex;
           justify-content: center;
           align-items: center;
         }
       }
 
+    }
+
+    &-fade {
+      .s-carousel {
+        &-item {
+          position: absolute;
+          left: 0;
+          top: 0;
+        }
+      }
     }
 
   }
