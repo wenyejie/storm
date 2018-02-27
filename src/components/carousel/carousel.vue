@@ -10,13 +10,21 @@
       <div class="s-carousel-list" :style="listStyles">
         <slot></slot>
       </div>
-    <div class="s-carousel-nav" :class="navClasses" v-if="nav">
-      <ul>
-        <li v-for="(item, itemIndex) in list"
-            :class="itemIndex === index ? 'on' : ''"
-            @click="handleNavItem(item)"><template v-if="navNumber">{{itemIndex + 1}}</template></li>
-      </ul>
-    </div>
+      <div class="s-carousel-nav" :class="navClasses" v-if="nav">
+        <ul>
+          <li v-for="(item, itemIndex) in list"
+              :class="itemIndex === index ? 'on' : ''"
+              @click="handleNav(itemIndex, item)">
+            <template v-if="navNumber">{{itemIndex + 1}}</template>
+          </li>
+        </ul>
+      </div>
+      <div class="s-carousel-prev" @click="handlePrev">
+        <s-icon type="back"></s-icon>
+      </div>
+      <div class="s-carousel-next" @click="handleNext">
+        <s-icon type="right"></s-icon>
+      </div>
     </div>
   </div>
 </template>
@@ -66,13 +74,19 @@
         }
       },
       length () {
-        return this.$children.length;
+        return this.$children.length
       },
-      
+
       navClasses () {
         return {
           [`s-carousel-nav-switch`]: !!this.navSwitch
         }
+      },
+
+      listStyles () {
+        const result = {}
+        result['margin-left'] = this.index * -100 + '%'
+        return result
       }
     },
     data () {
@@ -84,9 +98,7 @@
         // 轮播列表
         list: [],
 
-        timer: null,
-
-        listStyles: {}
+        timer: null
       }
     },
     methods: {
@@ -95,8 +107,8 @@
        * @param _uid 子元素uid
        */
       add (_uid) {
-        this.list.push(_uid);
-        if (this.index === -1) this.init();
+        this.list.push(_uid)
+        if (this.index === -1) this.init()
       },
 
       /**
@@ -104,9 +116,9 @@
        * @param _uid
        */
       remove (_uid) {
-        const index = this.list.findIndex(item => item === _uid);
+        const index = this.list.findIndex(item => item === _uid)
 
-        this.list.splice(index, 1);
+        this.list.splice(index, 1)
         if (this.list.length <= 0) {
 
         }
@@ -114,10 +126,12 @@
 
       /**
        * 导航切换
-       * @param item
+       * @param index 下标
+       * @param item 下标
        */
-      handleNavItem (item) {
-        if (!this.navSwitch) return;
+      handleNav (index, item) {
+        if (!this.navSwitch) return
+        this.toggle(index)
       },
 
       /**
@@ -126,17 +140,35 @@
       start () {
 
         // 判断是否为整数, 并且大于等于0
-        if (!Number.isInteger(this.duration) || this.duration <= 0) return;
-        this.timer = setInterval(() => {
-
-        }, this.duration)
+        if (!Number.isInteger(this.duration) || this.duration <= 0) return
+        this.timer = setTimeout(this.handleNext, this.duration)
       },
 
       /**
        * 结束轮播
        */
-      end () {
-        clearInterval(this.timer);
+      stop () {
+        clearTimeout(this.timer)
+      },
+
+      /**
+       * 点击上一页
+       */
+      handlePrev () {
+        let index
+        if (this.index <= 0) index = this.list.length - 1
+        else index = this.index - 1
+        this.toggle(index)
+      },
+
+      /**
+       * 点击下一页
+       */
+      handleNext () {
+        let index
+        if (this.index >= this.list.length - 1) index = 0
+        else index = this.index + 1
+        this.toggle(index)
       },
 
       /**
@@ -144,21 +176,50 @@
        * @param index
        */
       toggle (index) {
-
+        this.stop()
+        this.index = index
+        this.$emit('input', this.index)
+        this.start()
       }
     },
     mounted () {
-      console.log(this);
+      console.log(this)
+      this.start()
     }
   }
 </script>
 
 <style lang="scss">
   @import "../../styles/variable";
-
   .s-carousel {
     position: relative;
     overflow: hidden;
+
+    &-prev,
+    &-next {
+      position: absolute;
+      top: 50%;
+      z-index: 2;
+      font-size: 30px;
+      color: #fff;
+      opacity: .75;
+      cursor: pointer;
+      border-radius: 3px;
+      transition: all .3s ease-in-out;
+
+      &:hover {
+        opacity: 1;
+        background-color: rgba(0, 0, 0, .25);
+      }
+    }
+
+    &-prev {
+      left: 10px;
+    }
+
+    &-next {
+      right: 10px;
+    }
 
     &-nav {
       position: absolute;
@@ -179,7 +240,7 @@
       li {
         width: 30px;
         height: 3px;
-        background-color: rgba(255,255,255,.5);
+        background-color: rgba(255, 255, 255, .5);
         margin: 0 3px;
         transition: all .3s ease-in-out;
       }
@@ -215,9 +276,9 @@
           z-index: 1;
           display: flex;
           box-sizing: content-box;
-          
+          transition: all .3s ease-in-out;
         }
-        
+
         &-item {
           flex-shrink: 0;
           width: 100%;
