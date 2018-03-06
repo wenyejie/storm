@@ -107,6 +107,10 @@ export default [
         path: '/components/carousel'
       },
       {
+        name: 'Tab 切换',
+        path: '/components/tab'
+      },
+      {
         name: 'Panel 面板',
         path: '/components/panel'
       }

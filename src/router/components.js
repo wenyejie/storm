@@ -92,6 +92,12 @@ export default {
       path: 'carousel',
       name: 'carousel',
       component: resolve => require(['../view/components/carousel.vue'], resolve)
+    },
+
+    {
+      path: 'tab',
+      name: 'tab',
+      component: resolve => require(['../view/components/tab.vue'], resolve)
     }
   ]
 }
