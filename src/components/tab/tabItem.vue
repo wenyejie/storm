@@ -5,12 +5,10 @@
  - @date: 2018/02/27
  -->
 <template>
-  <transition name="s-tabs-item">
-    <div v-show="!hidden ? visible : true"
-         v-if="hidden ? visible: true"
-         :class="classes"
-         class="s-tab-item"><slot></slot></div>
-  </transition>
+  <div v-show="!hidden ? visible : true"
+       v-if="hidden ? visible: true"
+       :class="classes"
+       class="s-tab-item"><slot></slot></div>
 </template>
 
 <script>
@@ -43,8 +41,8 @@
        * @param oldVal
        */
       '$parent.uid' (val, oldVal) {
-        if (val === oldVal) return;
-        this.visible = val === this._uid;
+        if (val === oldVal) return
+        this.visible = val === this._uid
         if (this.visible) this.$emit('chosen')
       }
     },
@@ -60,10 +58,10 @@
         _uid: this._uid,
         name: this.name,
         label: this.label
-      });
+      })
     },
     beforeDestroy () {
-      this.$parent.removeItem(this._uid);
+      this.$parent.removeItem(this._uid)
     }
   }
 </script>
