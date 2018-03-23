@@ -24,7 +24,7 @@
 <script>
 
   export default {
-    name: 'tab'
+    name: 'vTab'
   }
 </script>
 

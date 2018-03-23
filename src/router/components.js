@@ -98,6 +98,12 @@ export default {
       path: 'tab',
       name: 'tab',
       component: resolve => require(['../view/components/tab.vue'], resolve)
+    },
+
+    {
+      path: 'page',
+      name: 'page',
+      component: resolve => require(['../view/components/page.vue'], resolve)
     }
   ]
 }

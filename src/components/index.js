@@ -26,6 +26,7 @@ import sTextarea from './textarea'
 import sMessage from './message';
 import {sCarousel, sCarouselItem} from './carousel';
 import {sTab, sTabItem} from './tab';
+import sPage from './page'
 
 const components = {
   sPanel,
@@ -50,7 +51,8 @@ const components = {
   sCarousel,
   sCarouselItem,
   sTab,
-  sTabItem
+  sTabItem,
+  sPage
 }
 
 const install = Vue => {
