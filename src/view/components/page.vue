@@ -12,7 +12,7 @@
       <s-page v-model="page" :total="100"></s-page>
     </s-panel>
 
-    <s-panel title="Default 默认">
+    <s-panel title="HasSizer 是否有筛选器">
       当前页: {{page}}
       <s-page v-model="page" :total="100" sizer></s-page>
     </s-panel>

@@ -224,7 +224,6 @@
         this.current = page
 
         this.$emit('input', page)
-        this.$emit('change', page)
       }
     }
   }
