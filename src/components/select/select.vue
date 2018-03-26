@@ -6,6 +6,8 @@
  -->
 <template>
   <select class="s-select"
+          @change="handleChange"
+          v-model="innerVal"
           :class="classes">
     <slot></slot>
   </select>
@@ -15,6 +17,8 @@
   export default {
     name: 'sSelect',
     props: {
+
+      value: {},
 
       // 大小
       size: {
@@ -28,7 +32,15 @@
       block: Boolean
     },
     data () {
-      return {}
+      return {
+        innerVal: this.value
+      }
+    },
+    watch: {
+      value (val, oldVal) {
+        if (val === oldVal) return;
+        this.innerVal = val;
+      }
     },
     computed: {
       classes () {
@@ -38,7 +50,12 @@
         }
       }
     },
-    methods: {}
+    methods: {
+      handleChange () {
+        this.$emit('input', this.innerVal);
+        this.$emit('change', this.innerVal);
+      }
+    }
   }
 </script>
 
@@ -50,7 +67,7 @@
     line-height: 1.4285714285714286;
     padding: 7px 10px;
     border-radius: 4px;
-    border: 1px #bfcbd9 solid;
+    border: 1px $lightGrey solid;
     transition: border-color .3s ease;
 
     &:not([multiple]) {
@@ -78,14 +95,14 @@
 
     &-sm {
       font-size: $sm;
-      padding: 5.5px 24px 5.5px 8px;
+      padding: 6px 24px 6px 8px;
       background-position: right 8px center;
       background-size: 8px;
     }
 
     &-xs {
       font-size: $xs;
-      padding: 2.5px 18px 2.5px 6px;
+      padding: 3px 18px 3px 6px;
       background-position: right 6px center;
       background-size: 6px;
     }
