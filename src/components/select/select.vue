@@ -38,8 +38,8 @@
     },
     watch: {
       value (val, oldVal) {
-        if (val === oldVal) return;
-        this.innerVal = val;
+        if (val === oldVal) return
+        this.innerVal = val
       }
     },
     computed: {
@@ -52,8 +52,8 @@
     },
     methods: {
       handleChange () {
-        this.$emit('input', this.innerVal);
-        this.$emit('change', this.innerVal);
+        this.$emit('input', this.innerVal)
+        this.$emit('change', this.innerVal)
       }
     }
   }
@@ -65,21 +65,13 @@
     display: inline-block;
     vertical-align: middle;
     line-height: 1.4285714285714286;
-    padding: 7px 10px;
+    padding: 7px 30px 7px 10px;
     border-radius: 4px;
     border: 1px $lightGrey solid;
     transition: border-color .3s ease;
-
-    &:not([multiple]) {
-      padding-right: 30px;
-      -webkit-appearance: none;
-      -moze-appearance: none;
-      -ms-appearance: none;
-      appearance: none;
-      background: #fff url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 5'%3E%3Cpath fill='%23333' d='M2 0L0 2h4zm0 5L0 3h4z'/%3E%3C/svg%3E") no-repeat right 10px center;
-      background-size: 10px;
-      font-size: $md;
-    }
+    appearance: none;
+    background: #fff url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 5'%3E%3Cpath fill='%23333' d='M2 0L0 2h4zm0 5L0 3h4z'/%3E%3C/svg%3E") no-repeat right 10px center;
+    background-size: 10px;
 
     &-block {
       display: block;
@@ -88,29 +80,35 @@
 
     &-lg {
       font-size: $lg;
-      padding: 9px 36px 9px 15px;
+      padding: 12px 36px 12px 15px;
       background-position: right 12px center;
       background-size: 12px;
     }
 
     &-sm {
       font-size: $sm;
-      padding: 6px 24px 6px 8px;
+      padding: 4.5px 24px 4.5px 8px;
       background-position: right 8px center;
       background-size: 8px;
     }
 
     &-xs {
       font-size: $xs;
-      padding: 3px 18px 3px 6px;
-      background-position: right 6px center;
+      padding: .5px 12px .5px 3px;
+      background-position: right 3px center;
       background-size: 6px;
     }
 
     &[disabled] {
-      background-color: #eef1f6;
       border-color: #d1dbe5;
       color: #bbb;
+      background: #eef1f6 url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 5'%3E%3Cpath fill='rgb(187,187,187)' d='M2 0L0 2h4zm0 5L0 3h4z'/%3E%3C/svg%3E") no-repeat right 10px center;
+      background-size: 10px;
+    }
+
+    &[multiple] {
+      padding-right: 10px;
+      background-image: none;
     }
   }
 </style>
