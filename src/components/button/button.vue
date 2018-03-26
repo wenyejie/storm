@@ -98,14 +98,13 @@
 
   .s-button {
     display: inline-block;
-    line-height: 1;
     cursor: pointer;
     white-space: nowrap;
     background-color: #eee;
     border: 1px solid #ccc;
     color: $default;
     text-align: center;
-    padding: 10px 20px;
+    padding: 5.5px 11px;
     font-size: $md;
     border-radius: 4px;
     transition: all .3s ease-in-out;
@@ -139,17 +138,17 @@
     }
 
     &-lg {
-      padding: 14px 28px;
+      padding: 7px 14px;
       font-size: $lg;
     }
 
     &-sm {
-      padding: 7px 14px;
+      padding: 4px 8px;
       font-size: $sm;
     }
 
     &-xs {
-      padding: 3px 6px;
+      padding: 1px 2px;
       font-size: $xs;
     }
 
