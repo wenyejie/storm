@@ -154,7 +154,7 @@
     &-close {
       position: absolute;
       cursor: pointer;
-      color: #bfcbd9;
+      color: $lightGrey;
       top: 20px;
       right: 20px;
       line-height: 1;

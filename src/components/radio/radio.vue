@@ -114,6 +114,7 @@
 </script>
 
 <style lang="scss">
+  @import "../../styles/variable";
   .s-radio {
     position: relative;
     display: inline-block;
@@ -143,7 +144,7 @@
       user-select: none;
       width: 1em;
       height: 1em;
-      border: 1px solid #bfcbd9;
+      border: 1px solid $lightGrey;
       border-radius: 50%;
       transition: all .3s ease;
     }

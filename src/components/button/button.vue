@@ -161,7 +161,7 @@
       cursor: not-allowed;
       background-color: $white;
       border-color: #d1dbe5;
-      color: #bfcbd9;
+      color: $lightGrey;
     }
 
     &-default {
@@ -264,7 +264,7 @@
 
     &-outline {
       background: $white;
-      border: 1px solid #bfcbd9;
+      border: 1px solid $lightGrey;
       color: $default;
 
       &:hover {

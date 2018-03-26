@@ -117,7 +117,7 @@
     line-height: 1.5;
     padding: 7px 10px;
     border-radius: 4px;
-    border: 1px #bfcbd9 solid;
+    border: 1px $lightGrey solid;
     transition: border-color .3s ease;
     font-size: $md;
 
@@ -140,7 +140,7 @@
       cursor: default;
 
       &:focus {
-        border-color: #bfcbd9;
+        border-color: $lightGrey;
       }
     }
   }

@@ -88,6 +88,10 @@ export default [
       {
         name: 'Table 表格',
         path: '/components/table'
+      },
+      {
+        name: 'Page 分页',
+        path: '/components/page'
       }
     ]
   },
