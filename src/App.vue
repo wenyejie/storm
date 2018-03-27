@@ -96,7 +96,7 @@
     overflow: hidden;
   }
   .content {
-    width: 1200px;
+    width: 90%;
     margin-left: auto;
     margin-right: auto;
   }
