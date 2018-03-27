@@ -37,6 +37,4 @@ browser.ios = browser.iphone || browser.ipad || browser.ipod
 
 browser.msie = browser.msie || /rv:11\.0/.test(ua)
 
-console.log(browser)
-
 export default browser
