@@ -24,6 +24,14 @@ export default [
       {
         name: 'URI编码解码',
         path: '/tools/uri'
+      },
+      {
+        name: 'Browser浏览器查询',
+        path: '/tools/browser'
+      },
+      {
+        name: '网络状态查询',
+        path: '/tools/networkStatus'
       }
     ]
   },
