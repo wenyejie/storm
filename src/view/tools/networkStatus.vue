@@ -97,6 +97,11 @@
       name: 'net::ERR_FILE_NOT_FOUND',
       explain: '网络错误:文件找不到',
       remark: ''
+    },
+    {
+      name: 'net::ERR_CACHE_MISS',
+      explain: '网络错误:缓存丢失',
+      remark: '网站本身设置了no-store无缓存，所以都去不到. 不会产生什么影响'
     }
   ]
   export default {
