@@ -14,7 +14,6 @@
 
 <script>
   import browser from '../../cores/browser';
-  console.log(browser)
   export default {
     name: 'browser',
     data () {
