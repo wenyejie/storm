@@ -7,7 +7,7 @@
 <template>
   <div class="page">
     <s-panel title="net::ERR_ 网络::错误_">
-      <s-input v-model="filterKey" block></s-input>
+      <s-input v-model="filterKey" block placeholder="请输入关键字"></s-input>
       <s-table class="mt-20">
         <tr slot="head">
           <th>状态</th>
@@ -101,7 +101,7 @@
     {
       name: 'net::ERR_CACHE_MISS',
       explain: '网络错误:缓存丢失',
-      remark: '网站本身设置了no-store无缓存，所以都去不到. 不会产生什么影响'
+      remark: '网站本身设置了no-store无缓存，所以取不到. 不会产生什么影响'
     }
   ]
   export default {
