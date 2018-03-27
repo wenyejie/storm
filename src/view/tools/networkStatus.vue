@@ -109,8 +109,14 @@
       }
     },
     computed: {
+
+      /**
+       * 对网络状态列表进行搜索
+       * @return {*[]}
+       */
       filterList () {
-        return list.filter(item => new RegExp(`${this.filterKey}`, 'i').test(item.name))
+        const regexp = new RegExp(`${this.filterKey}`, 'i');
+        return list.filter(item => regexp.test(item.name))
       }
     }
   }
