@@ -7,7 +7,7 @@
 <template>
   <input :type="type"
          class="s-input"
-         :value="innerVal"
+         v-model="innerVal"
          :class="classes"
          @input="handleInput"
          @change="handleChange"
