@@ -102,6 +102,11 @@
       name: 'net::ERR_CACHE_MISS',
       explain: '网络错误::缓存丢失',
       remark: '网站本身设置了no-store无缓存，所以取不到. 不会产生什么影响'
+    },
+    {
+      name: 'net::ERR_SSL_PROTOCOL_ERROR',
+      explain: 'SSL协议错误',
+      remark: '无法与服务器建议正常的SSL协议链接.'
     }
   ]
   export default {
@@ -121,7 +126,7 @@
        */
       filterList () {
         const regexp = new RegExp(`${this.filterKey}`, 'i');
-        return list.filter(item => regexp.test(item.name))
+        return list.filter(item => regexp.test(item.name));
       }
     }
   }
