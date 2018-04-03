@@ -18,7 +18,7 @@
 </template>
 
 <script>
-  import adaptiveHeight from '../../cores/adaptiveHeight';
+  import adaptiveHeight from '../../core/adaptiveHeight';
   export default {
     name: 'sTextarea',
     props: {

@@ -13,7 +13,7 @@
 </template>
 
 <script>
-  import browser from '../../cores/browser';
+  import browser from '../../core/browser';
   export default {
     name: 'browser',
     data () {

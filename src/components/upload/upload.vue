@@ -15,7 +15,7 @@
 </template>
 
 <script>
-  import imageCompress from '../../cores/imageCompress'
+  import imageCompress from '../../core/imageCompress'
   export default {
     name: 'upload',
     props: {

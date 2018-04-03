@@ -4,7 +4,7 @@
 import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
-import reportError from './cores/reportError'
+import reportError from './core/reportError'
 import './styles'
 import components from './components'
 

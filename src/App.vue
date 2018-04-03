@@ -49,7 +49,7 @@
 </template>
 
 <script>
-  import menuList from './datas/data.menuList'
+  import menuList from './data/data.menuList'
 
   export default {
     name: 'app',
