@@ -10,9 +10,9 @@
     <div class="s-panel-content">
       <header class="s-panel-header" v-if="headerVisible">
         <slot name="header">
-          <h3 class="s-panel-title">
+          <h1 class="s-panel-title">
             <slot name="title">{{title}}</slot>
-          </h3>
+          </h1>
         </slot>
       </header>
       <div class="s-panel-body">

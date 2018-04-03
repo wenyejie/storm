@@ -32,6 +32,10 @@ export default [
       {
         name: '网络状态查询',
         path: '/tools/networkStatus'
+      },
+      {
+        name: 'Headers参数',
+        path: '/tools/queryHeaders'
       }
     ]
   },

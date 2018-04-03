@@ -44,6 +44,13 @@ export default {
       path: 'networkStatus',
       name: 'rNetWorkStatus',
       component: resolve => require(['../view/tools/networkStatus.vue'], resolve)
+    },
+
+    // headers属性
+    {
+      path: 'queryHeaders',
+      name: 'rQueryHeaders',
+      component: resolve => require(['../view/tools/queryHeaders.vue'], resolve)
     }
   ]
 }
