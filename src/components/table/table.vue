@@ -7,6 +7,7 @@
 <template>
   <div class="s-table" :class="classes">
     <table>
+      <colgroup v-if="$slots.colgroup"><slot name="colgroup"></slot></colgroup>
       <caption v-if="$slots.caption || title"><slot name="title">{{title}}</slot></caption>
       <thead v-if="$slots.head"><slot name="head"></slot></thead>
       <tbody v-if="$slots.default"><slot></slot></tbody>
