@@ -74,14 +74,14 @@
       parentNode: 'Response Headers',
       explain: '接受范围',
       remark: '用于标识请求自身支持范围',
-      defVal: ''
+      defVal: 'bytes'
     },
     {
       name: 'Connection',
       parentNode: 'Response Headers',
       explain: '连接',
       remark: '',
-      defVal: ''
+      defVal: 'keep-alive'
     },
     {
       name: 'Content-Length',
@@ -94,8 +94,8 @@
       name: 'Content-Type',
       parentNode: 'Response Headers',
       explain: '内容类型',
-      remark: '文件类型, 包括编码格式, 如: text/html; charset=UTF-8',
-      defVal: ''
+      remark: '文件类型, 包括编码格式',
+      defVal: 'text/html; charset=UTF-8'
     },
     {
       name: 'Date',
