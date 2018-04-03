@@ -16,7 +16,8 @@
 
 <script>
   // import lazyimg from '../directives/lazyimg'
-  import random from '../utils/random'
+  import random from '../utils/random';
+  import visibilityChange from '../core/visibilityChange';
 
   export default {
     name: 'index',
@@ -42,7 +43,11 @@
       worker.onmessage = function (e) {
         console.log(e.data)
       }
-      worker.postMessage({addend: 1000, augend: 1002})
+      worker.postMessage({addend: 1000, augend: 1002});
+
+      visibilityChange((visibility) => {
+        console.log(visibility);
+      })
     }
   }
 
