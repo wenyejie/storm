@@ -29,7 +29,7 @@ npm test
 
 For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
 
-## Loading 状态管理
+## Loading State
 - 0: 未开始
 - 1: 开始
 - 2: 成功
