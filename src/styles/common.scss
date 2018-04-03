@@ -16,10 +16,10 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 a {
-  color: #495060;
+  color: $primary;
   transition: all .3s ease;
 
   &:hover {
-    color: $primary;
+    color: $primaryLight;
   }
 }

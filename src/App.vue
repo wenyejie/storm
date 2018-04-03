@@ -201,6 +201,7 @@
     a {
       font-size: 13px;
       padding-left: 24px;
+      color: #495060;
 
       &.router-link-active {
         opacity: 1;
