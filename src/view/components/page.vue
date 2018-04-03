@@ -11,6 +11,11 @@
       <s-page v-model="page" :totalPage="100"></s-page>
     </s-panel>
 
+    <s-panel title="Size 大小">
+      <s-page v-model="page" :totalPage="100" size="sm" hasElevator :pageSize="10"></s-page>
+      <s-page v-model="page" :totalPage="100" size="xs" hasElevator :pageSize="10"></s-page>
+    </s-panel>
+
     <s-panel title="HasSizer 是否有筛选器">
       <s-page v-model="page" :totalPage="100" hasSizer></s-page>
     </s-panel>
@@ -21,10 +26,6 @@
 
     <s-panel title="pageSize 是否有每页条数">
       <s-page v-model="page" :totalPage="100" :pageSize="10"></s-page>
-    </s-panel>
-
-    <s-panel title="hasInfo 是否有信息描述">
-      <s-page v-model="page" :totalPage="100" hasInfo></s-page>
     </s-panel>
 
     <s-panel title="hasInfo 是否有信息描述">

@@ -49,7 +49,7 @@
           :class="{disabled: current === totalPage - 1}">{{lastText}}
       </li>
       <li v-if="pageSize" class="s-page-size">
-        <s-select size="xs"
+        <s-select :size="size"
                   v-model="innerPageSize"
                   @change="handlePageSize">
           <option :value="10">10 条/页</option>
@@ -66,6 +66,7 @@
                  :max="totalPage"
                  :min="1"
                  :step="1"
+                 @keyup.enter="startElevator"
                  @change="startElevator"
                  v-model.number="tier"/>页
       </li>
@@ -409,9 +410,9 @@
 
     &-item,
     &-elevator input {
-      height: 28px;
-      line-height: 26px;
-      min-width: 28px;
+      height: 34px;
+      line-height: 32px;
+      min-width: 34px;
       padding: 0 5px;
       text-align: center;
       border-radius: 3px;
@@ -450,7 +451,7 @@
     &-elevator {
       input {
         margin: 0 10px;
-        width: 38px;
+        width: 58px;
       }
     }
 
@@ -467,6 +468,40 @@
         content: '';
         @include absolute-center;
         background-color: rgba(255, 255, 255, .5);
+      }
+    }
+
+    &-sm {
+      .s-page {
+
+        &-item,
+        &-elevator input {
+          height: 28px;
+          line-height: 26px;
+          min-width: 28px;
+          padding: 0 3px;
+        }
+
+        &-elevator input {
+          width: 48px;
+        }
+      }
+    }
+
+    &-xs {
+      .s-page {
+
+        &-item,
+        &-elevator input {
+          height: 22px;
+          line-height: 20px;
+          min-width: 22px;
+          padding: 0 2px;
+        }
+
+        &-elevator input {
+          width: 38px;
+        }
       }
     }
   }
