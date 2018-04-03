@@ -21,18 +21,27 @@ const attrName = ['visibilityState', 'webkitVisibilityState'].find(item => `${it
 // 事件名称
 const eventName = attrName.replace(/state/i, 'change')
 
-export default (callback) => {
+// 事件回调
+let eventCb = null;
 
-  if (!attrName) return null
+const eventFn = () => {
+  const state = document[attrName]
 
-  document.addEventListener(eventName, () => {
+  if (state === 'visible') {
+    eventCb(true, state)
+  } else if (state === 'hidden') {
+    eventCb(false, state)
+  }
+}
 
-    const state = document[attrName]
+export default {
 
-    if (state === 'visible') {
-      callback(true, state)
-    } else if (state === 'hidden') {
-      callback(false, state)
-    }
-  })
+  add (callback) {
+    eventCb = callback;
+    document.addEventListener(eventName, eventFn);
+  },
+
+  remove () {
+    document.removeEventListener(eventName, eventFn);
+  }
 }

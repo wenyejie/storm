@@ -45,7 +45,7 @@
       }
       worker.postMessage({addend: 1000, augend: 1002});
 
-      visibilityChange((visibility) => {
+      visibilityChange.add((visibility) => {
         console.log(visibility);
       })
     }
