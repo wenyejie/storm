@@ -80,7 +80,28 @@
       name: 'Connection',
       parentNode: 'Response Headers',
       explain: '连接',
-      remark: '用于标识请求自身支持范围',
+      remark: '',
+      defVal: ''
+    },
+    {
+      name: 'Content-Length',
+      parentNode: 'Response Headers',
+      explain: '内容长度',
+      remark: '',
+      defVal: ''
+    },
+    {
+      name: 'Content-Type',
+      parentNode: 'Response Headers',
+      explain: '内容类型',
+      remark: '文件类型, 包括编码格式, 如: text/html; charset=UTF-8',
+      defVal: ''
+    },
+    {
+      name: 'Date',
+      parentNode: 'Response Headers',
+      explain: '响应时间',
+      remark: '',
       defVal: ''
     }
   ];
