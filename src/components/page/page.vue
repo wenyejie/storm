@@ -486,6 +486,10 @@
           width: 48px;
         }
       }
+
+      li {
+        margin-right: 8px;
+      }
     }
 
     &-xs {
@@ -502,6 +506,9 @@
         &-elevator input {
           width: 38px;
         }
+      }
+      li {
+        margin-right: 5px;
       }
     }
   }

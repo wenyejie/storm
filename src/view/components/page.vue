@@ -13,7 +13,7 @@
 
     <s-panel title="Size 大小">
       <s-page v-model="page" :totalPage="100" size="sm" hasElevator :pageSize="10"></s-page>
-      <s-page v-model="page" :totalPage="100" size="xs" hasElevator :pageSize="10"></s-page>
+      <s-page class="mt-20" v-model="page" :totalPage="100" size="xs" hasElevator :pageSize="10"></s-page>
     </s-panel>
 
     <s-panel title="HasSizer 是否有筛选器">
