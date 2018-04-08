@@ -11,7 +11,12 @@
     </s-panel>
 
     <s-panel title="Triangle 三角形测试">
-      <div class="triangle triangle-top"></div>
+      <div class="triangle">
+        <div class="triangle-top"></div>
+        <div class="triangle-bottom"></div>
+        <div class="triangle-right"></div>
+        <div class="triangle-left"></div>
+      </div>
     </s-panel>
 
   </div>
@@ -84,16 +89,25 @@
 </script>
 
 <style lang="scss" scoped>
+  @import "../styles/variable";
+
   .triangle {
-    width: 0;
-    height: 0;
-    border-top: 50px solid transparent;
-    border-bottom: 50px solid transparent;
-    border-right: 50px solid transparent;
-    border-left: 50px solid transparent;
+    display: flex;
   }
+
   .triangle-top {
-    border-top: none;
-    border-bottom-color: #000;
+    @include triangle-top(#000, 100px, 100px, 100px);
+  }
+
+  .triangle-bottom {
+    @include triangle-bottom(#000, 100px, 100px, 100px);
+  }
+
+  .triangle-right {
+    @include triangle-right(#000, 100px, 100px, 100px);
+  }
+
+  .triangle-left {
+    @include triangle-left(#000, 100px, 100px, 100px);
   }
 </style>

@@ -43,10 +43,44 @@ $xs: 10px;
   transform: translate(-50%, -50%);
 }
 
+/* 三角形 */
 @mixin triangle {
-
+  width: 0;
+  height: 0;
 }
 
-@mixin triangle-top {
+/* 三角形 - top */
+@mixin triangle-top($color, $bw, $rw, $lw) {
+  @include triangle;
+  border-top: none;
+  border-bottom: $bw solid $color;
+  border-left: $lw solid transparent;
+  border-right: $rw solid transparent;
+}
 
+/* 三角形 - bottom */
+@mixin triangle-bottom($color, $tw, $rw, $lw) {
+  @include triangle;
+  border-bottom: none;
+  border-top: $tw solid $color;
+  border-left: $lw solid transparent;
+  border-right: $rw solid transparent;
+}
+
+/* 三角形 - left */
+@mixin triangle-left($color, $rw, $tw, $bw) {
+  @include triangle;
+  border-left: none;
+  border-right: $rw solid $color;
+  border-top: $tw solid transparent;
+  border-bottom: $bw solid transparent;
+}
+
+/* 三角形 - right */
+@mixin triangle-right($color, $lw, $tw, $bw) {
+  @include triangle;
+  border-right: none;
+  border-left: $lw solid $color;
+  border-top: $tw solid transparent;
+  border-bottom: $bw solid transparent;
 }
