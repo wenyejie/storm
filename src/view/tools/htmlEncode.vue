@@ -6,7 +6,7 @@
  -->
 <template>
   <div class="page page-query">
-    <textarea rows="10" v-model="string"></textarea>
+    <textarea rows="5" v-model="string"></textarea>
     <pre>{{decodeString}}</pre>
   </div>
 </template>

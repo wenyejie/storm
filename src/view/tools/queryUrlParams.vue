@@ -6,7 +6,7 @@
  -->
 <template>
   <div class="page page-query">
-    <textarea rows="10" v-model="queryString"></textarea>
+    <textarea rows="5" v-model="queryString"></textarea>
     <pre>{{queryJson}}</pre>
   </div>
 </template>
