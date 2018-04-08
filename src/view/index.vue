@@ -10,6 +10,10 @@
       <s-button type="primary" @click="mtaDemo('four')">FOUR</s-button>
     </s-panel>
 
+    <s-panel title="Triangle 三角形测试">
+      <div class="triangle triangle-top"></div>
+    </s-panel>
+
   </div>
 
 </template>
@@ -79,5 +83,17 @@
   */
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
+  .triangle {
+    width: 0;
+    height: 0;
+    border-top: 50px solid transparent;
+    border-bottom: 50px solid transparent;
+    border-right: 50px solid transparent;
+    border-left: 50px solid transparent;
+  }
+  .triangle-top {
+    border-top: none;
+    border-bottom-color: #000;
+  }
 </style>
