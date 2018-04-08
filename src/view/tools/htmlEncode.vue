@@ -6,23 +6,22 @@
  -->
 <template>
   <div class="page page-query">
-    <textarea rows="10" v-model="string" @input="queryStringParse"></textarea>
-    <s-highlight lang="json" v-if="decodeString">{{decodeString}}</s-highlight>
+    <textarea rows="10" v-model="string"></textarea>
+    <pre><code>{{decodeString}}</code></pre>
   </div>
 </template>
 
 <script>
-   export default {
+  export default {
     name: 'vHtmlEncode',
     data () {
       return {
-        string: '',
-        decodeString: ''
+        string: ''
       }
     },
-    methods: {
-      queryStringParse () {
-        this.decodeString = this.string.replace(/</g, '&lt;').replace(/>/g, '&gt;');
+    computed: {
+      decodeString () {
+        return this.string.replace(/</g, '&lt;').replace(/>/g, '&gt;')
       }
     }
   }
@@ -34,8 +33,6 @@
     display: block;
     width: 100%;
   }
-
-
   pre {
     word-break: break-all;
     white-space: pre-wrap;
