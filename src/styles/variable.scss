@@ -84,3 +84,11 @@ $xs: 10px;
   border-top: $tw solid transparent;
   border-bottom: $bw solid transparent;
 }
+
+
+/* 文本换行调整 */
+@mixin text-wrap {
+  word-break: break-all;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}

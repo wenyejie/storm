@@ -6,7 +6,7 @@
  -->
 <template>
   <div class="page page-query">
-    <textarea rows="5" v-model="queryString"></textarea>
+    <s-textarea rows="5" v-model="queryString"></s-textarea>
     <pre>{{queryJson}}</pre>
   </div>
 </template>
@@ -31,16 +31,8 @@
 
 
 <style lang="scss" scoped>
-  textarea {
-    display: block;
-    width: 100%;
-  }
-
-
+  @import "../../styles/variable";
   pre {
-    word-break: break-all;
-    white-space: pre-wrap;
-    word-wrap: break-word;
-    max-width: 100%;
+    @include text-wrap;
   }
 </style>
