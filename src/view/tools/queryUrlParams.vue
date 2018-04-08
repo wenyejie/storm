@@ -6,8 +6,8 @@
  -->
 <template>
   <div class="page page-query">
-    <textarea rows="10" v-model="queryString" @input="queryStringParse"></textarea>
-    <s-highlight lang="json" v-if="queryJson">{{queryJson}}</s-highlight>
+    <textarea rows="10" v-model="queryString"></textarea>
+    <pre>{{queryJson}}</pre>
   </div>
 </template>
 
@@ -18,13 +18,12 @@
     name: 'vQueryUrlParams',
     data () {
       return {
-        queryString: '',
-        queryJson: ''
+        queryString: ''
       }
     },
-    methods: {
-      queryStringParse () {
-        this.queryJson = queryUrlParams(this.queryString)
+    computed: {
+      queryJson () {
+        return queryUrlParams(this.queryString)
       }
     }
   }
