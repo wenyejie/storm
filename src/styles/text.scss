@@ -6,6 +6,8 @@
  * date: 2017/09/19
  */
 
+@import "./variable";
+
 .text {
 
   &-bold {
@@ -22,6 +24,14 @@
 
   &-right {
     text-align: right;
+  }
+
+  &-wrap {
+    @include text-wrap;
+  }
+
+  &--ellipsis {
+    @include text-ellipsis;
   }
 }
 

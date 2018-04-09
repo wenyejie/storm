@@ -23,6 +23,14 @@
       <div class="ellipsis">ellipsis ellipsis ellipsis ellipsis ellipsis ellipsis ellipsis ellipsis</div>
     </s-panel>
 
+    <s-panel title="Details 详情">
+      <details>
+        <summary>Please fuck me!</summary>
+        <div>哈哈</div>
+        <div>YES!</div>
+      </details>
+    </s-panel>
+
   </div>
 
 </template>
