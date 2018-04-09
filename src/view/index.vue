@@ -19,6 +19,10 @@
       </div>
     </s-panel>
 
+    <s-panel title="Ellipsis 省略...">
+      <div class="ellipsis">ellipsis ellipsis ellipsis ellipsis ellipsis ellipsis ellipsis ellipsis</div>
+    </s-panel>
+
   </div>
 
 </template>
@@ -109,5 +113,10 @@
 
   .triangle-left {
     @include triangle-left(#000, 100px, 100px, 100px);
+  }
+
+  .ellipsis {
+    @include text-ellipsis;
+    width: 300px;
   }
 </style>

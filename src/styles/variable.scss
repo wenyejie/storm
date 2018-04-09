@@ -92,3 +92,10 @@ $xs: 10px;
   white-space: pre-wrap;
   word-wrap: break-word;
 }
+
+/* 文本隐藏省略 */
+@mixin text-ellipsis {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}

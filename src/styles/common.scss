@@ -23,3 +23,12 @@ a {
     color: $primaryLight;
   }
 }
+
+
+.text-wrap {
+  @include text-wrap;
+}
+
+.text-ellipsis {
+  @include text-ellipsis;
+}
