@@ -42,6 +42,7 @@ const config = merge(base, {
 })
 
 if (process.env.NODE_ENV === 'production') {
+
   config.plugins.push(
     // auto generate service worker
     new SWPrecachePlugin({
@@ -51,7 +52,7 @@ if (process.env.NODE_ENV === 'production') {
       dontCacheBustUrlsMatching: /./,
       staticFileGlobsIgnorePatterns: [/\.map$/, /\.json$/],
       runtimeCaching: [
-        {
+        /*{
           urlPattern: '/',
           handler: 'networkFirst'
         },
@@ -66,7 +67,7 @@ if (process.env.NODE_ENV === 'production') {
         {
           urlPattern: '/user/:id',
           handler: 'networkFirst'
-        }
+        }*/
       ]
     })
   )

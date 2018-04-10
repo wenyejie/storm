@@ -75,7 +75,6 @@
        * @param item
        */
       addItem (item) {
-        console.log(item)
         this.list.push(item)
         if (this.list.length === 1) {
           this.toggle(item)
