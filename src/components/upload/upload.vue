@@ -17,7 +17,7 @@
 <script>
   import imageCompress from '../../core/imageCompress'
   export default {
-    name: 'upload',
+    name: 'sUpload',
     props: {
 
       // 名称

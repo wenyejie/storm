@@ -30,7 +30,7 @@
 
 <script>
   export default {
-    name: 'message',
+    name: 'sMessage',
     props: {
       value: Boolean,
 

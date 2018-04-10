@@ -31,7 +31,7 @@
 
 <script>
   export default {
-    name: 'carousel',
+    name: 'sCarousel',
     props: {
 
       // 下标值

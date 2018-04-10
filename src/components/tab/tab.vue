@@ -23,7 +23,7 @@
 
 <script>
   export default {
-    name: 'tab',
+    name: 'sTab',
     props: {
 
       // 所在

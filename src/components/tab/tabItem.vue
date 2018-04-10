@@ -13,7 +13,7 @@
 
 <script>
   export default {
-    name: 'tab-item',
+    name: 'sTabItem',
     props: {
 
       // 是否要移除dom

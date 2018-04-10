@@ -12,7 +12,7 @@
 
 <script>
   export default {
-    name: 'carousel-item',
+    name: 'sCarouselItem',
     computed: {
       index () {
         return this.$parent.index
