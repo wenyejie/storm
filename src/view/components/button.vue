@@ -178,7 +178,6 @@
 </template>
 
 <script>
-
   export default {
     name: 'viewButton'
   }

@@ -14,7 +14,7 @@
 </template>
 
 <script>
-  import './assets/highlight.pack'
+  // import './assets/highlight.pack'
 
   export default {
     name: 'sHighlight',
@@ -35,7 +35,7 @@
       }
     },
     mounted () {
-      window.hljs.highlightBlock(this.$refs.code);
+      // this.$isServer && window.hljs.highlightBlock(this.$refs.code);
     }
   }
 </script>

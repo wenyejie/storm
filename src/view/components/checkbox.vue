@@ -34,15 +34,9 @@
 </template>
 
 <script>
-  import sCheckbox from '../../components/checkbox/index'
-  import sCheckboxGroup from '../../components/checkboxGroup/index'
 
   export default {
     name: 'checkbox',
-    components: {
-      sCheckbox,
-      sCheckboxGroup
-    },
     data () {
       return {
         demo: false,
