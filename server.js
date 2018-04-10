@@ -113,7 +113,7 @@ function render (req, res) {
 }
 
 app.get('*', isProd ? render : (req, res) => {
-  readyPromise.then(() => render(req, res))
+  readyPromise.then(() => render(req, res), () => {})
 })
 
 const port = process.env.PORT || 8088;
