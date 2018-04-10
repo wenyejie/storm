@@ -19,8 +19,8 @@
   }
 </script>
 
-<style lang="scss">
+<!--<style lang="scss">
   .error404 {
 
   }
-</style>
+</style>-->

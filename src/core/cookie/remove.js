@@ -5,7 +5,7 @@
  * @date: 2018/02/24
  */
 
-import encode from '../../utils/encode';
+import encode from '../../util/encode';
 import {domain, path} from './options';
 import has from './has'
 

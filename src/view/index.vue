@@ -5,9 +5,9 @@
 
     <s-panel title="MTA漏斗模型测试">
       <s-button type="primary" @click="mtaDemo('one')">ONE</s-button>
-      <s-button type="primary" @click="mtaDemo('two')">TWO</s-button>
-      <s-button type="primary" @click="mtaDemo('three')">THREE</s-button>
-      <s-button type="primary" @click="mtaDemo('four')">FOUR</s-button>
+      <s-button type="primary" @click="mtaDemo('two')" class="ml-20">TWO</s-button>
+      <s-button type="primary" @click="mtaDemo('three')" class="ml-20">THREE</s-button>
+      <s-button type="primary" @click="mtaDemo('four')" class="ml-20"s>FOUR</s-button>
     </s-panel>
 
     <s-panel title="Triangle 三角形测试">
@@ -43,8 +43,8 @@
 
 <script>
   // import lazyimg from '../directives/lazyimg'
-  import random from '../utils/random'
-  import visibilityChange from '../core/visibilityChange'
+  import random from '../util/random'
+  // import visibilityChange from '../core/visibilityChange'
 
   export default {
     name: 'index',
@@ -66,15 +66,17 @@
       }
     },
     created () {
-      const worker = new Worker('/workers/demo.js')
-      worker.onmessage = function (e) {
-        console.log(e.data)
-      }
-      worker.postMessage({addend: 1000, augend: 1002})
+      if (!this.$isServer) {
+        /*const worker = new Worker('/workers/demo.js')
+        worker.onmessage = function (e) {
+          console.log(e.data)
+        }
+        worker.postMessage({addend: 1000, augend: 1002})*/
 
-      visibilityChange.add((visibility) => {
-        console.log(visibility)
-      })
+        /*visibilityChange.add((visibility) => {
+          console.log(visibility)
+        })*/
+      }
     }
   }
 

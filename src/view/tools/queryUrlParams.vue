@@ -12,7 +12,7 @@
 </template>
 
 <script>
-  import queryUrlParams from '../../utils/queryUrlParams';
+  import queryUrlParams from '../../util/queryUrlParams';
 
    export default {
     name: 'vQueryUrlParams',

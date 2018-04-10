@@ -21,7 +21,7 @@
      name: 'vUri',
     data () {
       return {
-        string: location.href,
+        string: '',
         translatedString: ''
       }
     },

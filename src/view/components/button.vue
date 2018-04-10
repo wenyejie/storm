@@ -178,10 +178,8 @@
 </template>
 
 <script>
-  import SButton from '../../components/button/button'
 
   export default {
-    components: {SButton},
     name: 'viewButton'
   }
 </script>

@@ -63,10 +63,8 @@
 </template>
 
 <script>
-  import SHighlight from '../../components/highlight/highlight'
 
   export default {
-    components: {SHighlight},
     name: 'viewDialog',
     data () {
       return {
