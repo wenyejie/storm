@@ -65,7 +65,7 @@ module.exports = {
             fallback: 'vue-style-loader'
           })
           : ['vue-style-loader', 'css-loader', 'sass-loader']
-      },
+      }
     ]
   },
   performance: {

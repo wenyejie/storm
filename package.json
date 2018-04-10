@@ -16,6 +16,7 @@
     "npm": ">=4.0"
   },
   "dependencies": {
+    "ajv": "^6.4.0",
     "compression": "^1.7.1",
     "cross-env": "^5.1.1",
     "es6-promise": "^4.1.1",
