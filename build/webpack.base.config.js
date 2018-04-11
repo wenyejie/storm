@@ -55,9 +55,22 @@ module.exports = {
             use: [
               {
                 loader: 'css-loader',
-                options: { minimize: true }
+                options: {
+                  minimize: true,
+                  postcss: [
+                    require('autoprefixer')()
+                  ]
+                }
               },
-              'sass-loader'
+              {
+                loader: 'sass-loader',
+                options: {
+                  minimize: true,
+                  postcss: [
+                    require('autoprefixer')()
+                  ]
+                }
+              }
             ],
             fallback: 'vue-style-loader'
           })
