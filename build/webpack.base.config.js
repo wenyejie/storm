@@ -3,6 +3,7 @@ const webpack = require('webpack')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin')
 const {VueLoaderPlugin} = require('vue-loader')
+const vueConfig = require('./vue-loader.config');
 
 const isProd = process.env.NODE_ENV === 'production'
 
@@ -17,7 +18,7 @@ module.exports = {
   },
   resolve: {
     alias: {
-      'public': path.resolve(__dirname, '../public')
+      'static': path.resolve(__dirname, '../static')
     }
   },
   module: {
@@ -26,14 +27,7 @@ module.exports = {
       {
         test: /\.vue$/,
         loader: 'vue-loader',
-        options: {
-          minimize: true,
-          preserveWhitespace: false,
-          extractCSS: isProd,
-          postcss: [
-            require('autoprefixer')()
-          ]
-        }
+        options: vueConfig
       },
       {
         test: /\.js$/,
@@ -49,33 +43,37 @@ module.exports = {
         }
       },
       {
+        test: /\.css$/,
+        exclude: /node_modules/,
+        use: isProd ? ExtractTextPlugin.extract({
+          use: ['css-loader?minimize'],
+          fallback: 'vue-style-loader'
+        }) : ['vue-style-loader', 'css-loader']
+      },
+      {
+        test: /\.scss$/,
+        exclude: /node_modules/,
+        use: isProd ? ExtractTextPlugin.extract({
+          use: ['css-loader', 'sass-loader'],
+          fallback: 'vue-style-loader'
+        }) : ['vue-style-loader', 'css-loader', 'sass-loader']
+      }/*,
+      {
         test: /\.(scss|css)$/,
         use: isProd
           ? ExtractTextPlugin.extract({
             use: [
               {
                 loader: 'css-loader',
-                options: {
-                  minimize: true,
-                  postcss: [
-                    require('autoprefixer')()
-                  ]
-                }
               },
               {
                 loader: 'sass-loader',
-                options: {
-                  minimize: true,
-                  postcss: [
-                    require('autoprefixer')()
-                  ]
-                }
               }
             ],
             fallback: 'vue-style-loader'
           })
           : ['vue-style-loader', 'css-loader', 'sass-loader']
-      }
+      }*/
     ]
   },
   performance: {
@@ -84,6 +82,15 @@ module.exports = {
   },
   plugins: isProd
     ? [
+      new webpack.LoaderOptionsPlugin({
+        options: {
+          vue: {
+            loaders: {
+              scss: 'style-loader!css-loader!sass-loader'
+            }
+          }
+        }
+      }),
       new VueLoaderPlugin(),
       new webpack.optimize.UglifyJsPlugin({
         compress: {warnings: false}
@@ -94,6 +101,15 @@ module.exports = {
       })
     ]
     : [
+      new webpack.LoaderOptionsPlugin({
+        options: {
+          vue: {
+            loaders: {
+              scss: 'style-loader!css-loader!sass-loader'
+            }
+          }
+        }
+      }),
       new VueLoaderPlugin(),
       new FriendlyErrorsPlugin()
     ]
