@@ -107,6 +107,10 @@
       name: 'net::ERR_SSL_PROTOCOL_ERROR',
       explain: 'SSL协议错误',
       remark: '无法与服务器建议正常的SSL协议链接.'
+    }, {
+      name: 'net::ERR_TOO_MANY_REDIRECTS',
+      explain: '太多重定向了!',
+      remark: ''
     }
   ]
   export default {
@@ -125,8 +129,8 @@
        * @return {*[]}
        */
       filterList () {
-        const regexp = new RegExp(`${this.filterKey}`, 'i');
-        return list.filter(item => regexp.test(item.name));
+        const regexp = new RegExp(`${this.filterKey}`, 'i')
+        return list.filter(item => regexp.test(item.name))
       }
     }
   }
