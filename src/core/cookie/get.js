@@ -5,9 +5,9 @@
  * @date: 2018/02/24
  */
 
-import encode from '../../util/encode';
-import decode from '../../util/decode';
+import encodeURI from '../../util/encodeURI';
+import decodeURI from '../../util/decodeURI';
 
 export default key => {
-  return decode(document.cookie.replace(new RegExp("(?:(?:^|.*;)\\s*" + encode(key).replace(/[\-\.\+\*]/g, "\\$&") + "\\s*\\=\\s*([^;]*).*$)|^.*$"), "$1")) || null;
+  return decodeURI(document.cookie.replace(new RegExp("(?:(?:^|.*;)\\s*" + encodeURI(key).replace(/[\-\.\+\*]/g, "\\$&") + "\\s*\\=\\s*([^;]*).*$)|^.*$"), "$1")) || null;
 }

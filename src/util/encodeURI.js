@@ -6,5 +6,5 @@
  * @date: 2018/01/17
  */
 export default string => {
-  return encodeURIComponent(string);
+  return encodeURIComponent(typeof string === 'string' ? string : '');
 }

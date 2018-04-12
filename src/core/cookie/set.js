@@ -5,7 +5,7 @@
  * @date: 2018/02/24
  */
 
-import encode from '../../util/encode';
+import encodeURI from '../../util/encodeURI';
 
 import {domain, path, secure} from './options';
 
@@ -40,7 +40,7 @@ export default (key, value, opts) => {
   opts.expires = new Date(+opts.expires + 288e5);
 
   document.cookie = ([
-    encode(key) + '=' + encode(value),
+    encodeURI(key) + '=' + encodeURI(value),
     opts.expires ? '; expires=' + opts.expires.toUTCString() : '',
     opts.path ? '; path=' + opts.path : '',
     opts.domain ? '; domain=' + opts.domain : '',

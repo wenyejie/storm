@@ -5,8 +5,8 @@
  * @date: 2018/02/24
  */
 
-import encode from '../../util/encode';
+import encodeURI from '../../util/encodeURI';
 
 export default (key) => {
-  return (new RegExp("(?:^|;\\s*)" + encode(key).replace(/[\-\.\+\*]/g, "\\$&") + "\\s*\\=")).test(document.cookie);
+  return (new RegExp("(?:^|;\\s*)" + encodeURI(key).replace(/[\-\.\+\*]/g, "\\$&") + "\\s*\\=")).test(document.cookie);
 }
