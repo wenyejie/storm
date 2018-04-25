@@ -51,6 +51,13 @@ export default {
       path: 'queryHeaders',
       name: 'rQueryHeaders',
       component: resolve => require(['../view/tools/queryHeaders.vue'], resolve)
+    },
+
+    // 终端命令
+    {
+      path: 'terminalCommand',
+      name: 'rTerminalCommand',
+      component: resolve => require(['../view/tools/terminalCommand.vue'], resolve)
     }
   ]
 }

@@ -36,6 +36,10 @@ export default [
       {
         name: 'Headers参数',
         path: '/tools/queryHeaders'
+      },
+      {
+        name: 'terminalCommand终端命令',
+        path: '/tools/terminalCommand'
       }
     ]
   },
