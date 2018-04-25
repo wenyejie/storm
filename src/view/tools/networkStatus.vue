@@ -107,9 +107,15 @@
       name: 'net::ERR_SSL_PROTOCOL_ERROR',
       explain: 'SSL协议错误',
       remark: '无法与服务器建议正常的SSL协议链接.'
-    }, {
+    },
+    {
       name: 'net::ERR_TOO_MANY_REDIRECTS',
       explain: '太多重定向了!',
+      remark: ''
+    },
+    {
+      name: 'net::ERR_CONNECTION_CLOSED',
+      explain: '链接被关闭, VPN/翻墙工具失效!',
       remark: ''
     }
   ]

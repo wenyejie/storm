@@ -5,7 +5,7 @@
  * @date: 2018/02/08
  */
 
-export default (search = location.search) => {
+const queryUrlParams = (search = '') => {
 
   // 判断是否为字符串类型
   if (typeof search !== 'string') {
@@ -20,17 +20,17 @@ export default (search = location.search) => {
     return params
   }
 
-  let itemSplit;
+  let itemSplit
 
   if (Array.isArray(paramsSplit)) {
     paramsSplit.forEach(function (item) {
-      // 数据为空, 腿出方法
+      // 数据为空, 退出方法
       if (!item) {
         return false
       }
       itemSplit = item.split(/=/)
 
-      // 判断字符串中是否有多个=
+      // 判断字符串中是否有多个=module.exports
       if (itemSplit.length >= 2) { // 是
         const key = itemSplit.splice(0, 1)
         params[key] = itemSplit.join('=')
@@ -39,3 +39,9 @@ export default (search = location.search) => {
   }
   return params
 }
+
+if (module) {
+  module.exports = queryUrlParams
+}
+
+// export default queryUrlParams;

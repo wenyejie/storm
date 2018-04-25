@@ -2,28 +2,28 @@
   "name": "Storm",
   "short_name": "Storm",
   "icons": [{
-      "src": "/static/logo-120.png",
-      "sizes": "120x120",
+      "src": "/static/logo-16.png",
+      "sizes": "16x16",
       "type": "image/png"
     }, {
-      "src": "/static/logo-144.png",
-      "sizes": "144x144",
+      "src": "/static/logo-32.png",
+      "sizes": "32x32",
       "type": "image/png"
     }, {
-      "src": "/static/logo-152.png",
-      "sizes": "152x152",
+      "src": "/static/logo-64.png",
+      "sizes": "64x64",
       "type": "image/png"
     }, {
-      "src": "/static/logo-192.png",
-      "sizes": "192x192",
+      "src": "/static/logo-128.png",
+      "sizes": "128x128",
       "type": "image/png"
     }, {
       "src": "/static/logo-256.png",
       "sizes": "256x256",
       "type": "image/png"
     }, {
-      "src": "/static/logo-384.png",
-      "sizes": "384x384",
+      "src": "/static/logo-512.png",
+      "sizes": "512x512",
       "type": "image/png"
     }, {
     "src": "/static/logo-512.png",
