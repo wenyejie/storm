@@ -98,7 +98,9 @@ function render (req, res) {
   }
 
   const context = {
-    title: 'Storm', // default title
+    title: 'Storm', // default titled
+    keywords: 'Storm|components|vue2|vue-router|vuex|vue-ssr', // default titled
+    description: 'Storm components for vue2.x', // default titled
     url: req.url
   }
   renderer.renderToString(context, (err, html) => {
