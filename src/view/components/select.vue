@@ -94,6 +94,7 @@
 <script>
   export default {
     name: 'vSelect',
+    title: 'select',
     data () {
       return {
         demo: '',

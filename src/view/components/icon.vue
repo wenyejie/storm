@@ -154,7 +154,8 @@
 
 <script>
   export default {
-    name: 'icon'
+    name: 'icon',
+    title: 'icon'
   }
 </script>
 

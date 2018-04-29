@@ -6,12 +6,16 @@ import { createStore } from './store'
 import { createRouter } from './router'
 import { sync } from 'vuex-router-sync'
 import titleMixin from './util/title'
+import keywordsMixin from './util/keywords'
+import descriptionMixin from './util/description'
 import * as filters from './util/filters'
 
 Vue.use(components)
 
-// mixin for handling title
+// mixin for handling TDK
 Vue.mixin(titleMixin)
+Vue.mixin(keywordsMixin)
+Vue.mixin(descriptionMixin)
 
 // register global utility filters.
 Object.keys(filters).forEach(key => {

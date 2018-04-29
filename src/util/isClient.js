@@ -5,4 +5,4 @@
  * @date: 2018/04/10
  */
 
-export default () => typeof window === 'object';
+export default process.env.VUE_ENV === 'client';

@@ -7,7 +7,7 @@
       <s-button type="primary" @click="mtaDemo('one')">ONE</s-button>
       <s-button type="primary" @click="mtaDemo('two')" class="ml-20">TWO</s-button>
       <s-button type="primary" @click="mtaDemo('three')" class="ml-20">THREE</s-button>
-      <s-button type="primary" @click="mtaDemo('four')" class="ml-20"s>FOUR</s-button>
+      <s-button type="primary" @click="mtaDemo('four')" class="ml-20">FOUR</s-button>
     </s-panel>
 
     <s-panel title="Triangle 三角形测试">
@@ -106,6 +106,18 @@
     console.log(j)
   });
   */
+
+  const p1 = new Promise((resolve, reject) => {
+    resolve(1111);
+  });
+  const p2 = new Promise((resolve, reject) => {
+    resolve(2222);
+  });
+
+  Promise.all([p1, p2])
+  .then(([r1, r2]) => {
+    console.log(r1, r2);
+  })
 </script>
 
 <style lang="scss" scoped>

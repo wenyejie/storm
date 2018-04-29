@@ -5,6 +5,5 @@
  * @date: 2018/04/10
  */
 
-import isClient from './isClient';
 
-export default () => !isClient();
+export default () => process.env.VUE_ENV === 'server';

@@ -66,6 +66,7 @@
 
   export default {
     name: 'viewDialog',
+    title: 'dialog',
     data () {
       return {
         defaultDialogModel: false,

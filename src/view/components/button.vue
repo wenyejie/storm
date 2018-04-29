@@ -179,7 +179,8 @@
 
 <script>
   export default {
-    name: 'viewButton'
+    name: 'viewButton',
+    title: 'button'
   }
 </script>
 

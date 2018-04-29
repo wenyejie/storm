@@ -17,9 +17,10 @@
 const reportError = (message, source, lineno, colno, error) => {
   message = message.toLocaleLowerCase()
 
+  console.log(message, source, lineno, colno, error)
+
   // 过滤其它源的js错误
   if (message.includes('script error')) return false
-  console.log(message, source, lineno, colno, error)
 }
 
 if (typeof window !== 'undefined') window.onerror = reportError

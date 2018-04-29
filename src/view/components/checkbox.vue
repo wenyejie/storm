@@ -37,6 +37,7 @@
 
   export default {
     name: 'checkbox',
+    title: 'checkbox'
     data () {
       return {
         demo: false,

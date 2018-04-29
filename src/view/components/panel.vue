@@ -12,7 +12,8 @@
 
 <script>
   export default {
-    name: 'panel'
+    name: 'vPanel',
+    title: 'panel'
   }
 </script>
 

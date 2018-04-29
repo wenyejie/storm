@@ -22,7 +22,8 @@
 
 <script>
   export default {
-    name: 'color'
+    name: 'vColor',
+    title: 'color'
   }
 </script>
 

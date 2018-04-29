@@ -104,6 +104,18 @@ export default {
       path: 'page',
       name: 'page',
       component: resolve => require(['../view/components/page.vue'], resolve)
+    },
+
+    {
+      path: 'row',
+      name: 'row',
+      component: resolve => require(['../view/components/row.vue'], resolve)
+    },
+
+    {
+      path: 'col',
+      name: 'col',
+      component: resolve => require(['../view/components/col.vue'], resolve)
     }
   ]
 }

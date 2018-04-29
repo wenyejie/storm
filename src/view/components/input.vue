@@ -51,7 +51,8 @@
 
 <script>
   export default {
-    name: 'viewInput'
+    name: 'viewInput',
+    title: 'input'
   }
 </script>
 

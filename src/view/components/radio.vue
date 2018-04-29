@@ -39,7 +39,8 @@
 
 <script>
   export default {
-    name: 'radio',
+    name: 'vRadio',
+    title: 'radio',
     data () {
       return {
         demo: false,

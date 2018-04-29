@@ -50,17 +50,19 @@
   }
 </script>
 
-<!-- /*@for $i from 1 through 24 {
+<!-- /**/-->
+
+<style lang="scss">
+  .s-col {
+
+    @for $i from 1 through 24 {
       &-#{$i} {
         flex: 0 0 $i / 24 * 100%
       }
       &-offset-#{$i} {
         margin-left: $i / 24 * 100%
       }
-    }*/-->
-
-<style lang="scss">
-  .s-col {
+    }
 
     &-align {
 

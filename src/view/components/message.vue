@@ -34,6 +34,7 @@
 <script>
   export default {
     name: 'vMessage',
+    title: 'message',
     data () {
       return {
         demo1: false,

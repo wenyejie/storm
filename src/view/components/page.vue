@@ -88,6 +88,7 @@
 
   export default {
     name: 'vPage',
+    title: 'page',
     data () {
       return {
         page: 0
