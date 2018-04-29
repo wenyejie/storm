@@ -11,7 +11,8 @@
 
 <script>
   export default {
-    name: 'error404',
+    name: 'v404',
+    title: '404',
     data () {
       return {}
     },

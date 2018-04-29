@@ -8,7 +8,7 @@
 import isClient from '../util/isClient';
 let browser = {}
 
-if (isClient()) {
+if (isClient) {
 
 // 浏览器ua
   const ua = navigator.userAgent.toLocaleLowerCase()

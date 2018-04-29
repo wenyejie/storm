@@ -14,7 +14,8 @@
 
 <script>
   export default {
-    name: 'upload'
+    name: 'upload',
+    title: 'upload'
   }
 </script>
 

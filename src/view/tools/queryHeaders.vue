@@ -107,6 +107,7 @@
   ];
   export default {
     name: 'vQueryHeaders',
+    title: 'queryHeaders',
     data () {
       return {
 

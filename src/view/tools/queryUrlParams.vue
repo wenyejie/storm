@@ -12,10 +12,11 @@
 </template>
 
 <script>
-  import queryUrlParams from '../../util/queryUrlParams';
+  import queryUrlParams from '../../util/queryUrlParams'
 
-   export default {
+  export default {
     name: 'vQueryUrlParams',
+    title: 'queryHeaders',
     data () {
       return {
         queryString: ''

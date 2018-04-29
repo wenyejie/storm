@@ -36,8 +36,8 @@
 <script>
 
   export default {
-    name: 'checkbox',
-    title: 'checkbox'
+    name: 'vCheckbox',
+    title: 'checkbox',
     data () {
       return {
         demo: false,

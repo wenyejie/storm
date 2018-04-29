@@ -121,6 +121,7 @@
   ]
   export default {
     name: 'vNetworkStatus',
+    title: 'networkStatus',
     data () {
       return {
 

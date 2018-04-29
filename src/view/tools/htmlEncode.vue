@@ -14,6 +14,7 @@
 <script>
   export default {
     name: 'vHtmlEncode',
+    title: 'htmlEncode',
     data () {
       return {
         string: ''

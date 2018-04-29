@@ -15,11 +15,15 @@
 <script>
   import browser from '../../core/browser';
   export default {
-    name: 'browser',
+    name: 'vBrowser',
+    title: 'browser',
     data () {
       return {
-        browser
+        browser: {}
       }
+    },
+    mounted () {
+      this.browser = browser;
     }
   }
 </script>

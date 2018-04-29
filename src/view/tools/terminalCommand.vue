@@ -39,6 +39,7 @@
   ]
   export default {
     name: 'vTerminalCommand',
+    title: 'terminalCommand',
     data () {
       return {
 

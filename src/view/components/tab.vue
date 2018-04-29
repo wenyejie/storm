@@ -24,7 +24,8 @@
 <script>
 
   export default {
-    name: 'vTab'
+    name: 'vTab',
+    title: 'tab'
   }
 </script>
 

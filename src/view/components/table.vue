@@ -149,7 +149,8 @@
 
 <script>
   export default {
-    name: 'viewTable'
+    name: 'vTable',
+    title: 'table'
   }
 </script>
 

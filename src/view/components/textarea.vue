@@ -39,6 +39,7 @@
 
   export default {
     name: 'vTextarea',
+    title: 'textarea',
     data () {
       return {
         string: 'please fuck me!'
