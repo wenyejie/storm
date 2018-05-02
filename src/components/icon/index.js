@@ -5,4 +5,4 @@
  * @date: 2017/12/20
  */
 
-export default resolve => require(['./icon.vue'], resolve)
+export default () => import('./icon.vue');

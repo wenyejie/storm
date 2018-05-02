@@ -143,4 +143,4 @@ Vue.prototype.$message = {
   }
 }
 
-export default resolve => require(['./message.vue'], resolve);
+export default () => import('./message.vue');;

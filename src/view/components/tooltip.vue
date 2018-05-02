@@ -7,7 +7,7 @@
 <template>
   <div class="page page-tooltip">
     <s-panel title="Default 默认">
-      
+
     </s-panel>
   </div>
 </template>

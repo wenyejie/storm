@@ -5,4 +5,4 @@
  * @date: 2018/02/08
  */
 
-export default resolve => require(['./textarea.vue'], resolve);
+export default () => import('./textarea.vue');;

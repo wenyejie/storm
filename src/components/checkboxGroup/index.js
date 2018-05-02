@@ -5,4 +5,4 @@
  * date: 2017/10/14
  */
 
-export default resolve => require(['./checkboxGroup.vue'], resolve)
+export default () => import('./checkboxGroup.vue');

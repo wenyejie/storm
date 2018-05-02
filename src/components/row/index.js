@@ -5,4 +5,4 @@
  * date: 2017/11/05
  */
 
-export default resolve => require(['./row.vue'], resolve)
+export default () => import('./row.vue');

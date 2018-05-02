@@ -5,6 +5,6 @@
  * @date: 2018/02/27
  */
 
-export const sTab = resolve => require(['./tab.vue'], resolve);
+export const sTab = () => import('./tab.vue');;
 
-export const sTabItem = resolve => require(['./tabItem.vue'], resolve);
+export const sTabItem = () => import('./tabItem.vue');;

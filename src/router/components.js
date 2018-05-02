@@ -8,114 +8,114 @@
 export default {
   path: '/components',
   name: 'rComponents',
-  component: resolve => require(['../view/components/component.vue'], resolve),
+  component: () => import('../view/components/component.vue'),
   children: [
     {
       path: 'checkbox',
       name: 'rCheckbox',
-      component: resolve => require(['../view/components/checkbox.vue'], resolve)
+      component: () => import('../view/components/checkbox.vue')
     },
 
     {
       path: 'radio',
       name: 'radio',
-      component: resolve => require(['../view/components/radio.vue'], resolve)
+      component: () => import('../view/components/radio.vue')
     },
 
     {
       path: 'panel',
       name: 'panel',
-      component: resolve => require(['../view/components/panel.vue'], resolve)
+      component: () => import('../view/components/panel.vue')
     },
 
     {
       path: 'icon',
       name: 'icon',
-      component: resolve => require(['../view/components/icon.vue'], resolve)
+      component: () => import('../view/components/icon.vue')
     },
 
     {
       path: 'color',
       name: 'color',
-      component: resolve => require(['../view/components/color.vue'], resolve)
+      component: () => import('../view/components/color.vue')
     },
 
     {
       path: 'button',
       name: 'button',
-      component: resolve => require(['../view/components/button.vue'], resolve)
+      component: () => import('../view/components/button.vue')
     },
 
     {
       path: 'upload',
       name: 'upload',
-      component: resolve => require(['../view/components/upload.vue'], resolve)
+      component: () => import('../view/components/upload.vue')
     },
 
     {
       path: 'input',
       name: 'input',
-      component: resolve => require(['../view/components/input.vue'], resolve)
+      component: () => import('../view/components/input.vue')
     },
 
     {
       path: 'table',
       name: 'table',
-      component: resolve => require(['../view/components/table.vue'], resolve)
+      component: () => import('../view/components/table.vue')
     },
 
     {
       path: 'select',
       name: 'select',
-      component: resolve => require(['../view/components/select.vue'], resolve)
+      component: () => import('../view/components/select.vue')
     },
 
     {
       path: 'dialog',
       name: 'dialog',
-      component: resolve => require(['../view/components/dialog.vue'], resolve)
+      component: () => import('../view/components/dialog.vue')
     },
 
     {
       path: 'textarea',
       name: 'textarea',
-      component: resolve => require(['../view/components/textarea.vue'], resolve)
+      component: () => import('../view/components/textarea.vue')
     },
 
     {
       path: 'message',
       name: 'message',
-      component: resolve => require(['../view/components/message.vue'], resolve)
+      component: () => import('../view/components/message.vue')
     },
 
     {
       path: 'carousel',
       name: 'carousel',
-      component: resolve => require(['../view/components/carousel.vue'], resolve)
+      component: () => import('../view/components/carousel.vue')
     },
 
     {
       path: 'tab',
       name: 'tab',
-      component: resolve => require(['../view/components/tab.vue'], resolve)
+      component: () => import('../view/components/tab.vue')
     },
 
     {
       path: 'page',
       name: 'page',
-      component: resolve => require(['../view/components/page.vue'], resolve)
+      component: () => import('../view/components/page.vue')
     },
 
     {
       path: 'row',
       name: 'row',
-      component: resolve => require(['../view/components/row.vue'], resolve)
+      component: () => import('../view/components/row.vue')
     },
 
     {
       path: 'col',
       name: 'col',
-      component: resolve => require(['../view/components/col.vue'], resolve)
+      component: () => import('../view/components/col.vue')
     }
   ]
 }

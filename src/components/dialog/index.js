@@ -136,4 +136,4 @@ Vue.prototype.$dialog = {
   }
 }
 
-export default resolve => require(['./dialog.vue'], resolve);
+export default () => import('./dialog.vue');;

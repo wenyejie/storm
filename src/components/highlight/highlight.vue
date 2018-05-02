@@ -15,6 +15,10 @@
 
 <script>
   // import './assets/highlight.pack'
+  // import isClient from '../../util/isClient';
+  /*if (isClient) {
+    ;
+  }*/
 
   export default {
     name: 'sHighlight',
@@ -35,7 +39,9 @@
       }
     },
     mounted () {
-      // this.$isServer && window.hljs.highlightBlock(this.$refs.code);
+      // const hljs = import('./assets/highlight.pack')
+      // console.log(hljs());
+      // hljs.default.highlightBlock(this.$refs.code);
     }
   }
 </script>

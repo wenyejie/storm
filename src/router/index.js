@@ -13,7 +13,7 @@ export const createRouter = () => {
       {
         path: '/',
         name: 'index',
-        component: resolve => require(['../view/index.vue'], resolve)
+        component: () => import('../view/index.vue')
       },
 
       Components,

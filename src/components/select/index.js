@@ -5,4 +5,4 @@
  * @date: 2018/01/18
  */
 
-export default resolve => require(['./select.vue'], resolve)
+export default () => import('./select.vue');

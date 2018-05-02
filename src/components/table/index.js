@@ -5,4 +5,4 @@
  * @date: 2017/12/23
  */
 
-export default resolve => require(['./table.vue'], resolve)
+export default () => import('./table.vue');

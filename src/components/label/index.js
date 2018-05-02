@@ -5,4 +5,4 @@
  * @date: 2018/03/26
  */
 
-export default resolve => require(['./label.vue'], resolve)
+export default () => import('./label.vue');
