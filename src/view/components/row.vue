@@ -111,8 +111,8 @@
 
   .s-row[class*="s-row-align"] {
     height: 90px;
-    box-shadow: 0 0 1px 0 #aaa;
     margin: 5px 0;
+    background-color: #fcfcfc;
 
     &.s-row-align-stretch {
 
