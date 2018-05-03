@@ -117,6 +117,11 @@
       name: 'net::ERR_CONNECTION_CLOSED',
       explain: '链接被关闭, VPN/翻墙工具失效!',
       remark: ''
+    },
+    {
+      name: 'net::DNS_PROBE_POSSIBLE',
+      explain: 'DNS无法解析',
+      remark: ''
     }
   ]
   export default {
