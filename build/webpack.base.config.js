@@ -48,7 +48,7 @@ module.exports = {
           name: '[name].[ext]?[hash]'
         }
       },
-      {
+      /*{
         test: /\.css$/,
         use: isProd
           ? ExtractTextPlugin.extract({
@@ -56,7 +56,7 @@ module.exports = {
             fallback: 'vue-style-loader'
           })
           : ['vue-style-loader', 'css-loader']
-      },
+      },*/
       {
         test: /\.scss?$/,
         use: isProd
@@ -64,7 +64,10 @@ module.exports = {
             use: [
               {
                 loader: 'css-loader',
-                options: {minimize: true}
+                options: {
+                  minimize: true,
+                  sourceMap: false
+                }
               },
               'sass-loader?-autoprefixer!postcss-loader'
             ],
@@ -83,7 +86,7 @@ module.exports = {
       new VueLoaderPlugin(),
       new webpack.optimize.UglifyJsPlugin({
         compress: {warnings: false},
-        sourceMap: true
+        sourceMap: false
       }),
       new webpack.optimize.ModuleConcatenationPlugin(),
       new ExtractTextPlugin({

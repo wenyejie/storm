@@ -8,6 +8,7 @@ module.exports = {
   // other vue-loader options go here
   // from vue config
   extractCSS: process.env.NODE_ENV === 'production',
+  sourceMap: false,
   preserveWhitespace: false,
   postcss: [
     require('autoprefixer')({
