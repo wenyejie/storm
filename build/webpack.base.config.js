@@ -3,7 +3,7 @@ const webpack = require('webpack')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin')
 const {VueLoaderPlugin} = require('vue-loader')
-// const vueConfig = require('./vue-loader.config');
+const vueLoaderConfig = require('./vue-loader.config')
 
 const isProd = process.env.NODE_ENV === 'production'
 
@@ -18,7 +18,8 @@ module.exports = {
   },
   resolve: {
     alias: {
-      'static': path.resolve(__dirname, '../static')
+      'static': path.resolve(__dirname, '../static'),
+      'vue$': 'vue/dist/vue.js'
     }
   },
   module: {
@@ -26,17 +27,13 @@ module.exports = {
     rules: [
       {
         test: /\.vue$/,
-        use: {
-          loader: 'vue-loader',
-          options: {
-            preserveWhitespace: false,
-            postcss: [
-              require('autoprefixer')({
-                browsers: ['last 3 versions']
-              })
-            ]
+        loader: 'vue-loader',
+        options: vueLoaderConfig
+        /*options: {
+          compilerOptions: {
+            preserveWhitespace: false
           }
-        }
+        }*/
       },
       {
         test: /\.js$/,
@@ -51,60 +48,25 @@ module.exports = {
           name: '[name].[ext]?[hash]'
         }
       },
-      /*{
+      {
         test: /\.css$/,
-        exclude: /node_modules/,
-        use: isProd ? ExtractTextPlugin.extract({
-          use: ['css-loader?minimize'],
-          fallback: 'vue-style-loader'
-        }) : ['vue-style-loader', 'css-loader']
+        use: isProd
+          ? ExtractTextPlugin.extract({
+            use: 'css-loader?minimize',
+            fallback: 'vue-style-loader'
+          })
+          : ['vue-style-loader', 'css-loader']
       },
       {
-        test: /\.scss$/,
-        exclude: /node_modules/,
-        use: [
-          'style-loader',
-          {
-            loader: 'css-loader',
-            options: {
-              minimize: true,
-              sourceMap: false
-            }
-          },
-          {
-            loader: 'sass-loader',
-            options: {
-              sourceMap: true
-            }
-          },
-          {
-            loader: 'postcss-loader',
-            options: {
-              sourceMap: true
-            }
-          }
-        ]
-      },*/
-      {
-        test: /\.(scss|css)$/,
+        test: /\.scss?$/,
         use: isProd
           ? ExtractTextPlugin.extract({
             use: [
               {
                 loader: 'css-loader',
+                options: {minimize: true}
               },
-              {
-                loader: 'sass-loader',
-                options: {
-                  importLoaders: 1,
-                  preserveWhitespace: false,
-                  postcss: [
-                    require('autoprefixer')({
-                      browsers: ['last 3 versions']
-                    })
-                  ]
-                },
-              }
+              'sass-loader?-autoprefixer!postcss-loader'
             ],
             fallback: 'vue-style-loader'
           })
@@ -120,7 +82,8 @@ module.exports = {
     ? [
       new VueLoaderPlugin(),
       new webpack.optimize.UglifyJsPlugin({
-        compress: {warnings: false}
+        compress: {warnings: false},
+        sourceMap: true
       }),
       new webpack.optimize.ModuleConcatenationPlugin(),
       new ExtractTextPlugin({

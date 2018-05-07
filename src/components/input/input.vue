@@ -100,7 +100,7 @@
 </script>
 
 <style lang="scss">
-  @import "../../styles/variable";
+  @import "../../styles/variable.scss";
   .s-input {
     position: relative;
     display: inline-block;

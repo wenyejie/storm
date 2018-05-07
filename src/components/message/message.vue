@@ -132,7 +132,7 @@
 </script>
 
 <style lang="scss">
-  @import "../../styles/variable";
+  @import "../../styles/variable.scss";
   .s-message {
     position: fixed;
     top: 15px;

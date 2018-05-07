@@ -220,7 +220,7 @@
 </script>
 
 <style lang="scss">
-  @import "../../styles/variable";
+  @import "../../styles/variable.scss";
   .s-dialog {
     position: fixed;
     @include absolute-center;

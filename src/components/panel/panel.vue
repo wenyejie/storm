@@ -42,7 +42,7 @@
 </script>
 
 <style lang="scss">
-  @import "../../styles/variable";
+  @import "../../styles/variable.scss";
   .s-panel {
     border-radius: 4px;
     background-color: #fff;

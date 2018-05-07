@@ -32,7 +32,7 @@
 
 
 <style lang="scss" scoped>
-  @import "../../styles/variable";
+  @import "../../styles/variable.scss";
   pre {
     @include text-wrap;
   }

@@ -7,10 +7,13 @@
 
 
 module.exports = {
-  "plugins": {
-    "postcss-import": {},
-    "postcss-url": {},
-    // to edit target browsers: use "browserslist" field in package.json
-    "autoprefixer": {}
-  }
+  "plugins": [
+    require('autoprefixer')([
+      "> 2%",
+      "last 10 Chrome versions",
+      "not ie <= 9",
+      "Android >= 4.2",
+      "IOS >= 8"
+    ])
+  ]
 }

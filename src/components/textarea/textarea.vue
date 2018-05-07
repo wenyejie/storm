@@ -110,7 +110,7 @@
 </script>
 
 <style lang="scss">
-  @import "../../styles/variable";
+  @import "../../styles/variable.scss";
   .s-textarea {
     position: relative;
     display: inline-block;

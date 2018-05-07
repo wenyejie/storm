@@ -81,7 +81,7 @@
 </script>
 
 <style lang="scss">
-  @import "../../styles/variable";
+  @import "../../styles/variable.scss";
 
   .s-mask {
     position: fixed;

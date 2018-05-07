@@ -84,7 +84,7 @@
 </script>
 
 <style lang="scss">
-  @import "../../styles/variable";
+  @import "../../styles/variable.scss";
 
   @keyframes rotating {
     0% {

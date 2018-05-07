@@ -60,7 +60,7 @@
 </script>
 
 <style lang="scss">
-  @import "../../styles/variable";
+  @import "../../styles/variable.scss";
   .s-select {
     display: inline-block;
     vertical-align: middle;
