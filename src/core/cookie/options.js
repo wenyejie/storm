@@ -5,8 +5,10 @@
  * @date: 2018/02/24
  */
 
+import isServer from '../../util/isServer'
+
 // 默认域名
-export const domain = location.hostname.replace(/^(\w|\d)+\./, '');
+export const domain = isServer ? '' : location.hostname.replace(/^(\w|\d)+\./, '');
 
 // 默认路径
 export const path = '/';
