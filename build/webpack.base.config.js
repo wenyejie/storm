@@ -29,11 +29,6 @@ module.exports = {
         test: /\.vue$/,
         loader: 'vue-loader',
         options: vueLoaderConfig
-        /*options: {
-          compilerOptions: {
-            preserveWhitespace: false
-          }
-        }*/
       },
       {
         test: /\.js$/,
@@ -48,17 +43,8 @@ module.exports = {
           name: '[name].[ext]?[hash]'
         }
       },
-      /*{
-        test: /\.css$/,
-        use: isProd
-          ? ExtractTextPlugin.extract({
-            use: 'css-loader?minimize',
-            fallback: 'vue-style-loader'
-          })
-          : ['vue-style-loader', 'css-loader']
-      },*/
       {
-        test: /\.scss?$/,
+        test: /\.s?css?$/,
         use: isProd
           ? ExtractTextPlugin.extract({
             use: [
