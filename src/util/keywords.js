@@ -20,7 +20,7 @@ const clientKeywordsMixin = {
   mounted () {
     const keywords = getKeywords(this);
     if (keywords) {
-      document.keywords = `${keywords}`
+      document.querySelector('[name="keywords"]').content = keywords;
     }
   }
 };

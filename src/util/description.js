@@ -20,7 +20,7 @@ const clientDescriptionMixin = {
   mounted () {
     const description = getDescription(this);
     if (description) {
-      document.description = `${description}`
+      document.querySelector('[name="description"]').content = description;
     }
   }
 };
