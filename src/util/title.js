@@ -11,7 +11,7 @@ const serverTitleMixin = {
   created () {
     const title = getTitle(this)
     if (title) {
-      this.$ssrContext.title = `storm | ${title}`
+      this.$ssrContext.title = `${title} | storm`
     }
   }
 }
@@ -20,7 +20,7 @@ const clientTitleMixin = {
   mounted () {
     const title = getTitle(this)
     if (title) {
-      document.title = `storm | ${title}`
+      document.title = `${title} | storm`
     }
   }
 }

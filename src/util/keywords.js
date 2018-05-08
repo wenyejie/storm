@@ -11,7 +11,7 @@ const serverKeywordsMixin = {
   created () {
     const keywords = getKeywords(this);
     if (keywords) {
-      this.$ssrContext.keywords = `${keywords}`
+      this.$ssrContext.keywords = keywords
     }
   }
 };

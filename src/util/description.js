@@ -11,7 +11,7 @@ const serverDescriptionMixin = {
   created () {
     const description = getDescription(this);
     if (description) {
-      this.$ssrContext.description = `${description}`
+      this.$ssrContext.description = description
     }
   }
 };
