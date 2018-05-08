@@ -9,7 +9,7 @@ import get from './get';
 import set from './set';
 import has from './has';
 import remove from './remove';
-import keys from './remove';
+import keys from './keys';
 
 export default {
   get,
