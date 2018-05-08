@@ -6,28 +6,28 @@ import Tools from './tools'
 
 Vue.use(Router)
 
-export const createRouter = () => {
-  return new Router({
-    mode: 'history',
-    routes: [
-      {
-        path: '/',
-        name: 'index',
-        component: () => import('../view/index.vue')
+const router = new Router({
+  mode: 'history',
+  routes: [
+    {
+      path: '/',
+      name: 'index',
+      component: () => import('../view/index.vue')
+    },
+
+    Components,
+
+    Tools,
+
+    {
+      path: '*',
+      name: '404',
+      meta: {
+        title: '404'
       },
+      component: Error404
+    }
+  ]
+});
 
-      Components,
-
-      Tools,
-
-      {
-        path: '*',
-        name: '404',
-        meta: {
-          title: '404'
-        },
-        component: Error404
-      }
-    ]
-  });
-}
+export const createRouter = () => router
