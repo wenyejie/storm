@@ -22,7 +22,7 @@ const attrName = ['visibilityState', 'webkitVisibilityState'].find(item => `${it
 const eventName = attrName.replace(/state/i, 'change')
 
 // 事件回调
-let eventCb = null;
+let eventCb = null
 
 const eventFn = () => {
   const state = document[attrName]
@@ -37,11 +37,15 @@ const eventFn = () => {
 export default {
 
   add (callback) {
-    eventCb = callback;
-    document.addEventListener(eventName, eventFn);
+    if (callback) {
+      eventCb = callback
+      document.addEventListener(eventName, eventFn)
+    }
   },
 
   remove () {
-    document.removeEventListener(eventName, eventFn);
+    if (eventCb) {
+      document.removeEventListener(eventName, eventFn)
+    }
   }
 }
