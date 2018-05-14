@@ -5,4 +5,4 @@
  * @date: 2018/02/26
  */
 
-export default obj => toString.call(obj) === '[object String]';
+export default obj => Object.prototype.toString.call(obj) === '[object String]';
