@@ -45,7 +45,10 @@
   // import lazyimg from '../directives/lazyimg'
   // import random from '../util/random'
   // import visibilityChange from '../core/visibilityChange'
-  import cookie from '../core/cookie';
+  // import cookie from '../core/cookie';
+  import Vue from 'vue';
+
+  Vue.use(demo);
 
   export default {
     name: 'index',
@@ -68,7 +71,7 @@
     },
     created () {
       if (!this.$isServer) {
-        console.log(cookie, this.$cookie);
+
         /*const worker = new Worker('/workers/demo.js')
         worker.onmessage = function (e) {
           console.log(e.data)

@@ -4,9 +4,10 @@ const LRU = require('lru-cache')
 const express = require('express')
 const favicon = require('serve-favicon')
 const compression = require('compression')
-const microcache = require('route-cache')
+const microCache = require('route-cache')
 const resolve = file => path.resolve(__dirname, file)
 const {createBundleRenderer} = require('vue-server-renderer')
+const cookieParser = require('cookie-parser');
 
 const isProd = process.env.NODE_ENV === 'production'
 const useMicroCache = process.env.MICRO_CACHE !== 'false'
@@ -69,16 +70,18 @@ app.use('/dist', serve('./dist', true))
 app.use('/static', serve('./static', true))
 app.use('/manifest.json', serve('./manifest.json', true))
 app.use('/service-worker.js', serve('./dist/service-worker.js'))
+app.use(cookieParser());
 
 // since this app has no user-specific content, every page is micro-cacheable.
 // if your app involves user-specific content, you need to implement custom
 // logic to determine whether a request is cacheable based on its url and
 // headers.
-// 1-second microcache.
+// 1-second microCache.
 // https://www.nginx.com/blog/benefits-of-microcaching-nginx/
-app.use(microcache.cacheSeconds(1, req => useMicroCache && req.originalUrl))
+app.use(microCache.cacheSeconds(1, req => useMicroCache && req.originalUrl))
 
 function render (req, res) {
+  console.info(`\n\nurl => ${req.url}`);
   const s = Date.now()
 
   res.setHeader("Content-Type", "text/html")
@@ -101,7 +104,8 @@ function render (req, res) {
     title: 'Storm', // default titled
     keywords: 'Storm|components|vue2|vue-router|vuex|vue-ssr', // default titled
     description: 'Storm components for vue2.x', // default titled
-    url: req.url
+    url: req.url,
+    cookies: req.cookies
   }
   renderer.renderToString(context, (err, html) => {
     if (err) {
