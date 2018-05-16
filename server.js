@@ -9,7 +9,7 @@ const resolve = file => path.resolve(__dirname, file)
 const {createBundleRenderer} = require('vue-server-renderer')
 const cookieParser = require('cookie-parser')
 const cluster = require('cluster')
-const numCPUs = require('os').cpus().length
+const os = require('os')
 const CONFIG = require('./config.js')
 
 process.env = Object.assign({}, process.env, CONFIG)
@@ -126,9 +126,17 @@ function render (req, res) {
 }
 
 if (cluster.isMaster) {
-  for (let i = 0; i < numCPUs; i++) {
-    cluster.fork()
-  }
+
+  // cups数
+  const cupNum = os.cpus().length;
+
+  // 预设最大进程数
+  const preProcessNum = process.env.cluster_child_process_number;
+
+  // 最终进程数
+  const processNum = preProcessNum === -1 ? cupNum : (cupNum > preProcessNum ? preProcessNum : cupNum);
+
+  for (let i = 0; i < processNum; i++) cluster.fork()
 
   cluster.on('exit', (worker, code, signal) => {
     console.log(`worker ${worker.process.pid} died`)

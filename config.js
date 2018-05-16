@@ -12,5 +12,8 @@ module.exports = {
   port: 8088,
 
   // LRU缓存地址
-  lru_cache_base_dir: '/User/wenyejie/Github/storm/dist'
+  lru_cache_base_dir: '/User/wenyejie/Github/storm/dist',
+
+  // cluster集群子进程数, -1自动根据cup核数来
+  cluster_child_process_number: -1
 };
