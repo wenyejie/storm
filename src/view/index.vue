@@ -3,13 +3,6 @@
 
     <img v-for="(item, index) in imgs" :src="item" :key="index">
 
-    <s-panel title="MTA漏斗模型测试">
-      <s-button type="primary" @click="mtaDemo('one')">ONE</s-button>
-      <s-button type="primary" @click="mtaDemo('two')" class="ml-20">TWO</s-button>
-      <s-button type="primary" @click="mtaDemo('three')" class="ml-20">THREE</s-button>
-      <s-button type="primary" @click="mtaDemo('four')" class="ml-20">FOUR</s-button>
-    </s-panel>
-
     <s-panel title="Triangle 三角形测试">
       <div class="triangle">
         <div class="triangle-top"></div>
@@ -43,31 +36,19 @@
 
 <script>
   // import lazyimg from '../directives/lazyimg'
-  // import random from '../util/random'
+  // import random from '../utils/random'
   // import visibilityChange from '../core/visibilityChange'
   // import cookie from '../core/cookie';
-  import Vue from 'vue';
 
-  Vue.use(demo);
 
   export default {
     name: 'index',
     data () {
       return {
         msg: 'Welcome to Your Vue.js App',
-        imgs: []
       }
     },
     methods: {
-
-      /**
-       * mta漏斗模型统计
-       *
-       * @param eventName 事件名称
-       */
-      mtaDemo (eventName) {
-        window.MtaH5.clickStat('demo', {[`${eventName}`]: 'true'})
-      }
     },
     created () {
       if (!this.$isServer) {
@@ -111,18 +92,6 @@
     console.log(j)
   });
   */
-
-  const p1 = new Promise((resolve, reject) => {
-    resolve(1111);
-  });
-  const p2 = new Promise((resolve, reject) => {
-    resolve(2222);
-  });
-
-  Promise.all([p1, p2])
-  .then(([r1, r2]) => {
-    console.log(r1, r2);
-  })
 </script>
 
 <style lang="scss" scoped>

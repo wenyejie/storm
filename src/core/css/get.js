@@ -1,4 +1,4 @@
-import cb2cc from '../../util/cb2cc'
+import cb2cc from '../../utils/cb2cc'
 
 /**
  * css get

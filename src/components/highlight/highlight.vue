@@ -15,7 +15,7 @@
 
 <script>
   // import './assets/highlight.pack'
-  // import isClient from '../../util/isClient';
+  // import isClient from '../../utils/isClient';
   /*if (isClient) {
     ;
   }*/

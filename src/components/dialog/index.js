@@ -6,7 +6,7 @@
  */
 
 import Vue from 'vue';
-import props2string from '../../util/props2string';
+import props2string from '../../utils/props2string';
 
 // vm实例
 let vmInstance = null;

@@ -122,6 +122,11 @@
       name: 'net::DNS_PROBE_POSSIBLE',
       explain: 'DNS无法解析',
       remark: ''
+    },
+    {
+      name: 'net::DNS_PROBE_FINISHED_NXDOMAIN',
+      explain: '找不到服务器IP地址',
+      remark: ''
     }
   ]
   export default {

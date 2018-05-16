@@ -5,7 +5,7 @@
  * @date: 2018/02/24
  */
 import Vue from 'vue';
-import isServer from '../../util/isServer';
+import isServer from '../../utils/isServer';
 import get from './get';
 import set from './set';
 import has from './has';

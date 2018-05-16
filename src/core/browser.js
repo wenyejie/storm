@@ -5,7 +5,7 @@
  * @date: 2018/02/08
  */
 
-import isClient from '../util/isClient';
+import isClient from '../utils/isClient';
 let browser = {}
 
 if (isClient) {

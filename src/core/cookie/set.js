@@ -5,7 +5,7 @@
  * @date: 2018/02/24
  */
 
-import encodeURI from '../../util/encodeURI';
+import encodeURI from '../../utils/encodeURI';
 
 import {domain, path, secure} from './options';
 

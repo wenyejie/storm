@@ -7,7 +7,7 @@
  * @author: Storm
  * @date: 2018/02/09
  */
-import cb2cc from '../../util/cb2cc'
+import cb2cc from '../../utils/cb2cc'
 
 export default (element, attrName, attrValue) => {
 

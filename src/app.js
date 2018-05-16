@@ -5,10 +5,10 @@ import components from './components'
 import { createStore } from './store'
 import { createRouter } from './router'
 import { sync } from 'vuex-router-sync'
-import titleMixin from './util/title'
-import keywordsMixin from './util/keywords'
-import descriptionMixin from './util/description'
-import * as filters from './util/filters'
+import titleMixin from './utils/title'
+import keywordsMixin from './utils/keywords'
+import descriptionMixin from './utils/description'
+import * as filters from './utils/filters'
 
 Vue.use(components)
 
