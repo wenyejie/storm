@@ -1,8 +1,6 @@
 <template>
   <div class="page page-index">
 
-    <img v-for="(item, index) in imgs" :src="item" :key="index">
-
     <s-panel title="Triangle 三角形测试">
       <div class="triangle">
         <div class="triangle-top"></div>

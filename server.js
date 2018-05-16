@@ -7,7 +7,14 @@ const compression = require('compression')
 const microCache = require('route-cache')
 const resolve = file => path.resolve(__dirname, file)
 const {createBundleRenderer} = require('vue-server-renderer')
-const cookieParser = require('cookie-parser');
+const cookieParser = require('cookie-parser')
+const cluster = require('cluster')
+const numCPUs = require('os').cpus().length
+const CONFIG = require('./config.js')
+
+process.env = Object.assign({}, process.env, CONFIG)
+
+console.log(JSON.stringify(CONFIG))
 
 const isProd = process.env.NODE_ENV === 'production'
 const useMicroCache = process.env.MICRO_CACHE !== 'false'
@@ -70,7 +77,7 @@ app.use('/dist', serve('./dist', true))
 app.use('/static', serve('./static', true))
 app.use('/manifest.json', serve('./manifest.json', true))
 app.use('/service-worker.js', serve('./dist/service-worker.js'))
-app.use(cookieParser());
+app.use(cookieParser())
 
 // since this app has no user-specific content, every page is micro-cacheable.
 // if your app involves user-specific content, you need to implement custom
@@ -81,11 +88,11 @@ app.use(cookieParser());
 app.use(microCache.cacheSeconds(1, req => useMicroCache && req.originalUrl))
 
 function render (req, res) {
-  console.info(`\n\nurl => ${req.url}`);
+  console.info(`\n\nurl => ${req.url}`)
   const s = Date.now()
 
-  res.setHeader("Content-Type", "text/html")
-  res.setHeader("Server", serverInfo)
+  res.setHeader('Content-Type', 'text/html')
+  res.setHeader('Server', serverInfo)
 
   const handleError = err => {
     if (err.url) {
@@ -118,11 +125,24 @@ function render (req, res) {
   })
 }
 
-app.get('*', isProd ? render : (req, res) => {
-  readyPromise.then(() => render(req, res), () => {})
-})
+if (cluster.isMaster) {
+  for (let i = 0; i < numCPUs; i++) {
+    cluster.fork()
+  }
 
-const port = process.env.PORT || 8088;
-app.listen(port, () => {
-  console.log(`server started at localhost:${port}`)
-})
+  cluster.on('exit', (worker, code, signal) => {
+    console.log(`worker ${worker.process.pid} died`)
+  })
+} else {
+  console.log(cluster.worker.id);
+  app.get('*', isProd ? render : (req, res) => {
+    console.log("子进程:" + cluster.worker.id + "正在处理请求...");
+    readyPromise.then(() => render(req, res), () => {})
+  })
+
+  const port = process.env.PORT || 8088
+  app.listen(port, () => {
+    console.log(`server started at localhost:${port}`)
+  })
+
+}
