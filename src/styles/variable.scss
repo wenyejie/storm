@@ -99,3 +99,12 @@ $xs: 10px;
   white-space: nowrap;
   overflow: hidden;
 }
+
+/* 多行省略 */
+@mixin multi-text-ellipsis ($line) {
+  display: -webkit-box;
+  -webkit-line-clamp: $line;
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
