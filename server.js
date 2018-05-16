@@ -131,20 +131,20 @@ if (cluster.isMaster) {
   const cupNum = os.cpus().length;
 
   // 预设最大进程数
-  const preProcessNum = process.env.cluster_child_process_number;
+  const maxNum = process.env.cluster_child_max_process_number;
 
   // 最终进程数
-  const processNum = preProcessNum === -1 ? cupNum : (cupNum > preProcessNum ? preProcessNum : cupNum);
+  const processNum = maxNum === -1 ? cupNum : (cupNum >= maxNum ? maxNum : cupNum);
 
   for (let i = 0; i < processNum; i++) cluster.fork()
 
-  cluster.on('exit', (worker, code, signal) => {
+  cluster.on('exit', (worker) => {
     console.log(`worker ${worker.process.pid} died`)
   })
 } else {
   console.log(cluster.worker.id);
   app.get('*', isProd ? render : (req, res) => {
-    console.log("子进程:" + cluster.worker.id + "正在处理请求...");
+    console.log(`子进程: ${cluster.worker.id}正在处理请求...`);
     readyPromise.then(() => render(req, res), () => {})
   })
 
