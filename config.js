@@ -14,6 +14,9 @@ module.exports = {
   // LRU缓存地址
   lru_cache_base_dir: '/User/wenyejie/Github/storm/dist',
 
-  // cluster集群最大子进程数, -1自动根据cup核数来
-  cluster_child_max_process_number: -1
+  // 日志文件根地址
+  log_dir: '../../log',
+
+  // cluster集群最大子进程数, 0自动根据cup核数来
+  cluster_child_max_process_number: 0
 };
