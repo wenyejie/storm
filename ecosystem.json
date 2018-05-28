@@ -36,7 +36,8 @@
   "env": {
 
     // node环境
-    "NODE_ENV": "production",
+    "NODE_ENV": "development",
+    // "NODE_ENV": "production",
 
     // 服务端口
     "PORT": 8088
