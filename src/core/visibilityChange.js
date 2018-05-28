@@ -6,15 +6,6 @@
  * @date: 2018/04/03
  */
 
-/**
- * 判断页面是否是可见状态
- * https://caniuse.com/#search=visibilityState
- * https://caniuse.com/#search=visibilitychange
- *
- * @author: Storm
- * @date: 2018/04/03
- */
-
 // 属性名称
 const attrName = ['visibilityState', 'webkitVisibilityState'].find(item => `${item}` in document)
 
