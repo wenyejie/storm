@@ -1,0 +1,44 @@
+{
+  // app name
+  "name": "storm",
+
+  // 超出最大内存占用则自动重启
+  "max_memory_restart": "300M",
+
+  // 启动脚本
+  "script": "./server.js",
+
+  // 当前工作路径, 即服务部署地址
+  "cwd": "./",
+
+  // 执行模式: 集群
+  "exec_mode": "cluster",
+
+  // 监控变化的目录, 一旦变化, 自动重启
+  "watch": false,
+
+  // 不监控变化的目录
+  "ignore_watch": ["[\\/\\\\]\\./", "node_modules"],
+  "watch_options": {
+    "followSymlinks": false
+  },
+
+  // 日志日期格式
+  "log_date_format": "YYYY-MM-DD HH:mm Z",
+
+  // 错误日志路径
+  "error_file": "./logs/app-err.log",
+
+  // 普通日志路径
+  "out_file": "./logs/app-out.log",
+
+  // 环境变量参数
+  "env": {
+
+    // node环境
+    "NODE_ENV": "production",
+
+    // 服务端口
+    "PORT": 8088
+  }
+}

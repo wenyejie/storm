@@ -49,6 +49,7 @@
     methods: {
     },
     created () {
+      console.log(process.env.DEMO);
       if (!this.$isServer) {
 
         /*const worker = new Worker('/workers/demo.js')

@@ -8,25 +8,6 @@ const microCache = require('route-cache')
 const resolve = file => path.resolve(__dirname, file)
 const {createBundleRenderer} = require('vue-server-renderer')
 const cookieParser = require('cookie-parser')
-const cluster = require('cluster')
-const os = require('os')
-const CONFIG = require('./config.js')
-const log4js = require('log4js')
-
-process.env = Object.assign({}, process.env, CONFIG)
-
-log4js.configure({
-  appenders: {
-    access: {
-      type: 'DateFile',
-      filename: `${process.env.log_dir}/access.log`,
-      pattern: '-yyyy-MM-dd.log',
-      alwaysIncludePattern: true,
-      category: 'access'
-    }
-  },
-  categories: { default: { appenders: ['access'], level: 'info' } }
-});
 
 const isProd = process.env.NODE_ENV === 'production'
 const useMicroCache = process.env.MICRO_CACHE !== 'false'
@@ -90,7 +71,6 @@ app.use('/static', serve('./static', true))
 app.use('/manifest.json', serve('./manifest.json', true))
 app.use('/service-worker.js', serve('./dist/service-worker.js'))
 app.use(cookieParser())
-app.use(log4js.connectLogger(log4js.getLogger('access'), {level: log4js.levels.INFO}))
 
 // since this app has no user-specific content, every page is micro-cacheable.
 // if your app involves user-specific content, you need to implement custom
@@ -101,7 +81,7 @@ app.use(log4js.connectLogger(log4js.getLogger('access'), {level: log4js.levels.I
 app.use(microCache.cacheSeconds(1, req => useMicroCache && req.originalUrl))
 
 function render (req, res) {
-  console.info(`\n\nurl => ${req.url}`)
+  console.info(`\nurl => ${req.url}`)
   const s = Date.now()
 
   res.setHeader('Content-Type', 'text/html')
@@ -137,36 +117,7 @@ function render (req, res) {
     }
   })
 }
-
-if (cluster.isMaster) {
-
-  // cups数
-  const cupNum = os.cpus().length
-
-  // 预设最大进程数
-  const maxNum = process.env.cluster_child_max_process_number
-
-  // 最终进程数
-  const processNum = maxNum === 0 ? cupNum : (cupNum >= maxNum ? maxNum : cupNum)
-
-  for (let i = 0; i < processNum; i++) cluster.fork()
-
-  // 监听子进程是否退出
-  cluster.on('exit', (worker, code, signal) => {
-    console.log(`Worker ${worker.process.pid} exited ${code} ${signal}.`)
-
-    // 当进程是否自动退出, 如果是则重启
-    if (worker.exitedAfterDisconnect !== true) {
-      console.log(`Worker ${worker.process.pid} restarting...`)
-
-      // 重启线程
-      cluster.fork()
-    }
-  })
-} else if (cluster.isWorker) {
-  console.log(`cluster.worker.id => ${cluster.worker.id}; process.pid => ${process.pid}`)
   app.get('*', isProd ? render : (req, res) => {
-    console.log(`子进程: ${cluster.worker.id}正在处理请求...`)
     readyPromise.then(() => render(req, res), () => {})
   })
 
@@ -174,5 +125,3 @@ if (cluster.isMaster) {
   app.listen(port, () => {
     console.log(`server started at localhost:${port}`)
   })
-
-}
