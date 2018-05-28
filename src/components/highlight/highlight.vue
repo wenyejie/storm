@@ -14,11 +14,8 @@
 </template>
 
 <script>
-  // import './assets/highlight.pack'
-  // import isClient from '../../utils/isClient';
-  /*if (isClient) {
-    ;
-  }*/
+
+  import getScript from '../../utils/getScript'
 
   export default {
     name: 'sHighlight',
@@ -39,9 +36,15 @@
       }
     },
     mounted () {
-      // const hljs = import('./assets/highlight.pack')
-      // console.log(hljs());
-      // hljs.default.highlightBlock(this.$refs.code);
+      if (window.hljs) {
+        window.hljs.highlightBlock(this.$refs.code)
+      } else {
+        getScript('/static/highlight.pack.js')
+          .then(script => {
+            console.log(script, window.hljs)
+            window.hljs.highlightBlock(this.$refs.code)
+          })
+      }
     }
   }
 </script>
@@ -56,8 +59,6 @@
       word-wrap: break-word;
     }
   }
-
-
   /* Google Code style (c) Aahan Krish <geekpanth3r@gmail.com> */
   .hljs {
     display: block;
