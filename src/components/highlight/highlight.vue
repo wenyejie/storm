@@ -40,8 +40,7 @@
         window.hljs.highlightBlock(this.$refs.code)
       } else {
         getScript('/static/highlight.pack.js')
-          .then(script => {
-            console.log(script, window.hljs)
+          .then(() => {
             window.hljs.highlightBlock(this.$refs.code)
           })
       }
