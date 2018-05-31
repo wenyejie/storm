@@ -1,7 +1,8 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Components from './components';
+import Components from './components'
 import Tools from './tools'
+import Directives from './directives'
 
 Vue.use(Router)
 
@@ -18,6 +19,8 @@ const router = new Router({
 
     Tools,
 
+    Directives,
+
     {
       path: '*',
       name: '404',
@@ -27,6 +30,6 @@ const router = new Router({
       component: () => import('../view/error/404.vue')
     }
   ]
-});
+})
 
 export const createRouter = () => router

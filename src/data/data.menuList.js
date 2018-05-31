@@ -44,6 +44,15 @@ export default [
     ]
   },
   {
+    name: 'Directives 指令',
+    children: [
+      {
+        name: 'loading 加载中',
+        path: '/directives/loading'
+      }
+    ]
+  },
+  {
     name: 'Basic 基础',
     children: [
       {
