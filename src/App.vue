@@ -10,9 +10,9 @@
         </div>-->
         <div class="header-right">
           <ul class="header-nav">
-            <li><a href="javascript:;">个人中心</a></li>
-            <li><a href="javascript:;">Storm (13*******92)</a></li>
-            <li><a href="javascript:;">注销</a></li>
+            <li><a href="#">个人中心</a></li>
+            <li><a href="#">Storm (13*******92)</a></li>
+            <li><a href="#">注销</a></li>
           </ul>
         </div>
       </div>
@@ -52,7 +52,7 @@
   import menuList from './data/data.menuList';
 
   export default {
-    name: 'app',
+    name: 'vApp',
     data () {
       return {
 
@@ -64,7 +64,7 @@
 
       /**
        * 切换导航
-       * @param item
+       * @param item {object}
        */
       toggleNav (item) {
 
