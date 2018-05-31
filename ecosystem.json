@@ -40,6 +40,9 @@
     // "NODE_ENV": "production",
 
     // 服务端口
-    "PORT": 8088
+    "PORT": 8088,
+
+    // 打包位置
+    "PUBLISH_PATH": "/dist/"
   }
 }
