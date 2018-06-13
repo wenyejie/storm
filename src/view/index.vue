@@ -42,14 +42,11 @@
   export default {
     name: 'index',
     data () {
-      return {
-        msg: 'Welcome to Your Vue.js App',
-      }
+      return {}
     },
     methods: {
     },
     created () {
-      console.log(process.env.DEMO);
       if (!this.$isServer) {
 
         /*const worker = new Worker('/workers/demo.js')
