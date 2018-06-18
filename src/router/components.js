@@ -18,103 +18,103 @@ export default {
 
     {
       path: 'radio',
-      name: 'radio',
+      name: 'rRadio',
       component: () => import('../view/components/radio.vue')
     },
 
     {
       path: 'panel',
-      name: 'panel',
+      name: 'rPanel',
       component: () => import('../view/components/panel.vue')
     },
 
     {
       path: 'icon',
-      name: 'icon',
+      name: 'rIcon',
       component: () => import('../view/components/icon.vue')
     },
 
     {
       path: 'color',
-      name: 'color',
+      name: 'rColor',
       component: () => import('../view/components/color.vue')
     },
 
     {
       path: 'button',
-      name: 'button',
+      name: 'rButton',
       component: () => import('../view/components/button.vue')
     },
 
     {
       path: 'upload',
-      name: 'upload',
+      name: 'rUpload',
       component: () => import('../view/components/upload.vue')
     },
 
     {
       path: 'input',
-      name: 'input',
+      name: 'rInput',
       component: () => import('../view/components/input.vue')
     },
 
     {
       path: 'table',
-      name: 'table',
+      name: 'rTable',
       component: () => import('../view/components/table.vue')
     },
 
     {
       path: 'select',
-      name: 'select',
+      name: 'rSelect',
       component: () => import('../view/components/select.vue')
     },
 
     {
       path: 'dialog',
-      name: 'dialog',
+      name: 'rDialog',
       component: () => import('../view/components/dialog.vue')
     },
 
     {
       path: 'textarea',
-      name: 'textarea',
+      name: 'rTextarea',
       component: () => import('../view/components/textarea.vue')
     },
 
     {
       path: 'message',
-      name: 'message',
+      name: 'rMessage',
       component: () => import('../view/components/message.vue')
     },
 
     {
       path: 'carousel',
-      name: 'carousel',
+      name: 'rCarousel',
       component: () => import('../view/components/carousel.vue')
     },
 
     {
       path: 'tab',
-      name: 'tab',
+      name: 'rTab',
       component: () => import('../view/components/tab.vue')
     },
 
     {
       path: 'page',
-      name: 'page',
+      name: 'rPage',
       component: () => import('../view/components/page.vue')
     },
 
     {
       path: 'row',
-      name: 'row',
+      name: 'rRow',
       component: () => import('../view/components/row.vue')
     },
 
     {
       path: 'col',
-      name: 'col',
+      name: 'rCol',
       component: () => import('../view/components/col.vue')
     }
   ]

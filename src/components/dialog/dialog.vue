@@ -6,7 +6,7 @@
  -->
 <template>
   <transition name="s-dialog">
-    <div class="s-dialog" :class="classes" v-if="visible">
+    <section class="s-dialog" :class="classes" v-if="visible">
       <s-mask class="s-dialog-mask"
               v-if="hasMask"
               v-model="hasMask"
@@ -18,15 +18,15 @@
            @click="handleClose">
           <s-icon type="close"></s-icon>
         </a>
-        <div class="s-dialog-header" v-if="$slots.header || title">
+        <header class="s-dialog-header" v-if="$slots.header || title">
           <slot name="header">
-            <div class="s-dialog-title">{{title}}</div>
+            <h1 class="s-dialog-title">{{title}}</h1>
           </slot>
-        </div>
+        </header>
         <div class="s-dialog-body">
           <slot><div class="s-dialog-body-html" v-html="body"></div></slot>
         </div>
-        <div class="s-dialog-footer" v-if="hasFooter">
+        <footer class="s-dialog-footer" v-if="hasFooter">
           <slot name="footer">
             <slot name="footerBefore"></slot>
             <s-button class="s-dialog-cancel"
@@ -45,9 +45,9 @@
             </s-button>
             <slot name="footerAfter"></slot>
           </slot>
-        </div>
+        </footer>
       </div>
-    </div>
+    </section>
   </transition>
 </template>
 

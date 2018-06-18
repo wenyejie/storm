@@ -11,7 +11,7 @@ const router = new Router({
   routes: [
     {
       path: '/',
-      name: 'index',
+      name: 'rIndex',
       component: () => import('../view/index.vue')
     },
 
@@ -23,7 +23,7 @@ const router = new Router({
 
     {
       path: '*',
-      name: '404',
+      name: 'r404',
       meta: {
         title: '404'
       },
