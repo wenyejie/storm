@@ -17,7 +17,7 @@ export default {
   name: 'dLoading',
   params: [],
   bind (el, binding, vnode, oldVnode) {
-    console.log('bind')
+    console.log('bind', el, binding, vnode, oldVnode);
     toggleClass(el, binding.value)
   },
 
