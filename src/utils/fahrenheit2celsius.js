@@ -5,4 +5,7 @@
  * @date: 2018/07/17
  */
 
-export default celsius => (celsius * 9 / 5) + 32
+export default celsius => {
+  if (!Number.isSafeInteger(celsius)) return null;
+  return (celsius * 9 / 5) + 32
+}
