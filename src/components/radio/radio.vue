@@ -34,13 +34,7 @@
       falseValue: {
         default: false
       },
-      block: Boolean,
-      size: {
-        type: [String, Number],
-        validator (val) {
-          return ["lg", "sm", "xs"].includes(val);
-        }
-      }
+      block: Boolean
     },
     computed: {
 
