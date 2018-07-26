@@ -105,7 +105,7 @@
   /* header */
   .header {
     color: #fff;
-    background-color: #20a0ff;
+    background-color: $primary;
     font-size: 16px;
 
     a {

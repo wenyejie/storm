@@ -155,8 +155,8 @@
     }
 
     &-input:checked + &-indi {
-      border-color: #20a0ff;
-      background-color: #20a0ff;
+      border-color: $primary;
+      background-color: $primary;
       position: relative;
 
       &:before {

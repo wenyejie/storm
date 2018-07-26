@@ -9,17 +9,17 @@
          class="s-input"
          v-model="innerVal"
          :class="classes"
-         @input="handleInput"
-         @change="handleChange"
-         @keyup="handleKeyup"
-         @keydown="handleKeydown"
-         @focus="handleFocus"
-         @blur="handleBlur">
+         @input="handleInput($event)"
+         @change="handleChange($event)"
+         @keyup="handleKeyup($event)"
+         @keydown="handleKeydown($event)"
+         @focus="handleFocus($event)"
+         @blur="handleBlur($event)">
 </template>
 
 <script>
   export default {
-    name: 'sInput',
+    name: "sInput",
     props: {
 
       // 值
@@ -28,14 +28,14 @@
       // 类型
       type: {
         type: String,
-        default: 'text'
+        default: "text"
       },
 
       // 大小
       size: {
         type: String,
         validator (val) {
-          return ['lg', 'sm', 'xs'].includes(val)
+          return ["lg", "sm", "xs"].includes(val);
         }
       },
 
@@ -47,7 +47,7 @@
         return {
           [`s-input-${this.size}`]: !!this.size,
           [`s-input-block`]: !!this.block
-        }
+        };
       }
     },
     watch: {
@@ -59,8 +59,8 @@
        * @return {boolean}
        */
       value (val, oldVal) {
-        if (val === oldVal || val === this.innerVal) return false
-        this.innerVal = val
+        if (val === oldVal || val === this.innerVal) return false;
+        this.innerVal = val;
       }
     },
     data () {
@@ -68,35 +68,35 @@
 
         // 内部值
         innerVal: this.value
-      }
+      };
     },
     methods: {
 
       handleInput () {
-        this.$emit('input', this.innerVal)
+        this.$emit("input", this.innerVal);
       },
 
-      handleChange () {
-        this.$emit('change')
+      handleChange ($event) {
+        this.$emit("change", $event);
       },
 
       handleKeyup ($event) {
-        this.$emit('keyup', $event)
+        this.$emit("keyup", $event);
       },
 
       handleKeydown ($event) {
-        this.$emit('keydown', $event)
+        this.$emit("keydown", $event);
       },
 
-      handleFocus () {
-        this.$emit('focus')
+      handleFocus ($event) {
+        this.$emit("focus", $event);
       },
 
-      handleBlur () {
-        this.$emit('blur')
+      handleBlur ($event) {
+        this.$emit("blur", $event);
       }
     }
-  }
+  };
 </script>
 
 <style lang="scss">
@@ -116,7 +116,7 @@
     }
 
     &:focus {
-      border-color: #20a0ff;
+      border-color: $primary;
     }
 
     &:disabled {

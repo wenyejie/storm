@@ -13,12 +13,12 @@
 
 <script>
   export default {
-    name: 'sCol',
+    name: "sCol",
     props: {
       align: {
         type: String,
         validator (val) {
-          return ['top', 'bottom', 'center', 'stretch'].includes(val)
+          return ["top", "bottom", "center", "stretch"].includes(val);
         }
       },
 
@@ -26,30 +26,30 @@
       offset: [Number, String]
     },
     data () {
-      return {}
+      return {};
     },
     computed: {
       gutter () {
-        return this.$parent.gutter
+        return this.$parent.gutter;
       },
       classes () {
         return {
           [`s-col-${this.span}`]: !!this.span,
           [`s-col-offset-${this.offset}`]: !!this.offset,
           [`s-col-align-${this.align}`]: !!this.align
-        }
+        };
       },
       styles () {
-        const result = {}
+        const result = {};
         if (this.gutter) {
-          result.paddingLeft = this.gutter + (/^\d+$/.test(this.gutter) ? 'px' : '')
-          result.paddingRight = result.paddingLeft
+          result.paddingLeft = this.gutter + (/^\d+$/.test(this.gutter) ? "px" : "");
+          result.paddingRight = result.paddingLeft;
         }
-        return result
+        return result;
       }
     },
     methods: {}
-  }
+  };
 </script>
 
 <!-- /**/-->

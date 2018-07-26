@@ -116,6 +116,12 @@ export default {
       path: 'col',
       name: 'rCol',
       component: () => import('../view/components/col.vue')
+    },
+
+    {
+      path: 'counter',
+      name: 'rCounter',
+      component: () => import('../view/components/counter.vue')
     }
   ]
 }

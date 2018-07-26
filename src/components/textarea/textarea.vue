@@ -127,7 +127,7 @@
     }
 
     &:focus {
-      border-color: #20a0ff;
+      border-color: $primary;
     }
 
     &:disabled {

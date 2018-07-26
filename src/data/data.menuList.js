@@ -102,6 +102,10 @@ export default [
         path: '/components/radio'
       },
       {
+        name: 'Counter 计数器',
+        path: '/components/counter'
+      },
+      {
         name: 'Upload 上传',
         path: '/components/upload'
       }
