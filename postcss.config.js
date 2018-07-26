@@ -8,7 +8,7 @@
 
 module.exports = {
   "plugins": [
-    require('autoprefixer')([
+    require("autoprefixer")([
       "> 2%",
       "last 10 Chrome versions",
       "not ie <= 9",
@@ -16,4 +16,4 @@ module.exports = {
       "IOS >= 8"
     ])
   ]
-}
+};

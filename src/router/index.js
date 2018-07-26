@@ -1,18 +1,19 @@
-import Vue from 'vue'
-import Router from 'vue-router'
-import Components from './components'
-import Tools from './tools'
-import Directives from './directives'
+import Vue from "vue";
+import Router from "vue-router";
+import Components from "./components";
+import Tools from "./tools";
+import Directives from "./directives";
+import isClient from '../utils/isClient';
 
-Vue.use(Router)
+Vue.use(Router);
 
 const router = new Router({
-  mode: 'history',
+  mode: "history",
   routes: [
     {
-      path: '/',
-      name: 'rIndex',
-      component: () => import('../view/index.vue')
+      path: "/",
+      name: "rIndex",
+      component: () => import("../view/index.vue")
     },
 
     Components,
@@ -22,14 +23,18 @@ const router = new Router({
     Directives,
 
     {
-      path: '*',
-      name: 'r404',
+      path: "*",
+      name: "r404",
       meta: {
-        title: '404'
+        title: "404"
       },
-      component: () => import('../view/error/404.vue')
+      component: () => import("../view/error/404.vue")
     }
   ]
-})
+});
 
-export const createRouter = () => router
+router.afterEach(() => {
+  isClient && window.scrollTo(0, 0);
+});
+
+export const createRouter = () => router;

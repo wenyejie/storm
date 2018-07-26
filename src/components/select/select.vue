@@ -15,7 +15,7 @@
 
 <script>
   export default {
-    name: 'sSelect',
+    name: "sSelect",
     props: {
 
       value: {},
@@ -24,7 +24,7 @@
       size: {
         type: String,
         validator (val) {
-          return ['lg', 'sm', 'xs'].includes(val)
+          return ["lg", "sm", "xs"].includes(val);
         }
       },
 
@@ -34,12 +34,12 @@
     data () {
       return {
         innerVal: this.value
-      }
+      };
     },
     watch: {
       value (val, oldVal) {
-        if (val === oldVal) return
-        this.innerVal = val
+        if (val === oldVal) return;
+        this.innerVal = val;
       }
     },
     computed: {
@@ -47,16 +47,16 @@
         return {
           [`s-select-${this.size}`]: !!this.size,
           [`s-select-block`]: !!this.block
-        }
+        };
       }
     },
     methods: {
       handleChange () {
-        this.$emit('input', this.innerVal)
-        this.$emit('change', this.innerVal)
+        this.$emit("input", this.innerVal);
+        this.$emit("change", this.innerVal);
       }
     }
-  }
+  };
 </script>
 
 <style lang="scss">
@@ -69,6 +69,8 @@
     border-radius: 4px;
     border: 1px $lightGrey solid;
     transition: border-color .3s ease;
+    -webkit-appearance: none;
+    -moz-appearance: none;
     appearance: none;
     background: #fff url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 5'%3E%3Cpath fill='%23333' d='M2 0L0 2h4zm0 5L0 3h4z'/%3E%3C/svg%3E") no-repeat right 6px center;
     background-size: 10px;

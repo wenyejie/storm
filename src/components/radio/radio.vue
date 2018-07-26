@@ -23,7 +23,7 @@
 
 <script>
   export default {
-    name: 'sRadio',
+    name: "sRadio",
     props: {
       disabled: Boolean,
       name: String,
@@ -34,7 +34,13 @@
       falseValue: {
         default: false
       },
-      block: [Boolean]
+      block: Boolean,
+      size: {
+        type: [String, Number],
+        validator (val) {
+          return ["lg", "sm", "xs"].includes(val);
+        }
+      }
     },
     computed: {
 
@@ -46,30 +52,30 @@
           {
             [`s-radio-block`]: !!this.block
           }
-        ]
+        ];
       },
 
       // 判断是否为group
       isGroup () {
-        return this.$parent.$options.name === 'sRadioGroup'
+        return this.$parent.$options.name === "sRadioGroup";
       }
     },
     watch: {
       value (val, oldVal) {
         if (val !== oldVal) {
-          this.setChecked()
+          this.setChecked();
         }
       },
-      '$parent.value' (val, oldVal) {
+      "$parent.value" (val, oldVal) {
         if (val !== oldVal) {
-          this.setChecked()
+          this.setChecked();
         }
       }
     },
     data () {
       return {
         checked: null
-      }
+      };
     },
     methods: {
 
@@ -78,16 +84,20 @@
        * @param $event 选中值
        */
       handleChange ($event) {
-        this.checked = $event.target.checked
+        this.checked = $event.target.checked;
         if (this.isGroup) {
-          this.$parent.update(this.value)
+          this.$parent.update(this.value);
         }
-        this.$emit('input', this.checked ? this.trueValue : this.falseValue)
-        this.$emit('change', $event)
+        this.$emit("input", this.checked ? this.trueValue : this.falseValue);
+        this.$emit("change", $event);
       },
 
+      /**
+       * 点击radio
+       * @param $event 事件
+       */
       handleClick ($event) {
-        this.$emit('click', $event)
+        this.$emit("click", $event);
       },
 
       /**
@@ -95,22 +105,23 @@
        */
       setChecked () {
         if (this.isGroup) {
-          this.checked = this.$parent.value === this.value
+          this.checked = this.$parent.value === this.value;
         } else {
-          this.checked = this.value === this.trueValue
+          this.checked = this.value === this.trueValue;
         }
       }
     },
     created () {
-      this.setChecked()
+      this.setChecked();
     },
     beforeDestroy () {
+
       // 如果是group并且被选中, 通知父组件取消该值
       if (this.isGroup && this.checked) {
-        this.$parent.update(this.value)
+        this.$parent.update(this.value);
       }
     }
-  }
+  };
 </script>
 
 <style lang="scss">
