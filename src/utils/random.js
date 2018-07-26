@@ -5,6 +5,4 @@
  * @date: 2018/02/27
  */
 
-export default (max, min = 0) => {
-  return min + Math.floor(Math.random() * (max - min + 1))
-}
+export default (max, min = 0) => min + Math.floor(Math.random() * (max - min + 1));

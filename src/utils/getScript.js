@@ -14,30 +14,30 @@
  */
 export default (src, attrs = {}, parent = document.body || document.head) => {
   return new Promise((resolve, reject) => {
-    const script = document.createElement('script')
-    script.src = src
+    const script = document.createElement("script");
+    script.src = src;
 
     // 设置属性
     for (let key in attrs) {
 
       // 判断属性是不是对象的属性
-      if (!attrs.hasOwnProperty(key)) continue
+      if (!attrs.hasOwnProperty(key)) continue;
 
       // 设置属性
-      script.setAttribute(key, attrs[key])
+      script.setAttribute(key, attrs[key]);
     }
 
     // 载入script
-    parent.appendChild(script)
+    parent.appendChild(script);
 
     script.onload = () => {
-      resolve(script)
-    }
+      resolve(script);
+    };
 
     script.onerror = () => {
-      reject(script)
-    }
+      reject(script);
+    };
 
-  })
+  });
 
 }
