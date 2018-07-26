@@ -7,14 +7,14 @@
 
 export default (attribute, value) => {
   if (window.CSS && window.CSS.supportsCSS) {
-    if (typeof value === 'undefined') return window.CSS.supportsCSS(attribute)
-    return window.CSS.supportsCSS(attribute, value)
+    if (typeof value === "undefined") return window.CSS.supportsCSS(attribute);
+    return window.CSS.supportsCSS(attribute, value);
   }
 
-  const elem = document.createElement('div')
+  const elem = document.createElement("div");
   if (attribute in elem.style) {
-    elem.style[attribute] = value
-    return elem.style[attribute] === value
+    elem.style[attribute] = value;
+    return elem.style[attribute] === value;
   }
-  return false
+  return false;
 }
