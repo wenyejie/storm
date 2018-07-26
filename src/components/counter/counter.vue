@@ -7,7 +7,7 @@
 <template>
   <div class="s-counter" :class="classes">
     <span class="s-counter-reduce"
-          :class="{disabled: this.min <= this.innerVal}"
+          :class="{disabled: reduceDisabled}"
           @click="handleReduce">-</span>
     <s-input class="s-counter-input"
              :disabled="disabled"
@@ -15,7 +15,7 @@
              @blur="handleBlur($event)"
              v-model="innerVal"></s-input>
     <span class="s-counter-add"
-          :class="{disabled: this.max >= this.innerVal}"
+          :class="{disabled: addDisabled}"
           @click="handleAdd">+</span>
   </div>
 </template>
@@ -64,6 +64,13 @@
         return {
           disabled: !!this.disabled
         };
+      },
+      reduceDisabled () {
+        return this.disabled || isSafeNumber(this.min) && this.min >= this.value;
+      },
+
+      addDisabled () {
+        return this.disabled || isSafeNumber(this.max) && this.max <= this.value ;
       }
     },
     data () {
@@ -86,7 +93,7 @@
         }
 
         this.innerVal -= this.step;
-        this.handleInput();
+        this.handleChange();
       },
 
       /**
@@ -102,23 +109,22 @@
         }
 
         this.innerVal += this.step;
-        this.handleInput();
+        this.handleChange();
       },
 
       /**
        * 输出
        */
-      handleInput () {
+      handleChange () {
         this.$emit("input", this.innerVal);
+        this.$emit('change');
       },
 
       handleFocus ($event) {
-        console.log($event);
         this.$emit("focus", $event);
       },
 
       handleBlur ($event) {
-        console.log($event);
         this.$emit("blur", $event);
       }
     }
@@ -139,21 +145,6 @@
       border-color: $primary;
     }
 
-    &.disabled &-reduce,
-    &.disabled &-add,
-    &-reduce.disabled,
-    &-add.disabled {
-      background-color: #eef1f6;
-      cursor: not-allowed;
-      color: #bbb;
-      border-color: #d1dbe5;
-
-      &:hover,
-      &::selection {
-        color: #bbb;
-      }
-    }
-
     &-reduce,
     &-add {
       width: 35px;
@@ -166,6 +157,18 @@
       &:hover,
       &::selection {
         color: $primary;
+      }
+
+      &.disabled {
+        background-color: #eef1f6;
+        cursor: not-allowed;
+        color: #bbb;
+        border-color: #d1dbe5;
+
+        &:hover,
+        &::selection {
+          color: #bbb;
+        }
       }
     }
 

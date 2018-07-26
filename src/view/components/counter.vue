@@ -20,8 +20,13 @@
     </s-panel>
 
     <s-panel title="Max 最大值">
-      <s-counter :max="10" v-model="max"></s-counter>
-      <div>{{max}}</div>
+      <s-counter :max="10" v-model="maxVal"></s-counter>
+      <div>{{maxVal}}</div>
+    </s-panel>
+
+    <s-panel title="Min 最小值">
+      <s-counter :min="0" v-model="minVal"></s-counter>
+      <div>{{minVal}}</div>
     </s-panel>
 
   </div>
@@ -33,7 +38,8 @@
     title: 'Counter 计数器',
     data () {
       return {
-        max: 0
+        maxVal: 0,
+        minVal: 5
       }
     }
   }
