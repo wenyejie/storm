@@ -35,8 +35,12 @@
       name: 'rmdir',
       desc: '删除目录',
       example: 'rmdir demo'
+    }, {
+      name: 'rm',
+      desc: '删除',
+      example: 'rm -rf ./*'
     }
-  ]
+  ];
   export default {
     name: 'vTerminalCommand',
     title: 'terminalCommand',
@@ -54,7 +58,7 @@
        * @return {*[]}
        */
       filterList () {
-        const regexp = new RegExp(`${this.filterKey}`, 'i')
+        const regexp = new RegExp(`${this.filterKey}`, 'i');
         return list.filter(item => regexp.test(item.name) || regexp.test(item.desc))
       }
     }
