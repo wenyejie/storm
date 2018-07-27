@@ -11,6 +11,16 @@
       <s-switch></s-switch>
     </s-panel>
 
+    <s-panel title="TrueValue 开的值">
+      <s-switch trueValue="我是开的" v-model="trueValue"></s-switch>
+      {{trueValue}}
+    </s-panel>
+
+    <s-panel title="FalseValue 关的值">
+      <s-switch falseValue="我是关的" v-model="falseValue"></s-switch>
+      {{falseValue}}
+    </s-panel>
+
   </div>
 </template>
 
@@ -20,6 +30,8 @@
     title: 'Switch 开关',
     data () {
       return {
+        falseValue: true,
+        trueValue: false
       }
     }
   }

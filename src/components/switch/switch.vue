@@ -6,7 +6,10 @@
  -->
 <template>
   <label class="s-switch">
-    <input class="s-switch-input" type="checkbox">
+    <input class="s-switch-input"
+           v-model="innerVal"
+           @change="handleChange($event)"
+           type="checkbox">
     <span class="s-switch-indi"></span>
   </label>
 </template>
@@ -33,6 +36,32 @@
       return {
         innerVal: this.value
       };
+    },
+    watch: {
+      value (val, oldVal) {
+        if (val === oldVal || val === this.innerVal) return;
+        this.setInnerValue();
+      }
+    },
+    methods: {
+      handleChange ($event) {
+        this.$emit('change', $event);
+        this.handleInput();
+      },
+
+      handleInput () {
+        this.$emit('input', this.innerVal ? this.trueValue : this.falseValue);
+      },
+
+      setInnerValue () {
+        if (this.value === this.trueValue) this.innerVal = true;
+        else if (this.value === this.falseValue) this.innerVal = false;
+        else this.innerVal = !!this.value;
+        this.handleInput();
+      }
+    },
+    created () {
+      this.setInnerValue();
     }
   };
 </script>
@@ -42,7 +71,7 @@
     position: relative;
     display: inline-block;
     height: 36px;
-    width: 80px;
+    width: 60px;
 
     &-input {
       position: absolute;
