@@ -122,6 +122,12 @@ export default {
       path: 'counter',
       name: 'rCounter',
       component: () => import('../view/components/counter.vue')
+    },
+
+    {
+      path: 'switch',
+      name: 'rSwitch',
+      component: () => import('../view/components/switch.vue')
     }
   ]
 }

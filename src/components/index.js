@@ -28,6 +28,7 @@ import { sCarousel, sCarouselItem } from "./carousel";
 import { sTab, sTabItem } from "./tab";
 import sPage from "./page";
 import sCounter from "./counter";
+import sSwitch from './switch';
 
 const components = {
   sPanel,
@@ -54,7 +55,8 @@ const components = {
   sTab,
   sTabItem,
   sPage,
-  sCounter
+  sCounter,
+  sSwitch
 };
 
 const install = Vue => {

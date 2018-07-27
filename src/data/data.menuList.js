@@ -106,6 +106,10 @@ export default [
         path: '/components/counter'
       },
       {
+        name: 'Switch 开关',
+        path: '/components/switch'
+      },
+      {
         name: 'Upload 上传',
         path: '/components/upload'
       }

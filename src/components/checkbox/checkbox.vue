@@ -23,7 +23,7 @@
 
 <script>
   export default {
-    name: 'sCheckbox',
+    name: "sCheckbox",
     props: {
 
       // 是否禁用
@@ -60,30 +60,30 @@
           {
             [`s-checkbox-block`]: !!this.block
           }
-        ]
+        ];
       },
 
       // 判断是否为group
       isGroup () {
-        return this.$parent.$options.name === 'sCheckboxGroup'
+        return this.$parent.$options.name === "sCheckboxGroup";
       }
     },
     watch: {
       value (val, oldVal) {
         if (val !== oldVal) {
-          this.setChecked()
+          this.setChecked();
         }
       },
-      '$parent.value' (val, oldVal) {
+      "$parent.value" (val, oldVal) {
         if (val !== oldVal) {
-          this.setChecked()
+          this.setChecked();
         }
       }
     },
     data () {
       return {
         checked: null
-      }
+      };
     },
     methods: {
 
@@ -92,16 +92,16 @@
        * @param $event 选中值
        */
       handleChange ($event) {
-        this.checked = $event.target.checked
+        this.checked = $event.target.checked;
         if (this.isGroup) {
-          this.$parent.update(this.checked, this.value)
+          this.$parent.update(this.checked, this.value);
         }
-        this.$emit('input', this.checked ? this.trueValue : this.falseValue)
-        this.$emit('change', $event)
+        this.$emit("input", this.checked ? this.trueValue : this.falseValue);
+        this.$emit("change", $event);
       },
 
       handleClick ($event) {
-        this.$emit('click', $event)
+        this.$emit("click", $event);
       },
 
       /**
@@ -110,22 +110,22 @@
       setChecked () {
         // 判断是否为群组
         if (this.isGroup) { // 是
-          this.checked = this.$parent.value.includes(this.value)
+          this.checked = this.$parent.value.includes(this.value);
         } else { // 不是
-          this.checked = this.value === this.trueValue
+          this.checked = this.value === this.trueValue;
         }
       }
     },
     created () {
-      this.setChecked()
+      this.setChecked();
     },
     beforeDestroy () {
       // 如果是group并且被选中, 通知父组件取消该值
       if (this.isGroup && this.checked) {
-        this.$parent.update(false, this.value)
+        this.$parent.update(false, this.value);
       }
     }
-  }
+  };
 </script>
 
 <style lang="scss">
@@ -168,8 +168,7 @@
     &-input:checked + &-indi {
       border: none;
       color: #fff;
-      background-color: #007bff;
-      background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3E%3Cpath fill='%23fff' d='M6.564.75l-3.59 3.612-1.538-1.55L0 4.26 2.974 7.25 8 2.193z'/%3E%3C/svg%3E")
+      background: #007bff url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3E%3Cpath fill='%23fff' d='M6.564.75l-3.59 3.612-1.538-1.55L0 4.26 2.974 7.25 8 2.193z'/%3E%3C/svg%3E")
     }
 
     &-desc {
