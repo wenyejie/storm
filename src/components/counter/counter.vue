@@ -11,6 +11,7 @@
           @click="handleReduce">-</span>
     <s-input class="s-counter-input"
              :disabled="disabled"
+             :name="name"
              @focus="handleFocus($event)"
              @blur="handleBlur($event)"
              v-model="innerVal"></s-input>
@@ -39,6 +40,8 @@
         validator: isSafeNumber,
         default: 0
       },
+
+      name: String,
 
       min: numberPropsAttr,
 
