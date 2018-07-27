@@ -5,8 +5,8 @@
  * @date: 2018/01/20
  */
 
-import Vue from 'vue';
-import props2string from '../../utils/props2string';
+import Vue from "vue";
+import props2string from "../../utils/props2string";
 
 // vm实例
 let vmInstance = null;
@@ -20,15 +20,15 @@ let id = 0;
  */
 const newInstance = (opts = {}) => {
   const props = props2string(opts);
-  const el = document.createElement('div');
-  el.id = 's-dialog-' + ++id;
+  const el = document.createElement("div");
+  el.id = "s-dialog-" + ++id;
   el.innerHTML = `<s-dialog${props} v-model="visible" @ok="handleOk" @cancel="handleCancel"></s-dialog>`;
   document.body.appendChild(el);
 
   const vm = new Vue({
     el,
     data () {
-      return Object.assign({}, {visible: false}, opts)
+      return Object.assign({}, { visible: false }, opts);
     },
     methods: {
 
@@ -79,14 +79,14 @@ const newInstance = (opts = {}) => {
       vm.visible = false;
       vm.remove();
     }
-  }
+  };
 
-}
+};
 
 const getInstance = (opts) => {
-  vmInstance = vmInstance || newInstance(opts)
-  return vmInstance
-}
+  vmInstance = vmInstance || newInstance(opts);
+  return vmInstance;
+};
 
 /**
  * 初始化实例
@@ -94,7 +94,7 @@ const getInstance = (opts) => {
  * @param opts 选项
  * @return {Promise<any>}
  */
-const initInstance = (text = '', opts = {}) => {
+const initInstance = (text = "", opts = {}) => {
   opts.body = text;
   return new Promise((resolve, reject) => {
     const vm = getInstance(opts);
@@ -102,7 +102,7 @@ const initInstance = (text = '', opts = {}) => {
     opts.cancel = reject;
     vm.show(opts);
   });
-}
+};
 
 Vue.prototype.$dialog = {
 
@@ -114,7 +114,7 @@ Vue.prototype.$dialog = {
    */
   confirm: (text, opts) => {
     opts = Object.assign({
-      name: 'confirm'
+      name: "confirm"
     }, opts);
 
     return initInstance(text, opts);
@@ -128,12 +128,12 @@ Vue.prototype.$dialog = {
    */
   alert: (text, opts) => {
     opts = Object.assign({
-      name: 'alert',
+      name: "alert",
       hasCancel: false
     }, opts);
 
     return initInstance(text, opts);
   }
-}
+};
 
-export default () => import('./dialog.vue');;
+export default () => import("./dialog.vue");

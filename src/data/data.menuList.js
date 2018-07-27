@@ -38,7 +38,7 @@ export default [
         path: '/tools/queryHeaders'
       },
       {
-        name: 'terminalCommand终端命令',
+        name: 'TerminalCommand 终端命令',
         path: '/tools/terminalCommand'
       }
     ]
@@ -108,6 +108,10 @@ export default [
       {
         name: 'Switch 开关',
         path: '/components/switch'
+      },
+      {
+        name: 'TimePicker 时间选择器',
+        path: '/components/timePicker'
       },
       {
         name: 'Upload 上传',

@@ -24,7 +24,9 @@
           </slot>
         </header>
         <div class="s-dialog-body">
-          <slot><div class="s-dialog-body-html" v-html="body"></div></slot>
+          <slot>
+            <div class="s-dialog-body-html" v-html="body"></div>
+          </slot>
         </div>
         <footer class="s-dialog-footer" v-if="hasFooter">
           <slot name="footer">
@@ -53,7 +55,7 @@
 
 <script>
   export default {
-    name: 'sDialog',
+    name: "sDialog",
     props: {
 
       // value
@@ -72,7 +74,7 @@
       size: {
         type: String,
         validator (val) {
-          return ['lg', 'md', 'sm', 'auto', 'fullscreen'].includes(val)
+          return ["lg", "md", "sm", "auto", "fullscreen"].includes(val);
         }
       },
 
@@ -115,13 +117,13 @@
       // 确定按钮文本
       okText: {
         type: String,
-        default: '确定'
+        default: "确定"
       },
 
       // 取消按钮文本
       cancelText: {
         type: String,
-        default: '取消'
+        default: "取消"
       }
     },
     computed: {
@@ -134,7 +136,7 @@
         return {
           [`s-dialog-${this.size}`]: !!this.size,
           [`s-dialog-${this.name}`]: !!this.name
-        }
+        };
       },
 
       /**
@@ -144,7 +146,7 @@
       maskStyles () {
         return {
           [`background-color`]: !!this.backgroundColor
-        }
+        };
       }
     },
     data () {
@@ -152,7 +154,7 @@
 
         // 可见性
         visible: this.value
-      }
+      };
     },
     watch: {
 
@@ -165,9 +167,9 @@
 
         // 如果新旧值相同, 则退出方法
         if (val === oldVal || val === this.visible) {
-          return false
+          return false;
         }
-        this.visible = val
+        this.visible = val;
       }
     },
     methods: {
@@ -176,8 +178,8 @@
        * 移除dialog
        */
       remove () {
-        this.visible = false
-        this.$emit('input', false)
+        this.visible = false;
+        this.$emit("input", false);
       },
 
       /**
@@ -187,8 +189,8 @@
 
         // 是否可以通过背景移除弹出框
         if (this.maskRemove) {
-          this.$emit('mask')
-          this.remove()
+          this.$emit("mask");
+          this.remove();
         }
       },
 
@@ -196,27 +198,27 @@
        * 取消事件
        */
       handleCancel () {
-        this.$emit('cancel')
-        this.remove()
+        this.$emit("cancel");
+        this.remove();
       },
 
       /**
        * 确定时间
        */
       handleOk () {
-        this.$emit('ok')
-        this.remove()
+        this.$emit("ok");
+        this.remove();
       },
 
       /**
        * 关闭事件
        */
       handleClose () {
-        this.$emit('close')
-        this.remove()
+        this.$emit("close");
+        this.remove();
       }
     }
-  }
+  };
 </script>
 
 <style lang="scss">
@@ -239,7 +241,7 @@
       @include hv-center-transform;
       background-color: #fff;
       border-radius: 5px;
-      box-shadow: 0 0 10px 0 rgba(0,0,0,.5);
+      box-shadow: 0 0 10px 0 rgba(0, 0, 0, .5);
     }
 
     &-header {

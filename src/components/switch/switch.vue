@@ -77,6 +77,7 @@
       position: absolute;
       z-index: -1;
       opacity: 0;
+      visibility: hidden;
     }
 
     &-indi {

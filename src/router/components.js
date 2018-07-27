@@ -128,6 +128,12 @@ export default {
       path: 'switch',
       name: 'rSwitch',
       component: () => import('../view/components/switch.vue')
+    },
+
+    {
+      path: 'timePicker',
+      name: 'rTimePicker',
+      component: () => import('../view/components/timePicker.vue')
     }
   ]
 }
