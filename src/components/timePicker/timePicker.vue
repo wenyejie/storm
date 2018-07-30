@@ -9,7 +9,7 @@
     <s-input v-model="innerFormatVal"
              class="s-timePicker-input"
              @focus="handleFocus"
-             @blur="handleBlur($event)"
+             @blur="handleBlur"
              :name="name"></s-input>
     <s-icon type="time" class="s-timePicker-prefix"></s-icon>
     <div class="s-timePicker-spinner"
@@ -217,7 +217,7 @@
       position: absolute;
       width: 180px;
       margin: 7px 0 0;
-      border: 1px solid #e4e7ed;
+      border: 1px solid $blackLight;
       background-color: #fff;
       box-shadow: 0 2px 12px 0 rgba(0, 0, 0, .1);
       border-radius: 2px;
@@ -231,7 +231,7 @@
       }
 
       &:before {
-        @include triangle-top(#e4e7ed, 6px, 6px, 6px);
+        @include triangle-top($blackLight, 6px, 6px, 6px);
 
         filter: drop-shadow(0 2px 12px rgba(0, 0, 0, .03));
         top: -7px;
@@ -241,15 +241,15 @@
         top: -6px;
       }
 
-      &-content {
+      &-body {
         display: flex;
         height: 190px;
         position: relative;
 
         &:after {
           content: '';
-          border-top: 1px solid #e4e7ed;
-          border-bottom: 1px solid #e4e7ed;
+          border-top: 1px solid $blackLight;
+          border-bottom: 1px solid $blackLight;
           display: block;
           position: absolute;
           left: 0;
@@ -307,6 +307,8 @@
         height: 36px;
         display: flex;
         justify-content: flex-end;
+        border-top: 1px solid $blackLight;
+        box-shadow: 0 2px 12px 0 rgba(0,0,0,.1);
       }
 
       &-btn {

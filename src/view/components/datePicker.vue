@@ -8,7 +8,7 @@
   <div class="page page-color">
 
     <s-panel title="Default 默认">
-      <s-date-picker></s-date-picker>
+      <s-date-picker placeholder="请选择日期"></s-date-picker>
     </s-panel>
 
   </div>
