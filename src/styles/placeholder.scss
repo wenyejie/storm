@@ -6,18 +6,17 @@
  * @date: 2017/12/21
  */
 
-@import "./variable";
+@import "./variable.scss";
 
-$placeholder: $lightGrey;
 .s-placeholder {
-  color: $placeholder;
+  color: $lightGrey;
 }
 ::-webkit-input-placeholder {
-  color: $placeholder;
+  color: $lightGrey;
 }
 :-moz-placeholder {
-  color: $placeholder;
+  color: $lightGrey;
 }
 :-ms-input-placeholder {
-  color: $placeholder;
+  color: $lightGrey;
 }
