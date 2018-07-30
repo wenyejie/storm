@@ -134,6 +134,12 @@ export default {
       path: 'timePicker',
       name: 'rTimePicker',
       component: () => import('../view/components/timePicker.vue')
+    },
+
+    {
+      path: 'datePicker',
+      name: 'rDatePicker',
+      component: () => import('../view/components/datePicker.vue')
     }
   ]
 }

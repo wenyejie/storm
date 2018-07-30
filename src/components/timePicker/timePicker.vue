@@ -165,12 +165,10 @@
       },
 
       handleFocus () {
-        console.log(document.visibilityState, document.hidden);
         this.spinnerVisible = 1;
       },
 
       handleBlur () {
-        console.log(document.visibilityState, document.hidden);
         if (!this.isMouseOver) this.removeSpinner();
       },
       handleMouseOver () {

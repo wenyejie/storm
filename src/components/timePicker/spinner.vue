@@ -74,9 +74,3 @@
     }
   };
 </script>
-
-<style lang="scss" scoped>
-  .s-timePickerSpinner {
-
-  }
-</style>

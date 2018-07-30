@@ -114,6 +114,10 @@ export default [
         path: '/components/timePicker'
       },
       {
+        name: 'DatePicker 日期选择器',
+        path: '/components/datePicker'
+      },
+      {
         name: 'Upload 上传',
         path: '/components/upload'
       }
