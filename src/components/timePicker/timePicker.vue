@@ -6,44 +6,75 @@
  -->
 <template>
   <div class="s-timePicker">
-    <s-input v-model="innerVal"
+    <s-input v-model="innerFormatVal"
+             class="s-timePicker-input"
              @focus="handleFocus"
-             @blur="handleBlur"
+             @blur="handleBlur($event)"
              :name="name"></s-input>
+    <s-icon type="time" class="s-timePicker-prefix"></s-icon>
     <div class="s-timePicker-spinner"
          v-if="spinnerVisible !== 0"
          @mouseover="handleMouseOver"
          @mouseout="handleMouseOut"
          v-show="spinnerVisible === 1">
       <div class="s-timePicker-spinner-content">
-        <s-time-picker-spinner :list="hours"></s-time-picker-spinner>
-        <s-time-picker-spinner :list="minutes"></s-time-picker-spinner>
-        <s-time-picker-spinner :list="seconds"></s-time-picker-spinner>
+        <s-time-picker-spinner :list="hours"
+                               @change="handleHourChange"
+                               v-model="hour"></s-time-picker-spinner>
+        <s-time-picker-spinner :list="minutes"
+                               @change="handleMinuteChange"
+                               v-model="minute"></s-time-picker-spinner>
+        <s-time-picker-spinner :list="seconds"
+                               @change="handleSecondChange"
+                               v-model="second"></s-time-picker-spinner>
       </div>
-      <div class="s-timePicker-spinner-footer"></div>
+      <div class="s-timePicker-spinner-footer">
+        <button type="button"
+                @click="handleCancel"
+                class="s-timePicker-spinner-btn cancel">取消
+        </button>
+        <button type="button"
+                @click="handleNow"
+                class="s-timePicker-spinner-btn now">现在
+        </button>
+        <button type="button"
+                @click="handleOk"
+                class="s-timePicker-spinner-btn ok">确定
+        </button>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
+  import isDate from "../../utils/isDate";
   import zeroize from "../../filters/zeroize";
-  import elHidden from "../../utils/elHidden";
-  import sTimePickerSpinner from './spinner.vue';
+  import elOverflowToggle from "../../utils/elOverflowToggle";
+  import sTimePickerSpinner from "./spinner.vue";
+  import date from "../../filters/date";
 
   const getTimeList = (max = 59, min = 0) => {
     const result = [];
-    for (let i = min; i <= max; i++) result.push({ value: i });
+    for (let i = min; i <= max; i++) result.push({ value: i, selected: false, disabled: false });
     return result;
   };
 
   export default {
     name: "sTimePicker",
     filters: { zeroize },
-    components: {sTimePickerSpinner},
+    components: { sTimePickerSpinner },
     props: {
 
       // value
-      value: String,
+      value: {
+        type: Date,
+        default: () => new Date()
+      },
+
+      format: {
+        type: String,
+        default: "hh:mm:ss"
+      },
 
       // name
       name: String,
@@ -66,6 +97,12 @@
         validator: val => ["lg", "sm", "xs"].includes(val)
       }
     },
+    watch: {
+      value (val, oldVal) {
+        if (val === oldVal || val === this.innerVal) return;
+        this.innerVal = val;
+      }
+    },
     data () {
       return {
         innerVal: this.value,
@@ -73,24 +110,89 @@
         minutes: getTimeList(),
         seconds: getTimeList(),
 
+        hour: 0,
+        minute: 0,
+        second: 0,
+
         spinnerVisible: 0
       };
     },
+    computed: {
+      innerFormatVal () {
+        return date(this.innerVal, this.format);
+      }
+    },
     methods: {
 
+      handleOk () {
+        this.removeSpinner();
+      },
+
+      handleCancel () {
+        this.innerVal = new Date(this.oldValue);
+        this.removeSpinner();
+      },
+
+      handleNow () {
+        this.innerVal = new Date();
+        this.change(true);
+      },
+
+      removeSpinner () {
+        this.oldValue = new Date(this.innerVal);
+        this.spinnerVisible = 2;
+      },
+
+      change (isVisible) {
+        if (isVisible) this.removeSpinner();
+        this.innerVal = new Date(this.innerVal);
+        this.$emit("input", this.innerVal);
+      },
+
+      handleHourChange (isVisible) {
+        this.innerVal.setHours(this.hour);
+        this.change(isVisible);
+      },
+
+      handleMinuteChange (isVisible) {
+        this.innerVal.setMinutes(this.minute);
+        this.change(isVisible);
+      },
+
+      handleSecondChange (isVisible) {
+        this.innerVal.setSeconds(this.second);
+        this.change(isVisible);
+      },
+
       handleFocus () {
+        console.log(document.visibilityState, document.hidden);
         this.spinnerVisible = 1;
       },
 
       handleBlur () {
-        // this.spinnerVisible = 2;
+        console.log(document.visibilityState, document.hidden);
+        if (!this.isMouseOver) this.removeSpinner();
       },
       handleMouseOver () {
-        elHidden(true);
+        this.isMouseOver = true;
+        elOverflowToggle(true);
       },
 
       handleMouseOut () {
-        elHidden(false);
+        this.isMouseOver = false;
+        elOverflowToggle(false);
+      }
+    },
+    created () {
+      this.oldValue = this.value;
+      if (isDate(this.value)) {
+        this.hour = this.value.getHours();
+        this.minute = this.value.getMinutes();
+        this.second = this.value.getSeconds();
+      } else {
+        this.hour = 0;
+        this.minute = 0;
+        this.second = 0;
       }
     }
   };
@@ -100,6 +202,18 @@
   @import "../../styles/variable.scss";
   .s-timePicker {
     position: relative;
+
+    &-prefix {
+      position: absolute;
+      left: 5px;
+      top: 50%;
+      color: $lightGrey;
+      transform: translateY(-50%);
+    }
+
+    & > &-input {
+      padding-left: 20px;
+    }
 
     &-spinner {
       position: absolute;
@@ -193,6 +307,26 @@
 
       &-footer {
         height: 36px;
+        display: flex;
+        justify-content: flex-end;
+      }
+
+      &-btn {
+        border: none;
+        padding: 0 5px;
+        margin: 0 5px;
+        cursor: pointer;
+        background-color: transparent;
+        outline: none;
+        font-size: 12px;
+
+        &.ok {
+          color: $primaryLight;
+        }
+
+        &.cancel {
+          color: $lightGrey;
+        }
       }
     }
   }
