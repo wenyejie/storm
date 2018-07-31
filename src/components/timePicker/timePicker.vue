@@ -17,7 +17,7 @@
          @mouseover="handleMouseOver"
          @mouseout="handleMouseOut"
          v-show="spinnerVisible === 1">
-      <div class="s-timePicker-spinner-content">
+      <div class="s-timePicker-spinner-body">
         <s-time-picker-spinner :list="hours"
                                @change="handleHourChange"
                                v-model="hour"></s-time-picker-spinner>

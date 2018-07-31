@@ -13,57 +13,38 @@
              :placeholder="placeholder"
              :name="name"></s-input>
     <s-icon type="time" class="s-datePicker-prefix"></s-icon>
-    <div class="s-datePicker-spinner">
-      <div class="s-datePicker-spinner-header">
-        <button class="s-datePicker-btn prev">«</button>
-        <button class="s-datePicker-btn prev">‹</button>
-        <span class="s-datePicker-label">{{innerVal | date('YYYY')}}年</span>
-        <span class="s-datePicker-label">{{innerVal | date('M')}}月</span>
-        <button class="s-datePicker-btn next">»</button>
-        <button class="s-datePicker-btn next">›</button>
-      </div>
-      <div class="s-datePicker-spinner-body">
-        <table class="s-datePicker-table day">
-          <thead>
-            <tr>
-              <th v-for="item in weeks">{{item}}</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr v-for="item in [0, 1, 2, 3, 4, 5]" :key="item">
-              <td v-for="subitem in [0, 1, 2, 3, 4, 5, 6]"
-                  :key="subitem">{{days[subitem + item * 7].value}}</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-      <div class="s-datePicker-spinner-footer">
-        <button type="button"
-                @click="handleCancel"
-                class="s-datePicker-btn cancel">取消
-        </button>
-        <button type="button"
-                @click="handleToday"
-                class="s-datePicker-btn now">今天
-        </button>
-        <button type="button"
-                @click="handleOk"
-                class="s-datePicker-btn ok">确定
-        </button>
-      </div>
+    <div class="s-datePicker-spinner"
+         @mouseover="handleMouseOver"
+         @mouseout="handleMouseOut"
+         v-if="spinnerVisible !== 0"
+         v-show="spinnerVisible === 1">
+      <s-date-picker-day @hide="handleDayHide"
+                         @mode="handleMode($event)"
+                         v-model="innerVal"
+                         v-if="daysVisible !== 0 && mode === 'day'"
+                         v-show="daysVisible === 1  && mode === 'day'"
+                         :weeks="weeks"></s-date-picker-day>
+
+      <s-date-picker-month @hide="handleMonthHide"
+                           @mode="handleMode($event)"
+                           v-if="monthVisible !== 0 && mode === 'month'"
+                           v-show="monthVisible === 1 && mode === 'month'"
+                           v-model="innerVal"></s-date-picker-month>
     </div>
   </div>
 </template>
 
 <script>
   import date from "../../filters/date";
-  import isDate from "../../utils/isDate";
+  // import isDate from "../../utils/isDate";
   import zeroize from "../../filters/zeroize";
   import elOverflowToggle from "../../utils/elOverflowToggle";
-  import getDays from './getDays';
+  import sDatePickerDay from "./datePickerDay.vue";
+  import sDatePickerMonth from "./datePickerMonth.vue";
 
   export default {
     name: "sDatePicker",
+    components: { sDatePickerDay, sDatePickerMonth },
     filters: { zeroize, date },
     props: {
       value: {
@@ -73,12 +54,12 @@
       name: String,
       format: {
         type: String,
-        default: 'YYYY-MM-DD'
+        default: "YYYY-MM-DD"
       },
 
       weeks: {
         type: Array,
-        default: () => ['日', '一', '二', '三', '四', '五', '六']
+        default: () => ["日", "一", "二", "三", "四", "五", "六"]
       },
 
       placeholder: String
@@ -97,28 +78,83 @@
     data () {
       return {
         innerVal: this.value,
-        days: null
-      }
+        days: null,
+        spinnerVisible: 0,
+
+        daysVisible: 0,
+
+        monthVisible: 0,
+
+        // 模式
+        mode: "day"
+      };
     },
     methods: {
-      handleCancel () {
 
+      /**
+       * 变更模式
+       */
+      handleMode (mode) {
+        this.mode = mode;
+        if (mode === 'month') this.monthVisible = 1;
       },
-      handleToday () {
 
+      toggleDayVisible (toggle) {
+        this.daysVisible = toggle;
       },
-      handleOk () {
 
+
+      handleMonthHide () {
+        this.monthVisible = 2;
       },
+
+      handleDayHide () {
+        this.toggleDayVisible(2);
+        this.removeSpinner();
+      },
+
+      /**
+       * 移除面板
+       */
+      removeSpinner () {
+        this.oldValue = new Date(this.innerVal);
+        this.spinnerVisible = 2;
+      },
+
+      /**
+       * 输入框获取焦点事件
+       */
       handleFocus () {
+        if (this.mode === "day") {
+          this.toggleDayVisible(1);
+        }
+        this.spinnerVisible = 1;
+      },
+
+      /**
+       * 输入框失去焦点事件
+       */
+      handleBlur () {
+        if (!this.isMouseOver) this.removeSpinner();
+      },
+
+      /**
+       * 鼠标在弹出框里面
+       */
+      handleMouseOver () {
+        this.isMouseOver = true;
         elOverflowToggle(true);
       },
-      handleBlur () {
+
+      /**
+       * 鼠标离开弹出框
+       */
+      handleMouseOut () {
+        this.isMouseOver = false;
         elOverflowToggle(false);
       }
     },
     created () {
-      console.log(this.days = getDays(2018, 7));
 
     }
   };
@@ -169,36 +205,35 @@
         @include triangle-top(#fff, 6px, 6px, 6px);
         top: -6px;
       }
+    }
 
-      &-header {
-        text-align: center;
-        padding: 15px;
-        overflow: hidden;
+    &-header {
+      text-align: center;
+      padding: 15px;
+      overflow: hidden;
 
-        span {
-          font-weight: 500;
-          padding: 0 5px;
-        }
-
-        button {
-          font-size: 16px;
-          padding: 0 7px;
-        }
+      span {
+        font-weight: 500;
+        padding: 0 5px;
       }
 
-      &-body {
-        display: flex;
-        position: relative;
-        padding: 0 15px;
+      button {
+        font-size: 16px;
+        padding: 0 7px;
       }
+    }
 
-      &-footer {
-        height: 36px;
-        display: flex;
-        justify-content: flex-end;
-        border-top: 1px solid $blackLight;
-        box-shadow: 0 2px 12px 0 rgba(0,0,0,.1);
-      }
+    &-body {
+      position: relative;
+      padding: 0 15px 5px;
+    }
+
+    &-footer {
+      height: 36px;
+      display: flex;
+      justify-content: flex-end;
+      border-top: 1px solid $blackLight;
+      box-shadow: 0 2px 12px 0 rgba(0, 0, 0, .1);
     }
 
     &-table {
@@ -214,6 +249,14 @@
         border-bottom: 1px solid #ebeef5;
       }
 
+      span {
+        display: inline-block;
+        vertical-align: middle;
+        width: 24px;
+        height: 24px;
+        line-height: 24px;
+      }
+
       td {
         cursor: pointer;
         &:hover:not(.selected):not(.today):not(.other):not(.disabled) {
@@ -225,7 +268,7 @@
           cursor: not-allowed;
         }
 
-        &.today {
+        &.today span {
           background-color: #409eff;
           color: #fff;
           border-radius: 50%;
