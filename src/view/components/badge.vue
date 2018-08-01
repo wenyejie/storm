@@ -18,6 +18,15 @@
       <s-button>消息<s-badge :value="6"></s-badge></s-button>
     </s-panel>
 
+    <s-panel title="Max 最大值">
+      <s-badge :value="12" :max="10" class="item">
+        <s-button>评论</s-button>
+      </s-badge>
+      <s-badge :value="100" :max="99">
+        <s-button>回复</s-button>
+      </s-badge>
+    </s-panel>
+
     <s-panel title="isDot 小圆点">
       <s-badge :value="12" is-dot class="item">
         <s-button>评论</s-button>
