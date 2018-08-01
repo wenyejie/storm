@@ -133,6 +133,10 @@ export default [
       {
         name: 'Page 分页',
         path: '/components/page'
+      },
+      {
+        name: 'Progress 进度条',
+        path: '/components/progress'
       }
     ]
   },

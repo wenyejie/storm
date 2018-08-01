@@ -140,6 +140,12 @@ export default {
       path: 'datePicker',
       name: 'rDatePicker',
       component: () => import('../view/components/datePicker.vue')
+    },
+
+    {
+      path: 'progress',
+      name: 'rProgress',
+      component: () => import('../view/components/progress.vue')
     }
   ]
 }
