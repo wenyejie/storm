@@ -1,5 +1,5 @@
 <!--
- - 
+ - 月份选择器
  -
  - @author: Storm
  - @date: 2018/07/31
@@ -47,7 +47,7 @@
   import month2cn from "../../filters/month2cn";
 
   export default {
-    name: "sDatePickerMonth",
+    name: "sMonthPicker",
     filters: { date, month2cn },
     props: {
       value: Date
@@ -126,9 +126,6 @@
 
 <style lang="scss">
   @import "../../styles/variable.scss";
-  .s-datePickerDay {
-
-  }
   .s-datePicker-table.month {
     td {
       padding: 16px 0;

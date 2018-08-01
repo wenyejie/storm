@@ -5,30 +5,32 @@
  - @date: 2018/07/30
  -->
 <template>
-  <div class="s-datePicker">
+  <div class="s-datePicker" @click.stop>
     <s-input v-model="innerFormatVal"
              class="s-datePicker-input"
              @focus="handleFocus"
-             @blur="handleBlur"
              :placeholder="placeholder"
              :name="name"></s-input>
     <s-icon type="time" class="s-datePicker-prefix"></s-icon>
     <div class="s-datePicker-spinner"
-         @mouseenter="handleMouseEnter"
-         @mouseleave="handleMouseLeave"
          v-if="spinnerVisible !== 0"
          v-show="spinnerVisible === 1">
-      <s-date-picker-day @mode="handleMode($event)"
-                         @input="handleDayInput"
-                         v-model="innerVal"
-                         v-show="mode === 0"
-                         v-if="isDayVisible"
-                         :weeks="weeks"></s-date-picker-day>
+      <s-day-picker @mode="handleMode($event)"
+                    @input="handleDayInput"
+                    v-model="innerVal"
+                    v-show="mode === 0"
+                    v-if="isDayVisible"
+                    :weeks="weeks"></s-day-picker>
 
-      <s-date-picker-month @mode="handleMode($event)"
-                           v-show="mode === 1"
-                           v-if="isMonthVisible"
-                           v-model="innerVal"></s-date-picker-month>
+      <s-month-picker @mode="handleMode($event)"
+                      v-show="mode === 1"
+                      v-if="isMonthVisible"
+                      v-model="innerVal"></s-month-picker>
+
+      <s-year-picker @mode="handleMode($event)"
+                     v-show="mode === 2"
+                     v-if="isYearVisible"
+                     v-model="innerVal"></s-year-picker>
     </div>
   </div>
 </template>
@@ -37,13 +39,13 @@
   import date from "../../filters/date";
   // import isDate from "../../utils/isDate";
   import zeroize from "../../filters/zeroize";
-  import elOverflowToggle from "../../utils/elOverflowToggle";
-  import sDatePickerDay from "./datePickerDay.vue";
-  import sDatePickerMonth from "./datePickerMonth.vue";
+  import sDayPicker from "./dayPicker.vue";
+  import sMonthPicker from "./monthPicker.vue";
+  import SYearPicker from "./yearPicker.vue";
 
   export default {
     name: "sDatePicker",
-    components: { sDatePickerDay, sDatePickerMonth },
+    components: { SYearPicker, sDayPicker, sMonthPicker },
     filters: { zeroize, date },
     props: {
       value: {
@@ -94,7 +96,6 @@
     },
     methods: {
 
-
       handleDayInput () {
         this.removeSpinner();
       },
@@ -125,38 +126,22 @@
       removeSpinner () {
         this.oldValue = new Date(this.innerVal);
         this.spinnerVisible = 2;
+        document.removeEventListener("click", this.removeSpinner);
       },
 
       /**
        * 输入框获取焦点事件
        */
       handleFocus () {
+        this.handleShow();
+      },
+
+      handleShow () {
         this.mode = 0;
         this.isDayVisible = true;
         this.spinnerVisible = 1;
-      },
 
-      /**
-       * 输入框失去焦点事件
-       */
-      handleBlur () {
-        if (!this.isMouseEnter) this.removeSpinner();
-      },
-
-      /**
-       * 鼠标在弹出框里面
-       */
-      handleMouseEnter () {
-        this.isMouseEnter = true;
-        elOverflowToggle(true);
-      },
-
-      /**
-       * 鼠标离开弹出框
-       */
-      handleMouseLeave () {
-        this.isMouseEnter = false;
-        elOverflowToggle(false);
+        document.addEventListener("click", this.removeSpinner, { once: true });
       }
     },
     created () {
