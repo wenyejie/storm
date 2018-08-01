@@ -25,13 +25,9 @@ export default date => {
   const prevLastDay = prevLastDate.getDate();
   const prevLastWeek = prevLastDate.getDay();
 
-  console.log(`prevLastDay: ${prevLastDay.toLocaleString()}`);
-
   // 下个月
   const nextLastDate = new Date(year, month + 1, 1);
   const nextLastWeek = nextLastDate.getDay();
-
-  console.log(`nextLastDay: ${nextLastDate.toLocaleString()}`);
 
   const days = [];
 

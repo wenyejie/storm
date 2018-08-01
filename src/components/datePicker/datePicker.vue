@@ -14,21 +14,20 @@
              :name="name"></s-input>
     <s-icon type="time" class="s-datePicker-prefix"></s-icon>
     <div class="s-datePicker-spinner"
-         @mouseover="handleMouseOver"
-         @mouseout="handleMouseOut"
+         @mouseenter="handleMouseEnter"
+         @mouseleave="handleMouseLeave"
          v-if="spinnerVisible !== 0"
          v-show="spinnerVisible === 1">
-      <s-date-picker-day @hide="handleDayHide"
-                         @mode="handleMode($event)"
+      <s-date-picker-day @mode="handleMode($event)"
+                         @input="handleDayInput"
                          v-model="innerVal"
-                         v-if="daysVisible !== 0 && mode === 'day'"
-                         v-show="daysVisible === 1  && mode === 'day'"
+                         v-show="mode === 0"
+                         v-if="isDayVisible"
                          :weeks="weeks"></s-date-picker-day>
 
-      <s-date-picker-month @hide="handleMonthHide"
-                           @mode="handleMode($event)"
-                           v-if="monthVisible !== 0 && mode === 'month'"
-                           v-show="monthVisible === 1 && mode === 'month'"
+      <s-date-picker-month @mode="handleMode($event)"
+                           v-show="mode === 1"
+                           v-if="isMonthVisible"
                            v-model="innerVal"></s-date-picker-month>
     </div>
   </div>
@@ -78,39 +77,46 @@
     data () {
       return {
         innerVal: this.value,
-        days: null,
         spinnerVisible: 0,
 
-        daysVisible: 0,
+        // 是否显示日期选择
+        isDayVisible: false,
 
-        monthVisible: 0,
+        // 是否显示月份选择
+        isMonthVisible: false,
 
-        // 模式
-        mode: "day"
+        // 是否显示年份选择
+        isYearVisible: false,
+
+        // 模式 0: 天数, 1: 月份, 2: 年份
+        mode: 0
       };
     },
     methods: {
+
+
+      handleDayInput () {
+        this.removeSpinner();
+      },
 
       /**
        * 变更模式
        */
       handleMode (mode) {
         this.mode = mode;
-        if (mode === 'month') this.monthVisible = 1;
-      },
-
-      toggleDayVisible (toggle) {
-        this.daysVisible = toggle;
-      },
-
-
-      handleMonthHide () {
-        this.monthVisible = 2;
-      },
-
-      handleDayHide () {
-        this.toggleDayVisible(2);
-        this.removeSpinner();
+        switch (mode) {
+          case 0:
+            this.isDayVisible = true;
+            break;
+          case 1:
+            this.isMonthVisible = true;
+            break;
+          case 2:
+            this.isYearVisible = true;
+            break;
+          default:
+            break;
+        }
       },
 
       /**
@@ -125,9 +131,8 @@
        * 输入框获取焦点事件
        */
       handleFocus () {
-        if (this.mode === "day") {
-          this.toggleDayVisible(1);
-        }
+        this.mode = 0;
+        this.isDayVisible = true;
         this.spinnerVisible = 1;
       },
 
@@ -135,22 +140,22 @@
        * 输入框失去焦点事件
        */
       handleBlur () {
-        if (!this.isMouseOver) this.removeSpinner();
+        if (!this.isMouseEnter) this.removeSpinner();
       },
 
       /**
        * 鼠标在弹出框里面
        */
-      handleMouseOver () {
-        this.isMouseOver = true;
+      handleMouseEnter () {
+        this.isMouseEnter = true;
         elOverflowToggle(true);
       },
 
       /**
        * 鼠标离开弹出框
        */
-      handleMouseOut () {
-        this.isMouseOver = false;
+      handleMouseLeave () {
+        this.isMouseEnter = false;
         elOverflowToggle(false);
       }
     },
@@ -215,6 +220,7 @@
       span {
         font-weight: 500;
         padding: 0 5px;
+        cursor: pointer;
       }
 
       button {

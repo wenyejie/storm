@@ -12,13 +12,13 @@
       <button class="s-datePicker-btn next" @click="handleNextYear">»</button>
     </header>
     <div class="s-datePicker-body">
-      <table class="s-datePicker-table day">
+      <table class="s-datePicker-table month">
         <tbody>
           <tr v-for="(item, index) in list" :key="index">
             <td v-for="subitem in item"
                 @click="handleMonth(subitem)"
                 :class="monthClasses(subitem)"
-                :key="subitem.value"><span>{{subitem.value}}</span>
+                :key="subitem.value">{{subitem.value | month2cn}}月
             </td>
           </tr>
         </tbody>
@@ -44,9 +44,11 @@
 <script>
   import date from "../../filters/date";
   import getMonths from "./getMonths";
+  import month2cn from "../../filters/month2cn";
+
   export default {
-    name: "sDatePickerDay",
-    filters: { date },
+    name: "sDatePickerMonth",
+    filters: { date, month2cn },
     props: {
       value: Date
     },
@@ -72,17 +74,18 @@
         this.handleInput();
       },
 
-      monthClasses ({selected}) {
-        return {selected}
+      monthClasses ({ selected }) {
+        return { selected };
       },
 
       handleInput () {
         this.innerVal = new Date(this.innerVal);
-        this.$emit('input', this.innerVal);
+        this.$emit("input", this.innerVal);
+        this.$emit("mode", 0);
       },
 
       handleYear () {
-        this.$emit('mode', 'year');
+        this.$emit("mode", 2);
       },
 
       handlePrevYear () {
@@ -104,12 +107,14 @@
       },
 
       handleMonth (subitem) {
-        this.oldMonth.selected = false;
+        if (this.oldMonth) this.oldMonth.selected = false;
         subitem.selected = true;
+        const date = this.innerVal;
+        const day = date.getDate();
+        date.setMonth(subitem.value);
+        if (date.getDate() !== day) date.setDate(0);
         this.oldMonth = subitem;
-        this.innerVal = new Date(this.innerVal);
-        this.$emit('mode', 'day');
-        this.$emit('hide');
+        this.handleInput();
       }
 
     },
@@ -123,5 +128,10 @@
   @import "../../styles/variable.scss";
   .s-datePickerDay {
 
+  }
+  .s-datePicker-table.month {
+    td {
+      padding: 16px 0;
+    }
   }
 </style>

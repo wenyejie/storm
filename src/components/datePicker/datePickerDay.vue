@@ -81,14 +81,14 @@
        * 点击月份变更模式
        */
       handleMonth () {
-        this.$emit('mode', 'month');
+        this.$emit('mode', 1);
       },
 
       /**
        * 点击年份变更模式
        */
       handleYear () {
-        this.$emit('mode', 'year');
+        this.$emit('mode', 2);
       },
 
       /**
@@ -171,7 +171,7 @@
           this.buildDays();
         }
         subitem.selected = true;
-        this.innerVal = new Date(this.innerVal);
+        this.innerVal = new Date(date);
         if (this.oldDays) this.oldDays.selected = false;
         this.oldDays = subitem;
         this.handleInput();
@@ -179,8 +179,7 @@
 
       handleInput () {
         this.$emit("input", this.innerVal);
-        this.oldDays = this.innerVal;
-        this.$emit("hide");
+        this.oldValue = this.innerVal;
       },
 
       /**
@@ -194,7 +193,7 @@
        * 取消方法, 移除当前选中
        */
       handleCancel () {
-        this.innerVal = this.oldDays;
+        this.innerVal = this.oldValue;
         this.handleInput();
       },
 
