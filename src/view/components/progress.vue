@@ -11,6 +11,10 @@
       <s-progress v-model="demo"></s-progress>
     </s-panel>
 
+    <s-panel title="Type 类型">
+      <s-progress v-model="demo" type="circle"></s-progress>
+    </s-panel>
+
   </div>
 </template>
 
