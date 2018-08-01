@@ -81,7 +81,7 @@
    * @param num 按钮数
    * @return {number}
    */
-  const countHalf = (num) => Math.ceil(num / 2)
+  const countHalf = (num) => Math.ceil(num / 2);
 
   /**
    * 根据参数起始值, 和结束值计算分页列表
@@ -90,12 +90,12 @@
    * @return {Array}
    */
   const countList = (start, end) => {
-    const list = []
+    const list = [];
     for (; start < end; start++) {
-      list.push(start)
+      list.push(start);
     }
-    return list
-  }
+    return list;
+  };
 
   /**
    * 生成分页列表
@@ -106,34 +106,34 @@
   const generateList = (current, total, number) => {
 
     // 起始页, 结束页
-    let start = 0, end = total
+    let start = 0, end = total;
 
-    const half = countHalf(number)
+    const half = countHalf(number);
 
     // 如果总页数低于按钮数
     if (total <= number) {
-      end = total
+      end = total;
     } else if (current < half) { // 按钮数的前几页
-      end = number
+      end = number;
     } else if (total <= current + half) { // 倒数几页
-      start = total - number
+      start = total - number;
     } else {// 默认情况
-      start = current + 1 - half
-      end = current + half
+      start = current + 1 - half;
+      end = current + half;
     }
 
-    return countList(start, end)
-  }
+    return countList(start, end);
+  };
 
   /**
    * 数字验证规则
    * @param val
    * @return {boolean}
    */
-  const validator = (val) => val >= 0
+  const validator = (val) => val >= 0;
 
   export default {
-    name: 'sPage',
+    name: "sPage",
     props: {
 
       // 当前页数
@@ -176,7 +176,7 @@
       size: {
         type: String,
         validator (val) {
-          return ['lg', 'sm', 'xs'].includes(val)
+          return ["lg", "sm", "xs"].includes(val);
         }
       },
 
@@ -213,13 +213,13 @@
       // 下一页文本
       nextText: {
         type: String,
-        default: '>'
+        default: ">"
       },
 
       // 上一页文本
       prevText: {
         type: String,
-        default: '<'
+        default: "<"
       },
 
       // 是否有第一页
@@ -231,7 +231,7 @@
       // 第一页文本
       firstText: {
         type: String,
-        default: '\u00AB'
+        default: "\u00AB"
       },
 
       // 是否有最后一页
@@ -243,54 +243,54 @@
       // 最后一页文本
       lastText: {
         type: String,
-        default: '\u00BB'
-      },
+        default: "\u00BB"
+      }
     },
     watch: {
 
       // 监听value是否发生变化
       value (val, oldVal) {
         // 判断两个值是否等同
-        if (val === oldVal) return
-        this.current = val
-        this.buildList()
+        if (val === oldVal) return;
+        this.current = val;
+        this.buildList();
       },
 
       // 监听按钮数是否发生变化
       number (val, oldVal) {
-        if (val === oldVal) return
-        this.half = countHalf(val)
-        this.buildList()
+        if (val === oldVal) return;
+        this.half = countHalf(val);
+        this.buildList();
       },
 
       // 监听总页数是否发生变化
       totalPage (val, oldVal) {
-        if (val === oldVal) return
-        this.buildList()
+        if (val === oldVal) return;
+        this.buildList();
       },
 
       pageSize (val, oldVal) {
-        if (val === oldVal) return
-        this.innerPageSize = val
+        if (val === oldVal) return;
+        this.innerPageSize = val;
       }
     },
     computed: {
 
       // 是否显示上一个筛选器
       hasPrevSizer () {
-        return this.hasSizer && (this.list[0]) > 0
+        return this.hasSizer && (this.list[0]) > 0;
       },
 
       // 是否显示下一个筛选器
       hasNextSizer () {
-        return this.hasSizer && (this.list[this.number - 1]) < this.totalPage - 1
+        return this.hasSizer && (this.list[this.number - 1]) < this.totalPage - 1;
       },
 
       classes () {
         return {
           [`s-page-disabled`]: this.disabled,
           [`s-page-${this.size}`]: !!this.size
-        }
+        };
       }
     },
     data () {
@@ -310,7 +310,7 @@
 
         // 每页条数
         innerPageSize: this.pageSize
-      }
+      };
     },
     methods: {
 
@@ -318,24 +318,24 @@
        * pageSize变更
        */
       handlePageSize () {
-        if (this.disabled) return
+        if (this.disabled) return;
 
-        this.$emit('changePageSize', this.innerPageSize)
+        this.$emit("changePageSize", this.innerPageSize);
       },
 
       /**
        * 启动电梯
        */
       startElevator () {
-        if (this.disabled) return
+        if (this.disabled) return;
 
-        this.tier = Math.ceil(this.tier)
+        this.tier = Math.ceil(this.tier);
         if (this.tier <= 0) {
-          this.tier = 1
+          this.tier = 1;
         } else if (this.tier > this.totalPage) {
-          this.tier = this.totalPage
+          this.tier = this.totalPage;
         }
-        this.togglePage(this.tier - 1)
+        this.togglePage(this.tier - 1);
       },
 
       /**
@@ -343,13 +343,13 @@
        * @param opts 选项
        */
       buildList (opts = {}) {
-        const {total, current, number} = Object.assign({
+        const { total, current, number } = Object.assign({
           total: this.totalPage,
           current: this.current,
           number: this.number
-        }, opts)
+        }, opts);
 
-        this.list = generateList(current, total, number)
+        this.list = generateList(current, total, number);
       },
 
       /**
@@ -357,41 +357,41 @@
        * @param type 类型 1:prev, 2:next
        */
       handleSizer (type) {
-        if (this.disabled) return
+        if (this.disabled) return;
 
         // 起始值, 结束值
-        let start = 0, end = this.totalPage
+        let start = 0, end = this.totalPage;
         if (type === 1) {
-          end = this.list[0]
-          start = this.list[0] - this.number
+          end = this.list[0];
+          start = this.list[0] - this.number;
         } else if (type === 2) {
-          start = this.list[this.number - 1] + 1
-          end = start + this.number
+          start = this.list[this.number - 1] + 1;
+          end = start + this.number;
           if (end >= this.totalPage) {
-            end = this.totalPage
+            end = this.totalPage;
           }
         }
 
-        this.list = countList(start, end)
+        this.list = countList(start, end);
       },
 
       /**
        * 点击切换页面
        */
       togglePage (page) {
-        if (this.disabled) return
+        if (this.disabled) return;
 
         // 如果页码小于0或者大于总页数, 或者等于当前页退出函数
-        if (page < 0 || page >= this.totalPage || page === this.current) return false
-        this.current = page
+        if (page < 0 || page >= this.totalPage || page === this.current) return false;
+        this.current = page;
 
-        this.$emit('input', page)
+        this.$emit("input", page);
       }
     },
     created () {
-      this.buildList()
+      this.buildList();
     }
-  }
+  };
 </script>
 
 <style lang="scss">
