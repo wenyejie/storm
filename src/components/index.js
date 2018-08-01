@@ -32,6 +32,7 @@ import sSwitch from './switch';
 import sTimePicker from './timePicker';
 import sDatePicker from './datePicker';
 import sProgress from './progress';
+import sBadge from './badge';
 
 const components = {
   sPanel,
@@ -62,7 +63,8 @@ const components = {
   sSwitch,
   sTimePicker,
   sDatePicker,
-  sProgress
+  sProgress,
+  sBadge
 };
 
 const install = Vue => {

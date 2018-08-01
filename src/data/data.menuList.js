@@ -137,6 +137,10 @@ export default [
       {
         name: 'Progress 进度条',
         path: '/components/progress'
+      },
+      {
+        name: 'Badge 标记',
+        path: '/components/badge'
       }
     ]
   },

@@ -146,6 +146,12 @@ export default {
       path: 'progress',
       name: 'rProgress',
       component: () => import('../view/components/progress.vue')
+    },
+
+    {
+      path: 'badge',
+      name: 'rBadge',
+      component: () => import('../view/components/badge.vue')
     }
   ]
 }

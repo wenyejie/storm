@@ -100,8 +100,8 @@
     display: inline-block;
     cursor: pointer;
     white-space: nowrap;
-    background-color: #eee;
-    border: 1px solid #ccc;
+    background-color: #fff;
+    border: 1px solid #dcdfe6;
     color: $default;
     text-align: center;
     padding: 5.5px 11px;
@@ -166,7 +166,7 @@
     &-default {
       &:focus,
       &:hover {
-        background-color: $white;
+        background-color: #f6f6f6;
         border-color: #ddd;
       }
     }
