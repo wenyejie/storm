@@ -12,20 +12,20 @@
 </template>
 
 <script>
-  const maxVal = (input, isDot,  max = 99) => {
-    if (input === void 0 || isDot) return "";
-    else if (typeof input === "string") return input;
+  const maxVal = (input, isDot, max = 99) => {
+    if (input === void 0 || isDot) return '';
+    else if (typeof input === 'string') return input;
     return input <= max ? input : `${max}+`;
   };
 
   export default {
-    name: "sBadge",
+    name: 'sBadge',
     props: {
       value: [String, Number],
       type: {
-        default: "danger",
+        default: 'danger',
         validator (val) {
-          return ["primary", "info", "success", "danger", "warning"].includes(val);
+          return ['primary', 'info', 'success', 'danger', 'warning'].includes(val);
         }
       },
 
@@ -40,7 +40,7 @@
     },
     computed: {
       supClasses () {
-        return { "isDot": this.isDot, "isFixed": this.$slots.default };
+        return { 'isDot': this.isDot, 'isFixed': this.$slots.default };
       },
 
       innerText () {
