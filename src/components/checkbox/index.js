@@ -5,4 +5,6 @@
  * date: 2017/10/07
  */
 
-export default () => import('./checkbox.vue');
+export const sCheckbox = () => import('./checkbox.vue');
+
+export const sCheckboxGroup = () => import('./checkboxGroup.vue');

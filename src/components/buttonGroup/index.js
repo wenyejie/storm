@@ -5,4 +5,4 @@
  * @date: 2017/12/22
  */
 
-export default () => import('./buttonGroup.vue');
+export default () => import('../button/buttonGroup.vue');

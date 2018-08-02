@@ -5,4 +5,6 @@
  * date: 2017/11/05
  */
 
-export default () => import('./radio.vue');
+export const sRadio = () => import('./radio.vue');
+
+export const sRadioGroup = () => import('./radioGroup.vue');
