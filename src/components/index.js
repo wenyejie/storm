@@ -33,6 +33,7 @@ import sTimePicker from './timePicker';
 import sDatePicker from './datePicker';
 import sProgress from './progress';
 import sBadge from './badge';
+import sRate from './rate';
 
 const components = {
   sPanel,
@@ -64,7 +65,8 @@ const components = {
   sTimePicker,
   sDatePicker,
   sProgress,
-  sBadge
+  sBadge,
+  sRate
 };
 
 const install = Vue => {

@@ -141,6 +141,10 @@ export default [
       {
         name: 'Badge 标记',
         path: '/components/badge'
+      },
+      {
+        name: 'Rate 评分',
+        path: '/components/rate'
       }
     ]
   },

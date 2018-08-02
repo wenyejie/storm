@@ -152,6 +152,12 @@ export default {
       path: 'badge',
       name: 'rBadge',
       component: () => import('../view/components/badge.vue')
+    },
+
+    {
+      path: 'rate',
+      name: 'rRate',
+      component: () => import('../view/components/rate.vue')
     }
   ]
 }
