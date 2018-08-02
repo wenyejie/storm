@@ -38,14 +38,12 @@
   // import visibilityChange from '../core/visibilityChange'
   // import cookie from '../core/cookie';
 
-
   export default {
     name: 'index',
     data () {
-      return {}
+      return {};
     },
-    methods: {
-    },
+    methods: {},
     created () {
       if (!this.$isServer) {
 
@@ -60,7 +58,7 @@
         })*/
       }
     }
-  }
+  };
 
   /*function * demoGenerator () {
     yield 'hello'

@@ -55,7 +55,7 @@
 
 <script>
   export default {
-    name: "sDialog",
+    name: 'sDialog',
     props: {
 
       // value
@@ -74,7 +74,7 @@
       size: {
         type: String,
         validator (val) {
-          return ["lg", "md", "sm", "auto", "fullscreen"].includes(val);
+          return ['lg', 'md', 'sm', 'auto', 'fullscreen'].includes(val);
         }
       },
 
@@ -117,13 +117,13 @@
       // 确定按钮文本
       okText: {
         type: String,
-        default: "确定"
+        default: '确定'
       },
 
       // 取消按钮文本
       cancelText: {
         type: String,
-        default: "取消"
+        default: '取消'
       }
     },
     computed: {
@@ -179,7 +179,7 @@
        */
       remove () {
         this.visible = false;
-        this.$emit("input", false);
+        this.$emit('input', false);
       },
 
       /**
@@ -189,7 +189,7 @@
 
         // 是否可以通过背景移除弹出框
         if (this.maskRemove) {
-          this.$emit("mask");
+          this.$emit('mask');
           this.remove();
         }
       },
@@ -198,7 +198,7 @@
        * 取消事件
        */
       handleCancel () {
-        this.$emit("cancel");
+        this.$emit('cancel');
         this.remove();
       },
 
@@ -206,7 +206,7 @@
        * 确定时间
        */
       handleOk () {
-        this.$emit("ok");
+        this.$emit('ok');
         this.remove();
       },
 
@@ -214,7 +214,7 @@
        * 关闭事件
        */
       handleClose () {
-        this.$emit("close");
+        this.$emit('close');
         this.remove();
       }
     }

@@ -58,7 +58,7 @@
 
         // 菜单列表
         menuList
-      }
+      };
     },
     methods: {
 
@@ -72,20 +72,20 @@
         if (item.path) { // 有, 跳转
 
           if (item.newTab) {
-            window.open(item.path, item.path)
+            window.open(item.path, item.path);
           } else {
-            this.$router.push(item.path)
+            this.$router.push(item.path);
           }
         }
 
         if (item.children) {
 
           // 打开子菜单
-          this.$set(item, 'hidden', !item.hidden)
+          this.$set(item, 'hidden', !item.hidden);
         }
       }
     }
-  }
+  };
 </script>
 
 <style lang="scss">
