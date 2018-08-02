@@ -10,7 +10,7 @@
 
 <script>
   export default {
-    name: 'cTooltip'
+    name: 'sTooltip'
   }
 </script>
 
