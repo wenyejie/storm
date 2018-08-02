@@ -133,12 +133,16 @@
   @import "../../styles/variable.scss";
   .s-rate {
 
+    &-item,
+    &-text {
+      display: inline-block;
+      vertical-align: middle;
+    }
+
     &-item {
       font-size: 18px;
       line-height: 24px;
       padding-right: 6px;
-      display: inline-block;
-      vertical-align: middle;
       cursor: pointer;
       transition: transform .3s ease, color .3s ease;
 
