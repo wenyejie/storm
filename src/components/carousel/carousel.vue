@@ -31,19 +31,19 @@
 
 <script>
   export default {
-    name: 'sCarousel',
+    name: "sCarousel",
     props: {
 
       // 下标值
       value: {
         type: Number,
-        default: 0,
+        default: 0
       },
 
       // 切换方式
       effect: {
         type: String,
-        default: 'slide'
+        default: "slide"
       },
 
       // 是否有导航
@@ -71,22 +71,22 @@
       classes () {
         return {
           [`s-carousel-${this.effect}`]: !!this.effect
-        }
+        };
       },
       length () {
-        return this.$children.length
+        return this.$children.length;
       },
 
       navClasses () {
         return {
           [`s-carousel-nav-switch`]: !!this.navSwitch
-        }
+        };
       },
 
       listStyles () {
-        const result = {}
-        result['margin-left'] = this.index * -100 + '%'
-        return result
+        const result = {};
+        result["transform"] = `translateX(${this.index * -100}%)`;
+        return result;
       }
     },
     watch: {
@@ -97,8 +97,8 @@
        * @param oldVal
        */
       value (val, oldVal) {
-        if (val === oldVal || val === this.index) return
-        this.toggle(val)
+        if (val === oldVal || val === this.index) return;
+        this.toggle(val);
       }
     },
     data () {
@@ -113,7 +113,7 @@
         list: [],
 
         timer: null
-      }
+      };
     },
     methods: {
       /**
@@ -121,8 +121,8 @@
        * @param _uid 子元素uid
        */
       add (_uid) {
-        this.list.push(_uid)
-        if (this.index === -1) this.init()
+        this.list.push(_uid);
+        if (this.index === -1) this.init();
       },
 
       /**
@@ -130,9 +130,9 @@
        * @param _uid
        */
       remove (_uid) {
-        const index = this.list.findIndex(item => item === _uid)
+        const index = this.list.findIndex(item => item === _uid);
 
-        this.list.splice(index, 1)
+        this.list.splice(index, 1);
         if (this.list.length <= 0) {
 
         }
@@ -144,8 +144,8 @@
        * @param item 下标
        */
       handleNav (index, item) {
-        if (!this.navSwitch) return
-        this.toggle(index)
+        if (!this.navSwitch) return;
+        this.toggle(index);
       },
 
       /**
@@ -154,35 +154,35 @@
       start () {
 
         // 判断是否为整数, 并且大于等于0
-        if (!Number.isInteger(this.duration) || this.duration <= 0) return
-        this.timer = setTimeout(this.handleNext, this.duration)
+        if (!Number.isInteger(this.duration) || this.duration <= 0) return;
+        this.timer = setTimeout(this.handleNext, this.duration);
       },
 
       /**
        * 结束轮播
        */
       stop () {
-        clearTimeout(this.timer)
+        clearTimeout(this.timer);
       },
 
       /**
        * 点击上一页
        */
       handlePrev () {
-        let index
-        if (this.index <= 0) index = this.list.length - 1
-        else index = this.index - 1
-        this.toggle(index)
+        let index;
+        if (this.index <= 0) index = this.list.length - 1;
+        else index = this.index - 1;
+        this.toggle(index);
       },
 
       /**
        * 点击下一页
        */
       handleNext () {
-        let index
-        if (this.index >= this.list.length - 1) index = 0
-        else index = this.index + 1
-        this.toggle(index)
+        let index;
+        if (this.index >= this.list.length - 1) index = 0;
+        else index = this.index + 1;
+        this.toggle(index);
       },
 
       /**
@@ -190,17 +190,17 @@
        * @param index
        */
       toggle (index) {
-        this.stop()
-        this.index = index
-        this.uid = this.list[index]
-        this.$emit('input', this.index)
-        this.start()
+        this.stop();
+        this.index = index;
+        this.uid = this.list[index];
+        this.$emit("input", this.index);
+        this.start();
       }
     },
     mounted () {
-      this.toggle(0)
+      this.toggle(0);
     }
-  }
+  };
 </script>
 
 <style lang="scss">
