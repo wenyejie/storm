@@ -5,7 +5,7 @@
  * @date: 2018/07/30
  */
 
-const getDay = (value, opts) => Object.assign({value}, {selected: false, disabled: false, other: false}, opts);
+const getDay = (value, opts) => Object.assign({ value }, { selected: false, disabled: false, other: false }, opts);
 
 export default date => {
   const year = date.getFullYear();
@@ -31,15 +31,14 @@ export default date => {
 
   const days = [];
 
-  for (let i = prevLastWeek; i >= 0; i--) days.push(getDay(prevLastDay - i, {other: true, prev: true}))
+  for (let i = prevLastWeek; i >= 0; i--) days.push(getDay(prevLastDay - i, { other: true, prev: true }));
 
   for (let i = 1; i <= lastDay; i++) days.push(getDay(i, {
     today: thisYear === year && thisMonth === month && thisDate === i,
     selected: day === i
   }));
 
-  for (let i = nextLastWeek, y = 1; i < 7; i++, y++) days.push(getDay(y, {other: true, next: true}));
+  for (let i = nextLastWeek, y = 1; i < 7; i++, y++) days.push(getDay(y, { other: true, next: true }));
 
-
-  return [[], [], [], [], [], []].map((item, index) => item.concat(days.slice(index * 7, index * 7  + 7)));
+  return [[], [], [], [], [], []].map((item, index) => item.concat(days.slice(index * 7, index * 7 + 7)));
 }

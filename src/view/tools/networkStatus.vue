@@ -128,7 +128,7 @@
       explain: '找不到服务器IP地址',
       remark: ''
     }
-  ]
+  ];
   export default {
     name: 'vNetworkStatus',
     title: 'networkStatus',
@@ -137,7 +137,7 @@
 
         // 过滤关键字
         filterKey: ''
-      }
+      };
     },
     computed: {
 
@@ -146,11 +146,11 @@
        * @return {*[]}
        */
       filterList () {
-        const regexp = new RegExp(`${this.filterKey}`, 'i')
-        return list.filter(item => regexp.test(item.name))
+        const regexp = new RegExp(`${this.filterKey}`, 'i');
+        return list.filter(item => regexp.test(item.name));
       }
     }
-  }
+  };
 </script>
 
 <style lang="scss" scoped>

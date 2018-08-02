@@ -41,10 +41,10 @@
 </template>
 
 <script>
-  import getYears from "./getYears";
+  import getYears from './getYears';
 
   export default {
-    name: "sYearPicker",
+    name: 'sYearPicker',
     props: {
       value: Date
     },
@@ -73,8 +73,8 @@
 
       handleInput () {
         this.innerVal = new Date(this.innerVal);
-        this.$emit("input", this.innerVal);
-        this.$emit("mode", 1);
+        this.$emit('input', this.innerVal);
+        this.$emit('mode', 1);
       },
 
       handlePrev () {

@@ -36,15 +36,15 @@
 </template>
 
 <script>
-  import date from "../../filters/date";
+  import date from '../../filters/date';
   // import isDate from "../../utils/isDate";
-  import zeroize from "../../filters/zeroize";
-  import sDayPicker from "./dayPicker.vue";
-  import sMonthPicker from "./monthPicker.vue";
-  import SYearPicker from "./yearPicker.vue";
+  import zeroize from '../../filters/zeroize';
+  import sDayPicker from './dayPicker.vue';
+  import sMonthPicker from './monthPicker.vue';
+  import SYearPicker from './yearPicker.vue';
 
   export default {
-    name: "sDatePicker",
+    name: 'sDatePicker',
     components: { SYearPicker, sDayPicker, sMonthPicker },
     filters: { zeroize, date },
     props: {
@@ -55,12 +55,12 @@
       name: String,
       format: {
         type: String,
-        default: "YYYY-MM-DD"
+        default: 'YYYY-MM-DD'
       },
 
       weeks: {
         type: Array,
-        default: () => ["日", "一", "二", "三", "四", "五", "六"]
+        default: () => ['日', '一', '二', '三', '四', '五', '六']
       },
 
       placeholder: String
@@ -126,7 +126,7 @@
       removeSpinner () {
         this.oldValue = new Date(this.innerVal);
         this.spinnerVisible = 2;
-        document.removeEventListener("click", this.removeSpinner);
+        document.removeEventListener('click', this.removeSpinner);
       },
 
       /**
@@ -141,7 +141,7 @@
         this.isDayVisible = true;
         this.spinnerVisible = 1;
 
-        document.addEventListener("click", this.removeSpinner, { once: true });
+        document.addEventListener('click', this.removeSpinner, { once: true });
       }
     },
     created () {

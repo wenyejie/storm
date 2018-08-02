@@ -31,7 +31,7 @@
 
 <script>
   export default {
-    name: "sCarousel",
+    name: 'sCarousel',
     props: {
 
       // 下标值
@@ -43,7 +43,7 @@
       // 切换方式
       effect: {
         type: String,
-        default: "slide"
+        default: 'slide'
       },
 
       // 是否有导航
@@ -85,7 +85,7 @@
 
       listStyles () {
         const result = {};
-        result["transform"] = `translateX(${this.index * -100}%)`;
+        result['transform'] = `translateX(${this.index * -100}%)`;
         return result;
       }
     },
@@ -193,7 +193,7 @@
         this.stop();
         this.index = index;
         this.uid = this.list[index];
-        this.$emit("input", this.index);
+        this.$emit('input', this.index);
         this.start();
       }
     },

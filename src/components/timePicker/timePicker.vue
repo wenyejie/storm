@@ -47,11 +47,11 @@
 </template>
 
 <script>
-  import isDate from "../../utils/isDate";
-  import zeroize from "../../filters/zeroize";
-  import elOverflowToggle from "../../utils/elOverflowToggle";
-  import sTimePickerSpinner from "./spinner.vue";
-  import date from "../../filters/date";
+  import isDate from '../../utils/isDate';
+  import zeroize from '../../filters/zeroize';
+  import elOverflowToggle from '../../utils/elOverflowToggle';
+  import sTimePickerSpinner from './spinner.vue';
+  import date from '../../filters/date';
 
   const getTimeList = (max = 59, min = 0) => {
     const result = [];
@@ -60,7 +60,7 @@
   };
 
   export default {
-    name: "sTimePicker",
+    name: 'sTimePicker',
     filters: { zeroize },
     components: { sTimePickerSpinner },
     props: {
@@ -73,7 +73,7 @@
 
       format: {
         type: String,
-        default: "hh:mm:ss"
+        default: 'hh:mm:ss'
       },
 
       // name
@@ -94,7 +94,7 @@
       // 大小
       size: {
         type: String,
-        validator: val => ["lg", "sm", "xs"].includes(val)
+        validator: val => ['lg', 'sm', 'xs'].includes(val)
       }
     },
     watch: {
@@ -146,7 +146,7 @@
       change (isVisible) {
         if (isVisible) this.removeSpinner();
         this.innerVal = new Date(this.innerVal);
-        this.$emit("input", this.innerVal);
+        this.$emit('input', this.innerVal);
       },
 
       handleHourChange (isVisible) {
@@ -308,7 +308,7 @@
         display: flex;
         justify-content: flex-end;
         border-top: 1px solid $blackLight;
-        box-shadow: 0 2px 12px 0 rgba(0,0,0,.1);
+        box-shadow: 0 2px 12px 0 rgba(0, 0, 0, .1);
       }
 
       &-btn {

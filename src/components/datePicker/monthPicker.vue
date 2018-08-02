@@ -8,7 +8,7 @@
   <section class="s-datePicker-content">
     <header class="s-datePicker-header">
       <button class="s-datePicker-btn prev" @click="handlePrevYear">«</button>
-      <span class="s-datePicker-label" @click="handleYear">{{innerVal | date("YYYY")}}年</span>
+      <span class="s-datePicker-label" @click="handleYear">{{innerVal | date('YYYY')}}年</span>
       <button class="s-datePicker-btn next" @click="handleNextYear">»</button>
     </header>
     <div class="s-datePicker-body">
@@ -42,12 +42,12 @@
 </template>
 
 <script>
-  import date from "../../filters/date";
-  import getMonths from "./getMonths";
-  import month2cn from "../../filters/month2cn";
+  import date from '../../filters/date';
+  import getMonths from './getMonths';
+  import month2cn from '../../filters/month2cn';
 
   export default {
-    name: "sMonthPicker",
+    name: 'sMonthPicker',
     filters: { date, month2cn },
     props: {
       value: Date
@@ -80,12 +80,12 @@
 
       handleInput () {
         this.innerVal = new Date(this.innerVal);
-        this.$emit("input", this.innerVal);
-        this.$emit("mode", 0);
+        this.$emit('input', this.innerVal);
+        this.$emit('mode', 0);
       },
 
       handleYear () {
-        this.$emit("mode", 2);
+        this.$emit('mode', 2);
       },
 
       handlePrevYear () {

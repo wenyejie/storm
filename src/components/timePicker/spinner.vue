@@ -16,10 +16,10 @@
 </template>
 
 <script>
-  import zeroize from "../../filters/zeroize";
+  import zeroize from '../../filters/zeroize';
 
   export default {
-    name: "sTimePickerSpinner",
+    name: 'sTimePickerSpinner',
     filters: { zeroize },
     props: {
       value: {
@@ -34,7 +34,7 @@
     data () {
       return {
         innerVal: this.value
-      }
+      };
     },
     watch: {
       value (val, oldVal) {
@@ -54,7 +54,7 @@
       },
 
       scrollComputed (scrollTop) {
-        this.handleChange(this.list[Math.round(scrollTop / 36)], false)
+        this.handleChange(this.list[Math.round(scrollTop / 36)], false);
       },
       handleScroll ($event) {
         clearTimeout(this.timer);
