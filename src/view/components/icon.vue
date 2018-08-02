@@ -34,6 +34,18 @@
       <div class="grid">
         <div class="grid-item">
           <div>
+            <s-icon type="favor"></s-icon>
+          </div>
+          <p>favor</p>
+        </div>
+        <div class="grid-item">
+          <div>
+            <s-icon type="favorfill"></s-icon>
+          </div>
+          <p>favorfill</p>
+        </div>
+        <div class="grid-item">
+          <div>
             <s-icon type="check"></s-icon>
           </div>
           <p>check</p>
