@@ -7,36 +7,36 @@
  */
 
 // 属性名称
-const attrName = ['visibilityState', 'webkitVisibilityState'].find(item => `${item}` in document)
+const attrName = ['visibilityState', 'webkitVisibilityState'].find(item => `${item}` in document);
 
 // 事件名称
-const eventName = attrName.replace(/state/i, 'change')
+const eventName = attrName.replace(/state/i, 'change');
 
 // 事件回调
-let eventCb = null
+let eventCb = null;
 
 const eventFn = () => {
-  const state = document[attrName]
+  const state = document[attrName];
 
   if (state === 'visible') {
-    eventCb(true, state)
+    eventCb(true, state);
   } else if (state === 'hidden') {
-    eventCb(false, state)
+    eventCb(false, state);
   }
-}
+};
 
 export default {
 
   add (callback) {
     if (callback) {
-      eventCb = callback
-      document.addEventListener(eventName, eventFn)
+      eventCb = callback;
+      document.addEventListener(eventName, eventFn);
     }
   },
 
   remove () {
     if (eventCb) {
-      document.removeEventListener(eventName, eventFn)
+      document.removeEventListener(eventName, eventFn);
     }
   }
-}
+};

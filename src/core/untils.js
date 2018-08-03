@@ -10,11 +10,11 @@
  * @param ary 数组
  */
 export const chaosAry = ary => {
-  const result = []
+  const result = [];
   while (ary.length > 0) {
-    const index = parseInt(Math.random() * (ary.length))
-    result.push(ary[index])
-    ary.splice(index, 1)
+    const index = parseInt(Math.random() * (ary.length));
+    result.push(ary[index]);
+    ary.splice(index, 1);
   }
-  return result
-}
+  return result;
+};
