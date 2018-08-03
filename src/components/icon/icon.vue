@@ -53,11 +53,10 @@
 </script>
 
 <style lang="scss">
-
+  /*url('//at.alicdn.com/t/font_432041_b1gv2rvf2rg.eot?t=1533196916649'), IE9*/
   @font-face {
     font-family: "iconfont";
-    src: url('//at.alicdn.com/t/font_432041_b1gv2rvf2rg.eot?t=1533196916649'), /* IE9*/
-    url('//at.alicdn.com/t/font_432041_b1gv2rvf2rg.ttf?t=1533196916649') format('truetype'); /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
+    src: url('//at.alicdn.com/t/font_432041_06bzfns60rtf.ttf?t=1533264528649') format('truetype'); /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
   }
   .s-icon {
     font-family: "iconfont" !important;
@@ -71,6 +70,18 @@
     line-height: 1;
     vertical-align: baseline;
     display: inline-block;
+
+    &-like:before {
+      content: "\e669";
+    }
+
+    &-likefill:before {
+      content: "\e668";
+    }
+
+    &-unfold:before {
+      content: "\e661";
+    }
 
     &-favorfill:before {
       content: "\e64b";
