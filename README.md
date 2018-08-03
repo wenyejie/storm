@@ -34,3 +34,8 @@ For detailed explanation on how things work, checkout the [guide](http://vuejs-t
 - 1: 开始
 - 2: 成功
 - 3: 失败
+
+## Dom State
+- 0: 不展示, 不存在dom
+- 1: 展示, 存在dom
+- 2: 不展示, 存在dom
