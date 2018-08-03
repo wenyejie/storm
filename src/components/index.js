@@ -9,9 +9,9 @@ import sPanel from './panel';
 import sIcon from './icon';
 import sRow from './row';
 import sCol from './col';
-import {sRadio, sRadioGroup} from './radio';
-import {sCheckbox, sCheckboxGroup} from './checkbox';
-import {sButton, sButtonGroup} from './button';
+import { sRadio, sRadioGroup } from './radio';
+import { sCheckbox, sCheckboxGroup } from './checkbox';
+import { sButton, sButtonGroup } from './button';
 import sHighlight from './highlight';
 import sUpload from './upload';
 import sInput from './input';
@@ -31,6 +31,7 @@ import sDatePicker from './datePicker';
 import sProgress from './progress';
 import sBadge from './badge';
 import sRate from './rate';
+import {sCollapse, sCollapseItem} from './collapse';
 
 const components = {
   sPanel,
@@ -63,7 +64,9 @@ const components = {
   sDatePicker,
   sProgress,
   sBadge,
-  sRate
+  sRate,
+  sCollapse,
+  sCollapseItem
 };
 
 const install = Vue => {

@@ -170,6 +170,10 @@ export default [
       {
         name: 'Panel 面板',
         path: '/components/panel'
+      },
+      {
+        name: 'Collapse 折叠',
+        path: '/components/collapse'
       }
     ]
   }

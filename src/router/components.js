@@ -158,6 +158,12 @@ export default {
       path: 'rate',
       name: 'rRate',
       component: () => import('../view/components/rate.vue')
+    },
+
+    {
+      path: 'collapse',
+      name: 'rCollapse',
+      component: () => import('../view/components/collapse.vue')
     }
   ]
 }
