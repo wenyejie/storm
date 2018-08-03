@@ -34,6 +34,18 @@
       <div class="grid">
         <div class="grid-item">
           <div>
+            <s-icon type="likefill"></s-icon>
+          </div>
+          <p>likefill</p>
+        </div>
+        <div class="grid-item">
+          <div>
+            <s-icon type="like"></s-icon>
+          </div>
+          <p>like</p>
+        </div>
+        <div class="grid-item">
+          <div>
             <s-icon type="favor"></s-icon>
           </div>
           <p>favor</p>
@@ -121,6 +133,12 @@
             <s-icon type="fold"></s-icon>
           </div>
           <p>fold</p>
+        </div>
+        <div class="grid-item">
+          <div>
+            <s-icon type="unfold"></s-icon>
+          </div>
+          <p>unfold</p>
         </div>
         <div class="grid-item">
           <div>
