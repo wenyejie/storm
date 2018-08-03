@@ -14,6 +14,18 @@
         </s-collapse-item>
         <s-collapse-item title="TWO">
           <div class="item">TWO CONTENT</div>
+          <div class="item">TWO CONTENT</div>
+        </s-collapse-item>
+        <s-collapse-item title="THREE">
+          <div class="item">THREE CONTENT</div>
+          <div class="item">THREE CONTENT</div>
+          <div class="item">THREE CONTENT</div>
+        </s-collapse-item>
+        <s-collapse-item title="FOUR">
+          <div class="item">FOUR CONTENT</div>
+          <div class="item">FOUR CONTENT</div>
+          <div class="item">FOUR CONTENT</div>
+          <div class="item">FOUR CONTENT</div>
         </s-collapse-item>
       </s-collapse>
     </s-panel>

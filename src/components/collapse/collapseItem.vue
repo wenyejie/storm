@@ -15,6 +15,7 @@
     <transition name="s-collapse-body">
       <div class="s-collapse-body"
            ref="body"
+           v-if="visible !== 0"
            v-show="visible === 1">
         <slot></slot>
       </div>
@@ -23,8 +24,6 @@
 </template>
 
 <script>
-  import elHiddenSize from '../../utils/elHiddenSize';
-
   export default {
     name: 'sCollapseItem',
     props: {
