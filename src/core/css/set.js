@@ -7,30 +7,28 @@
  * @author: Storm
  * @date: 2018/02/09
  */
-import cb2cc from '../../utils/cb2cc'
+import cb2cc from '../../utils/cb2cc';
 
 export default (element, attrName, attrValue) => {
 
   // 判断传参是否正确
-  if (!element || !attrName) return
+  if (!element || !attrName) return;
 
-  let styles = {}
+  let styles = {};
 
   // 判断是否为字符串
   if (typeof attrName === 'string' && attrValue) {
-    styles[attrName] = attrValue
+    styles[attrName] = attrValue;
 
   } else if (attrName && typeof attrName === 'object') { // 判断是否为对象, 并且不为空
-    styles = attrName
+    styles = attrName;
   }
 
-  if (styles) {
-    for (let key in attrName) {
+  for (let key in styles) {
 
-      // 判断是否自身属性
-      if (attrName.hasOwnProperty(key)) {
-        element.style[cb2cc(key)] = attrName[key]
-      }
+    // 判断是否自身属性
+    if (styles.hasOwnProperty(key)) {
+      element.style[cb2cc(key)] = styles[key];
     }
   }
 }
