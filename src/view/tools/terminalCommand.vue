@@ -27,29 +27,33 @@
 <script>
   const list = [
     {
-      name: 'mkdir',
-      desc: '创建目录',
-      example: 'mkdir demo'
+      name: "mkdir",
+      desc: "创建目录",
+      example: "mkdir demo"
     },
     {
-      name: 'rmdir',
-      desc: '删除目录',
-      example: 'rmdir demo'
+      name: "rmdir",
+      desc: "删除目录",
+      example: "rmdir demo"
     }, {
-      name: 'rm',
-      desc: '删除',
-      example: 'rm -rf ./*'
+      name: "rm",
+      desc: "删除",
+      example: "rm -rf ./*"
+    }, {
+      name: "pwd",
+      desc: "查看当前目录",
+
     }
   ];
   export default {
-    name: 'vTerminalCommand',
-    title: 'terminalCommand',
+    name: "vTerminalCommand",
+    title: "terminalCommand",
     data () {
       return {
 
         // 过滤关键字
-        filterKey: ''
-      }
+        filterKey: ""
+      };
     },
     computed: {
 
@@ -58,11 +62,11 @@
        * @return {*[]}
        */
       filterList () {
-        const regexp = new RegExp(`${this.filterKey}`, 'i');
-        return list.filter(item => regexp.test(item.name) || regexp.test(item.desc))
+        const regexp = new RegExp(`${this.filterKey}`, "i");
+        return list.filter(item => regexp.test(item.name) || regexp.test(item.desc));
       }
     }
-  }
+  };
 </script>
 
 <style lang="scss" scoped>
