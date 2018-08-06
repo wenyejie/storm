@@ -17,6 +17,7 @@
 </template>
 
 <script>
+  import Vue from 'vue';
   import tooltip from '../../directives/tooltip';
   export default {
     name: 'vTooltip',
@@ -27,6 +28,9 @@
       }
     },
     methods: {
+    },
+    mounted () {
+      console.log(Vue.compile(`<div>{{content}}</div>`));
     }
   }
 </script>
