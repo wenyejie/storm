@@ -4,35 +4,35 @@
  * @author: Storm
  * @date: 2018/05/28
  */
-import isElement from '../utils/isElement'
+import isElement from '../utils/isElement';
 
 // class调整
 const toggleClass = (el, isLoading) => {
-  if (!isElement(el)) return
+  if (!isElement(el)) return;
 
-  el.classList[isLoading ? 'add' : 'remove']('loading')
-}
+  el.classList[isLoading ? 'add' : 'remove']('loading');
+};
 
 export default {
   name: 'dLoading',
   params: [],
   bind (el, binding, vnode, oldVnode) {
     console.log('bind', el, binding, vnode, oldVnode);
-    toggleClass(el, binding.value)
+    toggleClass(el, binding.value);
   },
 
   inserted (el, binding, vnode, oldVnode) {
-    console.log('inserted')
+    console.log('inserted');
   },
   update (el, binding, vnode, oldVnode) {
-    console.log('update')
-    toggleClass(el, binding.value)
+    console.log('update');
+    toggleClass(el, binding.value);
   },
   componentUpdated (el, binding, vnode, oldVnode) {
-    console.log('componentUpdated')
+    console.log('componentUpdated');
   },
 
   unbind (el, binding, vnode, oldVnode) {
-    console.log('unbind')
+    console.log('unbind');
   }
-}
+};
