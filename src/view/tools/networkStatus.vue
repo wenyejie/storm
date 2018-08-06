@@ -39,6 +39,11 @@
       remark: '超时了, 或者断开了链接'
     },
     {
+      name: 'net::ERR_TIMED_OUT',
+      explain: '网络错误::超时',
+      remark: '超时了, 或者连不上'
+    },
+    {
       name: 'net::ERR_BLOCKED_BY_CLIENT',
       explain: '网络错误::被本地客户端阻止',
       remark: '如: AdBlock会阻止一些广告请求'
@@ -126,6 +131,11 @@
     {
       name: 'net::DNS_PROBE_FINISHED_NXDOMAIN',
       explain: '找不到服务器IP地址',
+      remark: ''
+    },
+    {
+      name: 'net::ERR_CONNECTION_RESET',
+      explain: '链接被重置',
       remark: ''
     }
   ];
