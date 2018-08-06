@@ -129,6 +129,16 @@
       remark: ''
     },
     {
+      name: 'net::DNS_PROBE_FINISHED_NO_INTERNET',
+      explain: 'DNS解析完成, 失去网络连接',
+      remark: ''
+    },
+    {
+      name: 'net::ERR_NETWORK_CHANGED',
+      explain: '网络变更',
+      remark: ''
+    },
+    {
       name: 'net::DNS_PROBE_FINISHED_NXDOMAIN',
       explain: '找不到服务器IP地址',
       remark: ''
