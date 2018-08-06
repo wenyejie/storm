@@ -164,6 +164,12 @@ export default {
       path: 'collapse',
       name: 'rCollapse',
       component: () => import('../view/components/collapse.vue')
+    },
+
+    {
+      path: 'tooltip',
+      name: 'rTooltip',
+      component: () => import('../view/components/tooltip.vue')
     }
   ]
 }

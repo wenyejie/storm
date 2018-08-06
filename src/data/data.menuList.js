@@ -47,8 +47,12 @@ export default [
     name: 'Directives 指令',
     children: [
       {
-        name: 'loading 加载中',
+        name: 'Loading 加载中',
         path: '/directives/loading'
+      },
+      {
+        name: 'Tooltip 提示',
+        path: '/directives/tooltip'
       }
     ]
   },
@@ -174,6 +178,10 @@ export default [
       {
         name: 'Collapse 折叠',
         path: '/components/collapse'
+      },
+      {
+        name: 'Tooltip 提示',
+        path: '/components/tooltip'
       }
     ]
   }

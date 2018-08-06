@@ -239,7 +239,6 @@
     display: block;
     flex: 1;
     margin-left: 30px;
-    overflow: hidden;
   }
   /* /main */
 

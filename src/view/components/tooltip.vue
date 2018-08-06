@@ -7,7 +7,7 @@
 <template>
   <div class="page page-tooltip">
     <s-panel title="Default 默认">
-
+      <s-tooltip content="tooltip demo" position="left-bottom"><s-button>Tooltip</s-button></s-tooltip>
     </s-panel>
   </div>
 </template>
@@ -20,5 +20,7 @@
 </script>
 
 <style lang="scss" scoped>
-
+  .s-button {
+    width: 200px;
+  }
 </style>

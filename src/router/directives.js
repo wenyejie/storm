@@ -12,8 +12,13 @@ export default {
   children: [
     {
       path: 'loading',
-      name: 'rDirectivesLoading',
+      name: 'rLoading',
       component: () => import('../view/directives/loading.vue')
+    },
+    {
+      path: 'tooltip',
+      name: 'rTooltip',
+      component: () => import('../view/directives/tooltip.vue')
     }
   ]
 }

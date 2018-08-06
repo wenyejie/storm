@@ -32,6 +32,7 @@ import sProgress from './progress';
 import sBadge from './badge';
 import sRate from './rate';
 import {sCollapse, sCollapseItem} from './collapse';
+import sTooltip from './tooltip';
 
 const components = {
   sPanel,
@@ -66,7 +67,8 @@ const components = {
   sBadge,
   sRate,
   sCollapse,
-  sCollapseItem
+  sCollapseItem,
+  sTooltip
 };
 
 const install = Vue => {
