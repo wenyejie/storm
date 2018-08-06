@@ -6,6 +6,9 @@
  -->
 <template>
   <div class="s-tooltip"
+       @focus="show('focus')"
+       @blur="show('focus')"
+       @click="toggle('click')"
        @mouseenter="show('hover')"
        @mouseleave="hide('hover')">
     <slot></slot>
