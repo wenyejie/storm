@@ -122,7 +122,6 @@ app.get("*", isProd ? render : (req, res) => {
   readyPromise.then(() => render(req, res), () => {});
 });
 
-const port = process.env.PORT || 80;
-app.listen(port, () => {
+app.listen(isProd ? (process.env.PORT || 80) : 8088, () => {
   console.log(`server started at localhost:${port}`);
 });

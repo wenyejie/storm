@@ -13,8 +13,7 @@ module.exports = {
     : '#cheap-module-source-map',
   output: {
     path: path.resolve(__dirname, '../dist'),
-    // publicPath: isProd ? process.env.PUBLISH_PATH : '/dist/',
-    publicPath: '/dist/',
+    publicPath: isProd ? (process.env.PUBLISH_PATH || '/dist/') : '/dist/',
     filename: '[name].[chunkhash].js'
   },
   resolve: {
