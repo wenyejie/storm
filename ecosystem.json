@@ -12,7 +12,7 @@
   "cwd": "./",
 
   // 执行模式: 集群
-  "exec_mode": "cluster",
+  "exec_mode": "fork",
 
   // 监控变化的目录, 一旦变化, 自动重启
   "watch": false,
