@@ -1,11 +1,11 @@
-const path = require('path')
-const webpack = require('webpack')
-const ExtractTextPlugin = require('extract-text-webpack-plugin')
-const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin')
-const {VueLoaderPlugin} = require('vue-loader')
-const vueLoaderConfig = require('./vue-loader.config')
+const path = require('path');
+const webpack = require('webpack');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin');
+const { VueLoaderPlugin } = require('vue-loader');
+const vueLoaderConfig = require('./vue-loader.config');
 
-const isProd = process.env.NODE_ENV === 'production'
+const isProd = process.env.NODE_ENV === 'production';
 
 module.exports = {
   devtool: isProd
@@ -13,7 +13,8 @@ module.exports = {
     : '#cheap-module-source-map',
   output: {
     path: path.resolve(__dirname, '../dist'),
-    publicPath: isProd ? process.env.PUBLISH_PATH : '/dist/',
+    // publicPath: isProd ? process.env.PUBLISH_PATH : '/dist/',
+    publicPath: '/dist/',
     filename: '[name].[chunkhash].js'
   },
   resolve: {
@@ -52,7 +53,7 @@ module.exports = {
                 loader: 'css-loader',
                 options: {
                   minimize: true,
-                  sourceMap: false
+                  sourceMap: true
                 }
               },
               'sass-loader?-autoprefixer!postcss-loader'
@@ -71,8 +72,8 @@ module.exports = {
     ? [
       new VueLoaderPlugin(),
       new webpack.optimize.UglifyJsPlugin({
-        compress: {warnings: false},
-        sourceMap: false
+        compress: { warnings: false },
+        sourceMap: true
       }),
       new webpack.optimize.ModuleConcatenationPlugin(),
       new ExtractTextPlugin({
@@ -83,4 +84,4 @@ module.exports = {
       new VueLoaderPlugin(),
       new FriendlyErrorsPlugin()
     ]
-}
+};

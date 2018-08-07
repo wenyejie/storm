@@ -36,11 +36,10 @@
   "env": {
 
     // node环境
-    "NODE_ENV": "development",
-    // "NODE_ENV": "production",
+     "NODE_ENV": "production",
 
     // 服务端口
-    "PORT": 8088,
+    "PORT": 80,
 
     // 打包位置
     "PUBLISH_PATH": "/dist/"
