@@ -122,6 +122,6 @@ app.get("*", isProd ? render : (req, res) => {
   readyPromise.then(() => render(req, res), () => {});
 });
 
-app.listen(isProd ? (process.env.PORT || 80) : 8088, () => {
-  console.log(`server started at localhost:${port}`);
+app.listen(8088, () => {
+  console.log(`server started at localhost: 8088`);
 });
