@@ -6,7 +6,9 @@
  -->
 
 <template>
-  <div class="s-row" :class="classes" :style="styles"><slot></slot></div>
+  <div class="s-row" :class="classes" :style="styles">
+    <slot></slot>
+  </div>
 </template>
 
 <script>
@@ -20,20 +22,20 @@
       align: {
         type: String,
         validator (val) {
-          return ['top', 'bottom', 'center', 'stretch'].includes(val)
+          return ['top', 'bottom', 'center', 'stretch'].includes(val);
         }
       },
       justify: {
         type: String,
         validator (val) {
-          return ['left', 'right', 'center', 'between', 'around'].includes(val)
+          return ['left', 'right', 'center', 'between', 'around'].includes(val);
         }
       },
 
       wrap: Boolean
     },
     data () {
-      return {}
+      return {};
     },
     computed: {
       classes () {
@@ -41,19 +43,19 @@
           [`s-row-justify-${this.justify}`]: !!this.justify,
           [`s-row-align-${this.align}`]: !!this.align,
           [`s-row-wrap`]: !!this.wrap
-        }
+        };
       },
       styles () {
-        const result = {}
+        const result = {};
         if (this.gutter) {
-          result.marginLeft = '-' + this.gutter + (/^\d+$/.test(this.gutter) ? 'px' : '')
-          result.marginRight = result.marginLeft
+          result.marginLeft = '-' + this.gutter + (Number.isFinite(this.gutter) ? 'px' : '');
+          result.marginRight = result.marginLeft;
         }
-        return result
+        return result;
       }
     },
     methods: {}
-  }
+  };
 </script>
 
 <style lang="scss">

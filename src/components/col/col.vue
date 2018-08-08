@@ -13,12 +13,12 @@
 
 <script>
   export default {
-    name: "sCol",
+    name: 'sCol',
     props: {
       align: {
         type: String,
         validator (val) {
-          return ["top", "bottom", "center", "stretch"].includes(val);
+          return ['top', 'bottom', 'center', 'stretch'].includes(val);
         }
       },
 
@@ -42,7 +42,7 @@
       styles () {
         const result = {};
         if (this.gutter) {
-          result.paddingLeft = this.gutter + (/^\d+$/.test(this.gutter) ? "px" : "");
+          result.paddingLeft = this.gutter + (Number.isFinite(this.gutter) ? 'px' : '');
           result.paddingRight = result.paddingLeft;
         }
         return result;
