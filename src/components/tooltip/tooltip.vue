@@ -46,7 +46,7 @@
     },
     data () {
       return {
-        visible: 1
+        visible: 0
       };
     },
     computed: {
