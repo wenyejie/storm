@@ -6,20 +6,25 @@
  -->
 <template>
   <div class="s-form-item" :class="classes">
-    <label class="s-form-label" v-if="$slots.label || label">
+    <label class="s-form-label" v-if="$slots.label || label" :style="labelStyles">
       <slot name="label">{{label}}</slot>
     </label>
-    <div class="s-form-content">
+    <div class="s-form-content" :style="contentStyles">
       <slot></slot>
     </div>
   </div>
 </template>
 
 <script>
+  import isNumber from '../../utils/isNumber';
+
   export default {
     name: 'sFormItem',
     props: {
-      label: String
+      label: String,
+
+      // 表单标签宽度
+      labelWidth: [Number, String]
     },
     data () {
       return {
@@ -37,6 +42,25 @@
         return {
           's-form-required': this.validator.required
         };
+      },
+
+      labelStyles () {
+        const result = {};
+        if (this.isGroup) {
+          const width = this.labelWidth ? this.labelWidth : this.$parent.labelWidth;
+
+          if (width) result.width = `${width}` + isNumber(width) ? 'px' : '';
+        }
+        return result;
+      },
+
+      contentStyles () {
+        const result = {};
+        if (this.isGroup) {
+          const width = this.labelWidth ? this.labelWidth : this.$parent.labelWidth;
+          if (width) result.width = `-${width}` + isNumber(width) ? 'px' : '';
+        }
+        return result;
       }
     },
     methods: {
@@ -45,7 +69,7 @@
         if (!this.isGroup) return;
         for (let key in result) {
           if (!result.hasOwnProperty(key)) continue;
-          this.$set(this.validator, key, result[key])
+          this.$set(this.validator, key, result[key]);
         }
         this.$parent.handleValidate(result, 1);
       }
