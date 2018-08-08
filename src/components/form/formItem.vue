@@ -24,9 +24,7 @@
     data () {
       return {
 
-        validator: {
-          required: null
-        }
+        validator: {}
       };
     },
     computed: {
@@ -45,7 +43,10 @@
 
       handleValidate (result) {
         if (!this.isGroup) return;
-        this.validator = Object.assign(this.validator, result);
+        for (let key in result) {
+          if (!result.hasOwnProperty(key)) continue;
+          this.$set(this.validator, key, result[key])
+        }
         this.$parent.handleValidate(result, 1);
       }
     },

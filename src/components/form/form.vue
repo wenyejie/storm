@@ -29,7 +29,8 @@
       // 验证结果
       value: Object,
 
-      result: Object
+      // 表单标签宽度
+      labelWidth: [Number, String]
     },
     data () {
       return {

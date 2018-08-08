@@ -7,7 +7,7 @@
 <template>
   <div class="page page-tooltip">
     <s-panel title="Default 默认">
-      <s-form v-model="loginV" :result="login">
+      <s-form v-model="loginV">
         <s-form-item label="账号">
           <s-input v-model="login.account"
                    required

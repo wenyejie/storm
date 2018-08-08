@@ -92,11 +92,11 @@
 
       handleInput () {
         this.$emit('input', this.innerVal);
+        this.handleValidate();
       },
 
       handleChange ($event) {
         this.$emit('change', $event);
-        this.handleValidate();
       },
 
       handleKeyup ($event) {

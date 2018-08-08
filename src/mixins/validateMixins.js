@@ -1,5 +1,5 @@
 /**
- *
+ * 表单元素混合注入
  *
  * @author: Storm
  * @date: 2018/08/08
@@ -7,15 +7,24 @@
 
 export default {
   props: {
+
     name: String,
 
     required: Boolean,
 
-    minlength: [Number, String],
+    minlength: Number,
 
-    maxlength: [Number, String],
+    maxlength: Number,
 
-    title: String
+    title: String,
+
+    pattern: RegExp,
+
+    max: Number,
+
+    min: Number,
+
+    step: Number
   },
   computed: {
 
@@ -30,12 +39,11 @@ export default {
      */
     handleValidate () {
       const $el = this.$el;
-      console.log({$el});
-      if (!this.isGroup || !$el.name) return;
+      if (!this.isGroup || !this.name) return;
       const validity = $el.validity;
       const result = {
         name: $el.name,
-        title: this.title,
+        title: $el.title,
         value: this.innerVal,
         required: $el.required,
         requiredErr: validity.valueMissing,
@@ -54,12 +62,23 @@ export default {
         valid: validity.valid,
         invalid: !validity.valid
       };
-      this.$parent.handleValidate(result, 2);
-
+      this.formParent.handleValidate(result, 2);
     },
+
+    /**
+     * 获取form表单元素的直属父表单元素
+     */
+    getFormParent ($this) {
+      if (!$this.$parent) return;
+      const name = $this.$parent.$options.name;
+      if (name === 'sFormItem' || name === 'sForm') {
+        return this.formParent = $this.$parent;
+      } else return this.getFormParent($this.$parent);
+    }
   },
 
   mounted () {
+    this.getFormParent(this);
     this.handleValidate();
   }
 };
