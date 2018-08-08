@@ -31,8 +31,9 @@ import sDatePicker from './datePicker';
 import sProgress from './progress';
 import sBadge from './badge';
 import sRate from './rate';
-import {sCollapse, sCollapseItem} from './collapse';
+import { sCollapse, sCollapseItem } from './collapse';
 import sTooltip from './tooltip';
+import { sForm, sFormItem } from './form';
 
 const components = {
   sPanel,
@@ -68,7 +69,9 @@ const components = {
   sRate,
   sCollapse,
   sCollapseItem,
-  sTooltip
+  sTooltip,
+  sForm,
+  sFormItem
 };
 
 const install = Vue => {

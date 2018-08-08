@@ -170,6 +170,12 @@ export default {
       path: 'tooltip',
       name: 'rTooltip',
       component: () => import('../view/components/tooltip.vue')
+    },
+
+    {
+      path: 'form',
+      name: 'rForm',
+      component: () => import('../view/components/form.vue')
     }
   ]
 }

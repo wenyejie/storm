@@ -6,9 +6,15 @@
  -->
 <template>
   <input :type="type"
+         ref="input"
          class="s-input"
+         :name="name"
+         :title="title"
          v-model="innerVal"
          :class="classes"
+         :required="required"
+         :minlength="minlength"
+         :maxlength="maxlength"
          @input="handleInput($event)"
          @change="handleChange($event)"
          @keyup="handleKeyup($event)"
@@ -18,8 +24,12 @@
 </template>
 
 <script>
+  import isUndefined from '../../utils/isUndefined';
+  import validateMixins from '../../mixins/validateMixins'
+
   export default {
-    name: "sInput",
+    name: 'sInput',
+    mixins: [validateMixins],
     props: {
 
       // 值
@@ -28,14 +38,14 @@
       // 类型
       type: {
         type: String,
-        default: "text"
+        default: 'text'
       },
 
       // 大小
       size: {
         type: String,
         validator (val) {
-          return ["lg", "sm", "xs"].includes(val);
+          return ['lg', 'sm', 'xs'].includes(val);
         }
       },
 
@@ -61,6 +71,7 @@
       value (val, oldVal) {
         if (val === oldVal || val === this.innerVal) return false;
         this.innerVal = val;
+        this.handleValidate();
       }
     },
     data () {
@@ -72,29 +83,40 @@
     },
     methods: {
 
+      handleEmit (...args) {
+        if (!this.isGroup) return;
+        args.forEach(item => {
+          if (!isUndefined(item)) this.$parent.validator[item] = this[item];
+        });
+      },
+
       handleInput () {
-        this.$emit("input", this.innerVal);
+        this.$emit('input', this.innerVal);
       },
 
       handleChange ($event) {
-        this.$emit("change", $event);
+        this.$emit('change', $event);
+        this.handleValidate();
       },
 
       handleKeyup ($event) {
-        this.$emit("keyup", $event);
+        this.$emit('keyup', $event);
       },
 
       handleKeydown ($event) {
-        this.$emit("keydown", $event);
+        this.$emit('keydown', $event);
       },
 
       handleFocus ($event) {
-        this.$emit("focus", $event);
+        this.$emit('focus', $event);
       },
 
       handleBlur ($event) {
-        this.$emit("blur", $event);
+        this.$emit('blur', $event);
       }
+    },
+    created () {
+      this.handleEmit('required');
     }
   };
 </script>
