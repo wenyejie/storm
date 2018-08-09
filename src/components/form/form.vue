@@ -46,7 +46,8 @@
     computed: {
       classes () {
         return {
-          's-form-block': !!this.block
+          's-form-block': !!this.block,
+          's-form-inline': !this.block
         };
       }
     },
