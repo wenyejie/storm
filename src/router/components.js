@@ -176,6 +176,12 @@ export default {
       path: 'form',
       name: 'rForm',
       component: () => import('../view/components/form.vue')
+    },
+
+    {
+      path: 'countdown',
+      name: 'rCountdown',
+      component: () => import('../view/components/countdown.vue')
     }
   ]
 }

@@ -34,6 +34,7 @@ import sRate from './rate';
 import { sCollapse, sCollapseItem } from './collapse';
 import sTooltip from './tooltip';
 import { sForm, sFormItem } from './form';
+import sCountdown from './countdown'
 
 const components = {
   sPanel,
@@ -71,7 +72,8 @@ const components = {
   sCollapseItem,
   sTooltip,
   sForm,
-  sFormItem
+  sFormItem,
+  sCountdown
 };
 
 const install = Vue => {

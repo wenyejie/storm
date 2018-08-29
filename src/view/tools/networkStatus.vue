@@ -130,7 +130,7 @@
     },
     {
       name: 'net::DNS_PROBE_FINISHED_NO_INTERNET',
-      explain: 'DNS解析完成, 失去网络连接',
+      explain: 'DNS解析完成, 没有网络连接',
       remark: ''
     },
     {
@@ -147,6 +147,11 @@
       name: 'net::ERR_CONNECTION_RESET',
       explain: '链接被重置',
       remark: ''
+    },
+    {
+      name: 'net::SSL_ERROR_BAD_CERT_DOMAIN',
+      explain: '使用了无效的安全证书。',
+      remark: '无法安全地与对等端通信：请求的域名与服务器的证书不匹配。'
     }
   ];
   export default {
