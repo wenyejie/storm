@@ -7,7 +7,7 @@
 <template>
   <div class="page page-tooltip">
     <s-panel title="Default 默认">
-      <s-countdown :end-date="endDate" format="dd天 hh天mm分ss秒" />
+      <s-countdown :end-date="endDate" format="d天 hh天mm分ss秒" />
     </s-panel>
   </div>
 </template>
@@ -18,7 +18,7 @@
     title: 'countdown',
     data () {
       return {
-        endDate: new Date('2018-09-10')
+        endDate: new Date(Date.now() + 864e6)
       };
     },
     methods: {}
