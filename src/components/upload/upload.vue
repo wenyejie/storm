@@ -5,17 +5,27 @@
  - @date: 2017/12/21
  -->
 <template>
-  <input type="file"
-         :multiple="multiple"
-         :disabled="disabled"
-         :required="required"
-         :accept="accept"
-         @change="handleChange"
-         :name="name">
+  <div class="s-upload">
+    <label class="s-upload-label">
+      <input type="file"
+             class="s-upload-input"
+             :multiple="multiple"
+             :disabled="disabled"
+             :required="required"
+             :accept="accept"
+             @change="handleChange"
+             :name="name">
+      <slot></slot>
+    </label>
+    <div class="s-upload-content">
+
+    </div>
+  </div>
 </template>
 
 <script>
-  import imageCompress from '../../core/imageCompress'
+  import imageCompress from '../../core/imageCompress';
+
   export default {
     name: 'sUpload',
     props: {
@@ -88,7 +98,7 @@
 
         // 文件类型
         fileType: ''
-      }
+      };
     },
     methods: {
 
@@ -97,8 +107,8 @@
        * @param type 失败类型
        * @param file 失败文件
        */
-      handleError ({type, file}) {
-        this.$emit('error', {type, file})
+      handleError ({ type, file }) {
+        this.$emit('error', { type, file });
       },
 
       /**
@@ -106,68 +116,68 @@
        * @param $event 事件内容
        */
       handleChange ($event) {
-        console.log($event)
-        const length = $event.target.files.length
+        console.log($event);
+        const length = $event.target.files.length;
         for (let i = 0; i < length; i++) {
 
-          imageCompress($event.target.files[i], {})
+          imageCompress($event.target.files[i], {});
 
           // 检查该文件
-          this.handleCheck($event.target.files[i])
+          this.handleCheck($event.target.files[i]);
         }
-        $event.target.value = ''
+        $event.target.value = '';
       },
 
       /**
        * 检查图片
        */
       checkImage (file) {
-        const reader = new FileReader()
-        const image = new Image()
-        let type = ''
-        reader.readAsDataURL(file)
+        const reader = new FileReader();
+        const image = new Image();
+        let type = '';
+        reader.readAsDataURL(file);
         reader.onload = event => {
-          image.src = event.target.result
-        }
+          image.src = event.target.result;
+        };
 
         image.onload = () => {
 
           // 最小验证限制验证
           if (!this.compress && this.minSize && file.size < this.minSize) { // 失败
-            type = 'MIN_SIZE'
-            return false
+            type = 'MIN_SIZE';
+            return false;
           }
 
           // 最大限制验证
           if (!this.compress && this.maxSize && file.size > this.maxSize) { // 失败
-            type = 'MAX_SIZE'
-            return false
+            type = 'MAX_SIZE';
+            return false;
           }
 
           // 最大宽度限制
           if (!this.compress && this.maxWidth && image.width > this.maxWidth) {
-            type = 'MAX_WIDTH'
-            return false
+            type = 'MAX_WIDTH';
+            return false;
           }
 
           // 最小宽度限制
           if (!this.compress && this.minWidth && image.width < this.minWidth) {
-            type = 'MIN_WIDTH'
-            return false
+            type = 'MIN_WIDTH';
+            return false;
           }
 
           // 最大宽度限制
           if (!this.compress && this.maxHeight && image.width > this.maxHeight) {
-            type = 'MAX_HEIGHT'
-            return false
+            type = 'MAX_HEIGHT';
+            return false;
           }
 
           // 最小宽度限制
           if (!this.compress && this.minHeight && image.width < this.minHeight) {
-            type = 'MIN_HEIGHT'
-            return false
+            type = 'MIN_HEIGHT';
+            return false;
           }
-        }
+        };
 
         return type;
       },
@@ -183,7 +193,7 @@
 
         // 最小验证限制验证
         if (this.minSize && file.size < this.minSize) { // 失败
-          return 'MIN_SIZE'
+          return 'MIN_SIZE';
         }
       },
 
@@ -192,22 +202,22 @@
        * @param file 文件
        */
       handleCheck (file) {
-        console.log('handleCheck: ', file)
-        let type = '';
+        console.log('handleCheck: ', file);
+        let type = this.checkFile(file);
 
-        switch (this.fileType) {
+        /*switch (this.fileType) {
           case 'image':
             type = this.checkImage(file);
             break;
           default:
             type = this.checkFile(file);
             break;
-        }
+        }*/
 
         // 判断是否有错误类型
         if (type) { // 是
-          this.handleError({type, file})
-          return false
+          this.handleError({ type, file });
+          return false;
         } else {
           this.fileList.push(file);
         }
@@ -218,16 +228,43 @@
        */
       judgeFileType () {
         if (this.accept.includes('image')) {
-          this.fileType = 'image'
+          this.fileType = 'image';
         }
       }
     },
     created () {
-      this.judgeFileType()
+      this.judgeFileType();
     }
-  }
+  };
 </script>
 
 <style lang="scss" scoped>
+  .s-upload {
+    display: inline-block;
+    vertical-align: middle;
 
+    &-label {
+      display: block;
+      width: 100%;
+      position: relative;
+      border: 1px solid #20a0ff;
+      color: #fff;
+      text-align: center;
+      padding: 5.5px 11px;
+      background-color: #20a0ff;
+      border-radius: 4px;
+
+      &:hover,
+      &:focus {
+        background: #4db3ff;
+        border-color: #4db3ff;
+      }
+    }
+
+    &-input {
+      position: absolute;
+      opacity: 0;
+      visibility: hidden;
+    }
+  }
 </style>

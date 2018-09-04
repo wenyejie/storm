@@ -7,7 +7,7 @@
 <template>
   <div class="page page-upload">
     <s-panel title="Default">
-      <s-upload multiple></s-upload>
+      <s-upload multiple>上传头像</s-upload>
     </s-panel>
   </div>
 </template>
